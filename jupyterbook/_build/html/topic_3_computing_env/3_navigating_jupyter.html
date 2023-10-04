@@ -1,0 +1,952 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Using Project Jupyter &#8212; MEM T680: Fall 2023: Data Analysis and Machine Learning</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="📝 Assignments" href="../homework/homework.html" />
+    <link rel="prev" title="Install a Python interpreter" href="2_Installing_a_python_interpreter.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/m3_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MEM T680: Fall 2023: Data Analysis and Machine Learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Fall 2023 MEM680T
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Content 📜
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course_materials/syllabus.html">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course_materials/final_project.html">
+   Final Project
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Pre-Course Materials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preclass_survey/preclass_survey.html">
+   Pre-class Survey
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preclass_survey/Survey_Response.html">
+   Pre-class Survey Response
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 1: Why is Data Analysis the Most Important Skill
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic_1_why_data_analysis_is_the_most_important_skill/T1_Importance_of_Data_Analysis/Importance_of_Data_Analysis.html">
+   Importance of Data Analysis
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 2: Challenges in Data Analysis
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic_2_Challenges_in_Data_Analysis/Challenges%20in%20Data%20Analysis.html">
+   Challenges in Data Analysis
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 3: Tools for Computing in Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_setting_up_your_computing_environment.html">
+   Setting up your Computing Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Installing_a_python_interpreter.html">
+   Install a Python interpreter
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Using Project Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  📝 Homework
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../homework/homework.html">
+   📝 Assignments
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homework/homework_1/homework_1_whitepaper.html">
+     1️⃣ Project Whitepaper
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Additional Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/markdown.html">
+   Guide to Markdown
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/DrexelEngineering/Fall_2023_MEM680T/master?urlpath=tree/jupyterbook/topic_3_computing_env/3_navigating_jupyter.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jupyterhub.coe.drexel.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/DrexelEngineering/Fall_2023_MEM680T&urlpath=tree/Fall_2023_MEM680T/jupyterbook/topic_3_computing_env/3_navigating_jupyter.ipynb&branch=master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/DrexelEngineering/Fall_2023_MEM680T/blob/master/jupyterbook/topic_3_computing_env/3_navigating_jupyter.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/DrexelEngineering/Fall_2023_MEM680T"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/DrexelEngineering/Fall_2023_MEM680T/issues/new?title=Issue%20on%20page%20%2Ftopic_3_computing_env/3_navigating_jupyter.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/topic_3_computing_env/3_navigating_jupyter.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Using Project Jupyter
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-classic-notebook-interface">
+     The Classic Notebook interface
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#try-the-jupyterlab-interface">
+     Try the JupyterLab interface
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyter-lab-interface">
+     Jupyter Lab Interface
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-jupyter-lab">
+     Running Jupyter Lab
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyter-notebooks">
+     Jupyter Notebooks
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#introduction">
+       Introduction
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#main-features-of-the-web-application">
+       Main Features of the Web Application
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tab-complete">
+       Tab Complete
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#importing-packages">
+       Importing packages
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#reading-documentation">
+       Reading Documentation
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#structure-of-notebook-document">
+       Structure of Notebook Document
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#types-of-cells">
+     Types of Cells
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#code-cells">
+       Code Cells
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#markdown-cells">
+       Markdown Cells
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#raw-cells">
+       Raw Cells
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#important-keyboard-shortcuts">
+   Important Keyboard Shortcuts
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#magic-functions">
+     Magic Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Using Project Jupyter</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Using Project Jupyter
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-classic-notebook-interface">
+     The Classic Notebook interface
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#try-the-jupyterlab-interface">
+     Try the JupyterLab interface
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyter-lab-interface">
+     Jupyter Lab Interface
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-jupyter-lab">
+     Running Jupyter Lab
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyter-notebooks">
+     Jupyter Notebooks
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#introduction">
+       Introduction
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#main-features-of-the-web-application">
+       Main Features of the Web Application
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tab-complete">
+       Tab Complete
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#importing-packages">
+       Importing packages
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#reading-documentation">
+       Reading Documentation
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#structure-of-notebook-document">
+       Structure of Notebook Document
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#types-of-cells">
+     Types of Cells
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#code-cells">
+       Code Cells
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#markdown-cells">
+       Markdown Cells
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#raw-cells">
+       Raw Cells
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#important-keyboard-shortcuts">
+   Important Keyboard Shortcuts
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#magic-functions">
+     Magic Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="using-project-jupyter">
+<h1>Using Project Jupyter<a class="headerlink" href="#using-project-jupyter" title="Permalink to this headline">#</a></h1>
+<section id="the-classic-notebook-interface">
+<h2>The Classic Notebook interface<a class="headerlink" href="#the-classic-notebook-interface" title="Permalink to this headline">#</a></h2>
+<p>The <em>Classic Notebook</em> interface is a document-oriented interface that allows you to create, view, and execute code in a Jupyter Notebook.</p>
+<p>The example should look like this:</p>
+<p><strong>Notebook Dashboard</strong></p>
+<p><img alt="" src="../_images/tryjupyter_file.png" /></p>
+<p><strong>Notebook Editor</strong></p>
+<p><img alt="" src="../_images/trynb.png" /></p>
+</section>
+<section id="try-the-jupyterlab-interface">
+<h2>Try the JupyterLab interface<a class="headerlink" href="#try-the-jupyterlab-interface" title="Permalink to this headline">#</a></h2>
+<p>The Jupyter Lab interface is a more extensible and composable interactive computing interface for more complex workflows.</p>
+<p>Here’s an example of what the JupyterLab interface looks like:</p>
+<p><img alt="" src="../_images/jupyter_lab.png" /></p>
+</section>
+<section id="jupyter-lab-interface">
+<h2>Jupyter Lab Interface<a class="headerlink" href="#jupyter-lab-interface" title="Permalink to this headline">#</a></h2>
+<p>The best platform for this class (outside of computing restrictions) is JupyterLab. Many, if not all the features we will discuss are available in Google Colab.</p>
+<p>JupyterLab is a next-generation web-based user interface for Project Jupyter.</p>
+<p><img alt="" src="../_images/interface_jupyterlab.png" /></p>
+<p>JupyterLab enables you to work with documents and activities such as:</p>
+<ul class="simple">
+<li><p>Jupyter notebooks</p></li>
+<li><p>text editors</p></li>
+<li><p>terminals</p></li>
+<li><p>custom components</p></li>
+</ul>
+<p>Here is a short video that rapidly goes over many of the cool features in Jupyter</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span>
+    <span class="s1">&#39;&lt;iframe width=&quot;800&quot; height=&quot;450&quot; src=&quot;https://www.youtube.com/embed/A5YyoCKxEOU&quot; title=&quot;How to Use JupyterLab&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Conda\lib\site-packages\IPython\core\display.py:419: UserWarning: Consider using IPython.display.IFrame instead
+  warnings.warn(&quot;Consider using IPython.display.IFrame instead&quot;)
+</pre></div>
+</div>
+<div class="output text_html"><iframe width="800" height="450" src="https://www.youtube.com/embed/A5YyoCKxEOU" title="How to Use JupyterLab" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+</div>
+</section>
+<section id="running-jupyter-lab">
+<h2>Running Jupyter Lab<a class="headerlink" href="#running-jupyter-lab" title="Permalink to this headline">#</a></h2>
+<p>Once you have Jupyter Lab installed you can spin up a Jupyter Lab with:</p>
+<p><code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code></p>
+</section>
+<section id="jupyter-notebooks">
+<h2>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this headline">#</a></h2>
+<p>Within Jupyer Lab you will primarily use Jupyter Notebooks. These are files with <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> extensions</p>
+<section id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Web based platform for developing, documenting, and executing code, as well as communicating the results</p>
+<ul>
+<li><p><strong>A web application:</strong> a browser-based tool for interactive authoring of documents which combine explanatory text, mathematics, computations and their rich media output.</p></li>
+<li><p><strong>Notebook documentation:</strong> a representation of all content visible in the web application, including inputs and outputs of the computations, explanatory text, mathematics, images, and rich media representations of objects.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="main-features-of-the-web-application">
+<h3>Main Features of the Web Application<a class="headerlink" href="#main-features-of-the-web-application" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>In-browser editing for code, with automatic syntax highlighting, indentation, and tab completion/introspection.</p></li>
+<li><p>The ability to execute code from the browser, with the results of computations attached to the code which generated them.</p></li>
+<li><p>Displaying the result of computation using rich media representations, such as HTML, LaTeX, PNG, SVG, etc. For example, publication-quality figures rendered by the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library, can be included inline.</p></li>
+<li><p>In-browser editing for rich text using the Markdown markup language, which can provide commentary for the code, is not limited to plain text.</p></li>
+</ul>
+</section>
+<section id="tab-complete">
+<h3>Tab Complete<a class="headerlink" href="#tab-complete" title="Permalink to this headline">#</a></h3>
+<p>If you start typing the name of a package, or an object you can press the <code class="docutils literal notranslate"><span class="pre">tab</span></code> button to discover what is available (twice) or complete the name</p>
+</section>
+<section id="importing-packages">
+<h3>Importing packages<a class="headerlink" href="#importing-packages" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn.cluster</span> <span class="k">as</span> <span class="nn">cluster</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="reading-documentation">
+<h3>Reading Documentation<a class="headerlink" href="#reading-documentation" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">??</span> cluster.KMeans
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="structure-of-notebook-document">
+<h3>Structure of Notebook Document<a class="headerlink" href="#structure-of-notebook-document" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Consists of a sequence of cells</p></li>
+<li><p>Cells can be executed by pressing <code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">+</span> <span class="pre">enter</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="types-of-cells">
+<h2>Types of Cells<a class="headerlink" href="#types-of-cells" title="Permalink to this headline">#</a></h2>
+<section id="code-cells">
+<h3>Code Cells<a class="headerlink" href="#code-cells" title="Permalink to this headline">#</a></h3>
+<p>A <em>code</em> cell allows you to write new python code that can be executed on the kernel, generally this is python</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;http://python.org/images/python-logo.gif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><img src="http://python.org/images/python-logo.gif"/></div></div>
+</div>
+<ul class="simple">
+<li><p>Other examples can be seen at A <a class="reference external" href="https://nbviewer.jupyter.org/github/ipython/ipython/blob/master/examples/IPython%20Kernel/Rich%20Output.ipynb">Rich Output Example</a>.</p></li>
+</ul>
+</section>
+<section id="markdown-cells">
+<h3>Markdown Cells<a class="headerlink" href="#markdown-cells" title="Permalink to this headline">#</a></h3>
+<p>These cells provide the ability to add sequential documentation to your code using simple style guides</p>
+<ul class="simple">
+<li><p>Structure for document can be provided using <code class="docutils literal notranslate"><span class="pre">#</span></code> or <code class="docutils literal notranslate"><span class="pre">##</span></code></p></li>
+<li><p>You can include mathematical equations in LaTeX notation <code class="docutils literal notranslate"><span class="pre">$...$</span></code> or <code class="docutils literal notranslate"><span class="pre">$$...$$</span></code></p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(e^{i\pi} + 1 = 0\)</span>
+$<span class="math notranslate nohighlight">\(e^x=\sum_{i=0}^\infty \frac{1}{i!}x^i\)</span>$</p>
+<ul class="simple">
+<li><p>Other examples can be seen at A <a class="reference external" href="https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Working%20With%20Markdown%20Cells.ipynb">Markdown Example</a></p></li>
+</ul>
+</section>
+<section id="raw-cells">
+<h3>Raw Cells<a class="headerlink" href="#raw-cells" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>These are cells where you can write the output directly without it being evaluated by the notebook</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="important-keyboard-shortcuts">
+<h1>Important Keyboard Shortcuts<a class="headerlink" href="#important-keyboard-shortcuts" title="Permalink to this headline">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code> - Run a cell
+<code class="docutils literal notranslate"><span class="pre">up/down</span> <span class="pre">arrows</span></code> - move between cells
+<code class="docutils literal notranslate"><span class="pre">Enter</span></code> - edit mode
+<code class="docutils literal notranslate"><span class="pre">Esc</span></code> - command mode allows you to navigate using keyboard shortcuts</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code> - add cell above</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code> - add cell below</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">c</span></code> - copy cell</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v</span></code> - paste cell</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">d,</span> <span class="pre">d</span></code> - delete cell</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">m</span></code> - change cell to markdown</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code> - change to code mode</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">I,</span> <span class="pre">I</span></code> - Interrupt kernel</p></li>
+</ul>
+<p>Other examples can be seen at <a class="reference external" href="http://maxmelnick.com/2016/04/19/python-beginner-tips-and-tricks.html">Jupyter Tricks</a>.</p>
+<section id="magic-functions">
+<h2>Magic Functions<a class="headerlink" href="#magic-functions" title="Permalink to this headline">#</a></h2>
+<p>Magic functions allow your IPython kernel to perform useful functions</p>
+<p>Some useful magics:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">%precision</span> <span class="pre">4</span></code> sets printed precision for floats to 4 decimal places</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%whos</span></code> gives a list of variables and their values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%quickref</span></code> gives a list of magics</p></li>
+</ul>
+<p>The full list of magics is <a class="reference external" href="http://ipython.readthedocs.org/en/stable/interactive/magics.html">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">quickref</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./topic_3_computing_env"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="2_Installing_a_python_interpreter.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Install a Python interpreter</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../homework/homework.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">📝 Assignments</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Joshua C. Agar<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

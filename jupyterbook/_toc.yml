@@ -16,10 +16,23 @@ parts:
     chapters:
       - file: preclass_survey/preclass_survey
         title: "Pre-class Survey"
+      - file: preclass_survey/Survey_Response
+        title: "Pre-class Survey Response"
+  - caption: "Topic 1: Why is Data Analysis the Most Important Skill"
+    chapters:
+      - file: topic_1_why_data_analysis_is_the_most_important_skill/T1_Importance_of_Data_Analysis/Importance_of_Data_Analysis
+  - caption: "Topic 2: Challenges in Data Analysis"
+    chapters:
+      - file: topic_2_Challenges_in_Data_Analysis/Challenges in Data Analysis
+  - caption: "Topic 3: Tools for Computing in Python"
+    chapters:
+      - file: topic_3_computing_env/1_setting_up_your_computing_environment
+      - file: topic_3_computing_env/2_Installing_a_python_interpreter
+      - file: topic_3_computing_env/3_navigating_jupyter
   - caption: "📝 Homework"
     chapters:
       - file: homework/homework
-        title:  "📝 Assignments"
+        title: "📝 Assignments"
         sections:
           - file: homework/homework_1/homework_1_whitepaper
             title: "1️⃣ Project Whitepaper"

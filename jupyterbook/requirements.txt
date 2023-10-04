@@ -3,3 +3,5 @@ matplotlib
 numpy
 jupyterlab-rise
 jupyter_contrib_nbextensions
+scikit-learn
+joblib
