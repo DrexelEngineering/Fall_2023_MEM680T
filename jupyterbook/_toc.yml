@@ -29,6 +29,9 @@ parts:
       - file: topic_3_computing_env/1_setting_up_your_computing_environment
       - file: topic_3_computing_env/2_Installing_a_python_interpreter
       - file: topic_3_computing_env/3_navigating_jupyter
+      - file: topic_3_computing_env/4_python_in_vscode
+      - file: topic_3_computing_env/5_Jupyter_Notebook_in_VScode
+      - file: topic_3_computing_env/6_Example_Notebook_VScode
   - caption: "📝 Homework"
     chapters:
       - file: homework/homework
