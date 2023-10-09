@@ -32,6 +32,9 @@ parts:
       - file: topic_3_computing_env/4_python_in_vscode
       - file: topic_3_computing_env/5_Jupyter_Notebook_in_VScode
       - file: topic_3_computing_env/6_Example_Notebook_VScode
+  - caption: "Topic 4: Tools for Software Development"
+    chapters:
+      - file: topic_4_tools_for_software_development/1_Introduction_to_GIT
   - caption: "📝 Homework"
     chapters:
       - file: homework/homework
