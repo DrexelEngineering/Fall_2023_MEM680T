@@ -35,6 +35,7 @@ parts:
   - caption: "Topic 4: Tools for Software Development"
     chapters:
       - file: topic_4_tools_for_software_development/1_Introduction_to_GIT
+      - file: topic_4_tools_for_software_development/2_pyscaffold_tutorial
   - caption: "📝 Homework"
     chapters:
       - file: homework/homework
