@@ -43,6 +43,8 @@ parts:
         sections:
           - file: homework/homework_1/homework_1_whitepaper
             title: "1️⃣ Project Whitepaper"
+          - file: homework/homework_2/homework2
+            title: "2️⃣ Building a Package for a Graphical Game of Tic-Tac-Toe"
   - caption: "Additional Resources"
     chapters:
       - file: resources/markdown
