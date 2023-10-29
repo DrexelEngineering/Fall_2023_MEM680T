@@ -72,6 +72,8 @@ parts:
             title: "1️⃣ Project Whitepaper"
           - file: homework/homework_2/homework2
             title: "2️⃣ Building a Package for a Graphical Game of Tic-Tac-Toe"
+          - file: homework/homework_3/homework_3
+            title: "3️⃣ Building the Game of Yahtzee"
   - caption: "Additional Resources"
     chapters:
       - file: resources/markdown
