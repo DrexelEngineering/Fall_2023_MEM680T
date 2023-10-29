@@ -1,0 +1,912 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Jupyter Notebooks in VS Code &#8212; MEM T680: Fall 2023: Data Analysis and Machine Learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'topic_3_computing_env/5_Jupyter_Notebook_in_VScode';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Welcome to Jupyter Notebook in VScode!" href="6_Example_Notebook_VScode.html" />
+    <link rel="prev" title="Getting Started with Python in VS Code" href="4_python_in_vscode.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/m3_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/m3_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Fall 2023 MEM680T
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Content 📜</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../course_materials/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../course_materials/final_project.html">Final Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pre-Course Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preclass_survey/preclass_survey.html">Pre-class Survey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preclass_survey/Survey_Response.html">Pre-class Survey Response</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 1: Why is Data Analysis the Most Important Skill</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../topic_1_why_data_analysis_is_the_most_important_skill/T1_Importance_of_Data_Analysis/Importance_of_Data_Analysis.html">Importance of Data Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 2: Challenges in Data Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../topic_2_Challenges_in_Data_Analysis/Challenges%20in%20Data%20Analysis.html">Challenges in Data Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 3: Tools for Computing in Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_setting_up_your_computing_environment.html">Setting up your Computing Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Installing_a_python_interpreter.html">Install a Python interpreter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_navigating_jupyter.html">Using Project Jupyter</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="4_python_in_vscode.html">Getting Started with Python in VS Code</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Jupyter Notebooks in VS Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Example_Notebook_VScode.html">Welcome to Jupyter Notebook in VScode!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 4: Tools for Software Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../topic_4_tools_for_software_development/1_Introduction_to_GIT.html">Introduction to GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic_4_tools_for_software_development/2_pyscaffold_tutorial.html">Pyscaffold Tutorial</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🐍 Introduction to Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../topic_5_python/Introduction_to_python.html">🐍 Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../topic_5_python/1_Introduction_to_python_operators.html">🔢 Introduction to Python Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topic_5_python/2_datatypes.html">🔡 Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topic_5_python/3_If_else.html">🔀 If-Else Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topic_5_python/4_loops.html">🔁 Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topic_5_python/5_functions.html">📜 Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topic_5_python/6_iterators_and_generators.html">🔃 Iterators and Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topic_5_python/7_lambda_function.html">🔨 Lambda Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topic_5_python/8_classes.html">🛠 Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topic_5_python/9_Dataclasses.html">📦 Dataclasses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topic_5_python/10_Args_Kwargs.html">🎯 Args and Kwargs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topic_5_python/11_decorators.html">✨ Decorators</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">📝 Homework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../homework/homework.html">📝 Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../homework/homework_1/homework_1_whitepaper.html">1️⃣ Project Whitepaper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/homework_2/homework2.html">2️⃣ Building a Package for a Graphical Game of Tic-Tac-Toe</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/markdown.html">Guide to Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub.coe.drexel.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/DrexelEngineering/Fall_2023_MEM680T&urlpath=tree/Fall_2023_MEM680T/jupyterbook/topic_3_computing_env/5_Jupyter_Notebook_in_VScode.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/DrexelEngineering/Fall_2023_MEM680T/blob/master/jupyterbook/topic_3_computing_env/5_Jupyter_Notebook_in_VScode.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DrexelEngineering/Fall_2023_MEM680T" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DrexelEngineering/Fall_2023_MEM680T/issues/new?title=Issue%20on%20page%20%2Ftopic_3_computing_env/5_Jupyter_Notebook_in_VScode.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/topic_3_computing_env/5_Jupyter_Notebook_in_VScode.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Jupyter Notebooks in VS Code</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-environment">Setting up your environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-or-open-a-jupyter-notebook">Create or open a Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-cells">Running cells</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-your-jupyter-notebook">Save your Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export-your-jupyter-notebook">Export your Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-code-cells-in-the-notebook-editor">Work with code cells in the Notebook Editor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-code-cell">Create a code cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cell-modes">Code cell modes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-additional-code-cells">Add additional code cells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-a-code-cell">Select a code cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-multiple-code-cells">Select multiple code cells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-single-code-cell">Run a single code cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-multiple-code-cells">Run multiple code cells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#move-a-code-cell">Move a code cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-code-cell">Delete a code cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#undo-your-last-change">Undo your last change</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switch-between-code-and-markdown">Switch between code and Markdown</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clear-output-or-restart-interrupt-the-kernel">Clear output or restart/interrupt the kernel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-disable-line-numbers">Enable/disable line numbers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-explorer-and-data-viewer">Variable Explorer and Data Viewer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-viewer">Data Viewer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-rows">Filtering rows</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-plots">Saving plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-notebook-diffing">Custom notebook diffing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-by-line">Run by Line</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debug-cell">Debug Cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-through-notebook">Search through notebook</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-a-remote-jupyter-server">Connect to a remote Jupyter server</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="jupyter-notebooks-in-vs-code">
+<h1>Jupyter Notebooks in VS Code<a class="headerlink" href="#jupyter-notebooks-in-vs-code" title="Permalink to this heading">#</a></h1>
+<p><a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/latest/">Jupyter</a> (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a <strong>notebook</strong>. Visual Studio Code supports working with Jupyter Notebooks natively, and through <a class="reference external" href="https://code.visualstudio.com/docs/python/jupyter-support-py.md">Python code files</a>. This topic covers the native support available for Jupyter Notebooks and demonstrates how to:</p>
+<ul class="simple">
+<li><p>Create, open, and save Jupyter Notebooks</p></li>
+<li><p>Work with Jupyter code cells</p></li>
+<li><p>View, inspect, and filter variables using the Variable Explorer and Data Viewer</p></li>
+<li><p>Connect to a remote Jupyter server</p></li>
+<li><p>Debug a Jupyter Notebook</p></li>
+</ul>
+<section id="setting-up-your-environment">
+<h2>Setting up your environment<a class="headerlink" href="#setting-up-your-environment" title="Permalink to this heading">#</a></h2>
+<p>To work with Python in Jupyter Notebooks, you must activate an Anaconda environment in VS Code, or another Python environment in which you’ve installed the <a class="reference external" href="https://pypi.org/project/jupyter/">Jupyter package</a>. To select an environment, use the <strong>Python: Select Interpreter</strong> command from the Command Palette (<code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code>).</p>
+<p>Once the appropriate environment is activated, you can create and open a Jupyter Notebook, connect to a remote Jupyter server for running code cells, and export a Jupyter Notebook as a Python file.</p>
+</section>
+<section id="create-or-open-a-jupyter-notebook">
+<h2>Create or open a Jupyter Notebook<a class="headerlink" href="#create-or-open-a-jupyter-notebook" title="Permalink to this heading">#</a></h2>
+<p>You can create a Jupyter Notebook by running the <strong>Create: New Jupyter Notebook</strong> command from the Command Palette (<code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code>) or by creating a new <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file in your workspace.</p>
+<p><img alt="Blank Jupyter Notebook" src="../_images/native-code-cells-01.png" /></p>
+<p>Next, select a kernel using the kernel picker in the top right.</p>
+<p><img alt="Kernel Picker" src="../_images/native-kernel-picker.png" /></p>
+<p>After selecting a kernel, the language picker located in the bottom right of each code cell will automatically update to the language supported by the kernel.</p>
+<p><img alt="Language Picker" src="../_images/native-language-picker-01.png" /></p>
+<p>If you have an existing Jupyter Notebook, you can open it by right-clicking on the file and opening with VS Code, or through the VS Code File Explorer.</p>
+</section>
+<section id="running-cells">
+<h2>Running cells<a class="headerlink" href="#running-cells" title="Permalink to this heading">#</a></h2>
+<p>Once you have a notebook, you can run a code cell using the <strong>Run</strong> icon to the left of the cell and the output will appear directly below the code cell.</p>
+<p>To run code, you can also use keyboard shortcuts in both command and edit mode. To run the current cell, use <code class="docutils literal notranslate"><span class="pre">Ctrl+Enter</span></code>. To run the current cell and advance to the next, use <code class="docutils literal notranslate"><span class="pre">Shift+Enter</span></code>.</p>
+<p><img alt="Run Jupyter code cell" src="../_images/native-code-cells-03.png" /></p>
+<p>You can run multiple cells by selecting <strong>Run All</strong>, <strong>Run All Above</strong>, or <strong>Run All Below</strong>.</p>
+<p><img alt="Run Jupyter code cells" src="../_images/native-code-runs.png" /></p>
+</section>
+<section id="save-your-jupyter-notebook">
+<h2>Save your Jupyter Notebook<a class="headerlink" href="#save-your-jupyter-notebook" title="Permalink to this heading">#</a></h2>
+<p>You can save your Jupyter Notebook using the keyboard shortcut <code class="docutils literal notranslate"><span class="pre">Ctrl+S</span></code> or <strong>File</strong> &gt; <strong>Save</strong>.</p>
+</section>
+<section id="export-your-jupyter-notebook">
+<h2>Export your Jupyter Notebook<a class="headerlink" href="#export-your-jupyter-notebook" title="Permalink to this heading">#</a></h2>
+<p>You can export a Jupyter Notebook as a Python file (<code class="docutils literal notranslate"><span class="pre">.py</span></code>), a PDF, or an HTML file. To export, select the <strong>Export</strong> action on the main toolbar. You’ll then be presented with a dropdown of file format options.</p>
+<p><img alt="Convert Jupyter Notebook to Python file" src="../_images/native-toolbar-export.png" /></p>
+<blockquote>
+<div><p><strong>Note:</strong> For PDF export, you must have <a class="reference external" href="https://nbconvert.readthedocs.io/en/latest/install.html#installing-tex">TeX installed</a>. If you don’t, you will be notified that you need to install it when you select the PDF option. Also, be aware that if you have SVG-only output in your Notebook, they will not be displayed in the PDF. To have SVG graphics in a PDF, either ensure that your output includes a non-SVG image format or else you can first export to HTML and then save as PDF using your browser.</p>
+</div></blockquote>
+</section>
+<section id="work-with-code-cells-in-the-notebook-editor">
+<h2>Work with code cells in the Notebook Editor<a class="headerlink" href="#work-with-code-cells-in-the-notebook-editor" title="Permalink to this heading">#</a></h2>
+<p>The Notebook Editor makes it easy to create, edit, and run code cells within your Jupyter Notebook.</p>
+<section id="create-a-code-cell">
+<h3>Create a code cell<a class="headerlink" href="#create-a-code-cell" title="Permalink to this heading">#</a></h3>
+<p>By default, a blank notebook will have an empty code cell for you to start with and an existing notebook will place one at the bottom. Add your code to the empty code cell to get started.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Hello world&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Hello world&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello world
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="code-cell-modes">
+<h3>Code cell modes<a class="headerlink" href="#code-cell-modes" title="Permalink to this heading">#</a></h3>
+<p>While working with code cells, a cell can be in three states: unselected, command mode, and edit mode. A vertical bar to the left of a code cell and editor border shows the current state of a cell. When no bar is visible, the cell is unselected. When a cell is selected, it can be in command mode or in edit mode.</p>
+<p><img alt="Unselected Jupyter code cell" src="../_images/native-code-unselected-02.png" /></p>
+<p>In command mode, a solid vertical bar will appear to the left of the cell. The cell can be operated on and accepts keyboard commands.</p>
+<p><img alt="Code cell in command mode" src="../_images/native-code-cells-02.png" /></p>
+<p>In edit mode, a solid vertical bar is joined by a border around the cell editor. The cell’s contents (code or Markdown) can be modified.</p>
+<p><img alt="Code cell in edit mode" src="../_images/native-code-cells-04.png" /></p>
+<p>To switch modes, you can use your keyboard or mouse. On your keyboard, press the <code class="docutils literal notranslate"><span class="pre">Enter</span></code> key to move to edit mode or the <code class="docutils literal notranslate"><span class="pre">Esc</span></code> key to move to command mode. With your mouse, click the vertical bar to the left of the cell or out of the code/Markdown region in the code cell.</p>
+</section>
+<section id="add-additional-code-cells">
+<h3>Add additional code cells<a class="headerlink" href="#add-additional-code-cells" title="Permalink to this heading">#</a></h3>
+<p>You can add code cells using the main toolbar, a cell’s add cell toolbar (visible with hover), and through keyboard commands.</p>
+<p><img alt="Add code cells" src="../_images/native-add-cells.png" /></p>
+<p>To add a new cell below the currently selected cell, use the plus icon in the main toolbar or a cell’s hover toolbar.</p>
+<p>When a code cell is in command mode, use the <code class="docutils literal notranslate"><span class="pre">A</span></code> key to add a cell above and the <code class="docutils literal notranslate"><span class="pre">B</span></code> key to add a cell below the selected cell.</p>
+</section>
+<section id="select-a-code-cell">
+<h3>Select a code cell<a class="headerlink" href="#select-a-code-cell" title="Permalink to this heading">#</a></h3>
+<p>You can change a selected code cell using the mouse or the up/down arrow keys on the keyboard. When a code cell is in command mode, you can also use the <code class="docutils literal notranslate"><span class="pre">J</span></code> key (down) and <code class="docutils literal notranslate"><span class="pre">K</span></code> key (up).</p>
+</section>
+<section id="select-multiple-code-cells">
+<h3>Select multiple code cells<a class="headerlink" href="#select-multiple-code-cells" title="Permalink to this heading">#</a></h3>
+<p>To select multiple cells, start with one cell in selected mode. A filled background indicates selected cells. To select consecutive cells, hold down the <code class="docutils literal notranslate"><span class="pre">Shift</span></code> key and click the last cell you want to select. To select any group of cells, hold down the <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> key and click the cells you’d like to add to your selection.</p>
+<p><img alt="Multiselected cells" src="../_images/multiselect.png" /></p>
+</section>
+<section id="run-a-single-code-cell">
+<h3>Run a single code cell<a class="headerlink" href="#run-a-single-code-cell" title="Permalink to this heading">#</a></h3>
+<p>Once your code is added, you can run a cell using the <strong>Run</strong> icon to the left of the cell and the output will be displayed below the code cell.</p>
+<p><img alt="Run Jupyter code cell" src="../_images/native-code-run.png" /></p>
+<p>To run a selected code cell, you can also use keyboard shortcuts in both command and edit mode. <code class="docutils literal notranslate"><span class="pre">Ctrl+Enter</span></code> runs the currently selected cell. <code class="docutils literal notranslate"><span class="pre">Shift+Enter</span></code> runs the currently selected cell and inserts a new cell immediately below (focus moves to new cell). <code class="docutils literal notranslate"><span class="pre">Alt+Enter</span></code> runs the currently selected cell and inserts a new cell immediately below (focus remains on current cell).</p>
+</section>
+<section id="run-multiple-code-cells">
+<h3>Run multiple code cells<a class="headerlink" href="#run-multiple-code-cells" title="Permalink to this heading">#</a></h3>
+<p>Running multiple code cells can be accomplished in many ways. You can use the double arrow in the main toolbar of the Notebook Editor to run all cells within the Notebook or the <strong>Run</strong> icons with directional arrows in the cell toolbar to run all cells above or below the current code cell.</p>
+<p><img alt="Run multiple code cells" src="../_images/native-code-runs.png" /></p>
+</section>
+<section id="move-a-code-cell">
+<h3>Move a code cell<a class="headerlink" href="#move-a-code-cell" title="Permalink to this heading">#</a></h3>
+<p>You can move cells up or down within a notebook via dragging and dropping. For code cells, the drag and drop area is to the left of the cell editor as indicated below. For rendered Markdown cells, you may click anywhere to drag and drop cells.</p>
+<p><img alt="Move a code cell" src="../_images/code-move.png" /></p>
+<p>To move multiple cells, you can use the same drag and drop areas in any cell included in the selection.</p>
+<p>The keyboard shortcut <code class="docutils literal notranslate"><span class="pre">Alt+Arrow</span></code> also moves one or multiple selected cells.</p>
+</section>
+<section id="delete-a-code-cell">
+<h3>Delete a code cell<a class="headerlink" href="#delete-a-code-cell" title="Permalink to this heading">#</a></h3>
+<p>To delete code, you can use the <strong>Delete</strong> icon in the code cell toolbar. When the selected code cell is in command mode, you can use the keyboard shortcut <code class="docutils literal notranslate"><span class="pre">dd</span></code>.</p>
+<p><img alt="Delete a code cell" src="../_images/native-code-delete.png" /></p>
+</section>
+<section id="undo-your-last-change">
+<h3>Undo your last change<a class="headerlink" href="#undo-your-last-change" title="Permalink to this heading">#</a></h3>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">z</span></code> key to undo your previous change, for example, if you’ve made an accidental edit, you can undo it to the previous correct state, or if you’ve deleted a cell accidentally, you can recover it.</p>
+</section>
+<section id="switch-between-code-and-markdown">
+<h3>Switch between code and Markdown<a class="headerlink" href="#switch-between-code-and-markdown" title="Permalink to this heading">#</a></h3>
+<p>The Notebook Editor allows you to easily change code cells between Markdown and code. Selecting the language picker in the bottom right of a cell will allow you to switch between Markdown and, if applicable, any other language supported by the selected kernel.</p>
+<p><img alt="Change language" src="../_images/native-language-picker-01.png" /></p>
+<p>You can also use the keyboard to change the cell type. When a cell is selected and in command mode, the <code class="docutils literal notranslate"><span class="pre">M</span></code> key switches the cell type to Markdown and the <code class="docutils literal notranslate"><span class="pre">Y</span></code> key switches the cell type to code.</p>
+<p>Once Markdown is set, you can enter Markdown formatted content to the code cell.</p>
+</section>
+<section id="clear-output-or-restart-interrupt-the-kernel">
+<h3>Clear output or restart/interrupt the kernel<a class="headerlink" href="#clear-output-or-restart-interrupt-the-kernel" title="Permalink to this heading">#</a></h3>
+<p>If you’d like to clear all code cell outputs or restart/interrupt the kernel, you can accomplish that using the main Notebook Editor toolbar.</p>
+<p><img alt="Notebook Toolbar" src="../_images/notebook-toolbar.png" /></p>
+</section>
+<section id="enable-disable-line-numbers">
+<h3>Enable/disable line numbers<a class="headerlink" href="#enable-disable-line-numbers" title="Permalink to this heading">#</a></h3>
+<p>When you are in command mode, you can enable or disable line numbering within a single code cell by using the <code class="docutils literal notranslate"><span class="pre">L</span></code> key.</p>
+<p><img alt="Line numbers enabled in code cell" src="../_images/cell-toggle-line-num.png" /></p>
+<p>To toggle line numbering for the entire notebook, use <code class="docutils literal notranslate"><span class="pre">Shift+L</span></code> when in command mode on any cell.</p>
+<p><img alt="Line numbers enabled for notebook" src="../_images/notebook-toggle-line-num.png" /></p>
+</section>
+</section>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+<p>To navigate through your notebook, open the File Explorer in the Activity bar. Then open the <strong>Outline</strong> tab in the Side bar.</p>
+<p><img alt="Table of contents" src="../_images/table-of-contents.png" /></p>
+<blockquote>
+<div><p><strong>Note:</strong> By default, the outline will only show Markdown. To show code cells, enable the following setting:  <strong>Notebook &gt; Outline: Show Code Cells</strong>.</p>
+</div></blockquote>
+</section>
+<section id="variable-explorer-and-data-viewer">
+<h2>Variable Explorer and Data Viewer<a class="headerlink" href="#variable-explorer-and-data-viewer" title="Permalink to this heading">#</a></h2>
+<p>Within a Python Notebook, it’s possible to view, inspect, sort, and filter the variables within your current Jupyter session. By selecting the <strong>Variables</strong> icon in the main toolbar after running code and cells, you’ll see a list of the current variables, which will automatically update as variables are used in code. The variables pane will open at the bottom of the notebook.</p>
+<p><img alt="Variable Explorer" src="../_images/variable-explorer-01.png" /></p>
+<p><img alt="Variable Explorer" src="../_images/variable-explorer-02.png" /></p>
+<section id="data-viewer">
+<h3>Data Viewer<a class="headerlink" href="#data-viewer" title="Permalink to this heading">#</a></h3>
+<p>For additional information about your variables, you can also double-click a row or use the <strong>Show variable in data viewer</strong> button next to the variable for a more detailed view of a variable in the Data Viewer.</p>
+<p><img alt="Data Viewer" src="../_images/data-viewer.png" /></p>
+</section>
+<section id="filtering-rows">
+<h3>Filtering rows<a class="headerlink" href="#filtering-rows" title="Permalink to this heading">#</a></h3>
+<p>Filtering rows in the data viewer can be done by typing in the textbox at the top of each column. Type a string you want to search for and any row that has that string in the column will be found:</p>
+<p><img alt="Data Viewer" src="../_images/filter-default.png" /></p>
+<p>If you want to find an exact match, prefix your filter with ‘=’:</p>
+<p>More complex filtering can be done by typing a <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">regular expression</a>:</p>
+<p><img alt="Data Viewer" src="../_images/filter-regex.png" /></p>
+</section>
+</section>
+<section id="saving-plots">
+<h2>Saving plots<a class="headerlink" href="#saving-plots" title="Permalink to this heading">#</a></h2>
+<p>To save a plot from your notebook, simply hover over the output and select the <strong>Save</strong> icon in the top right.</p>
+<p><img alt="Save output" src="../_images/save-output.png" /></p>
+<blockquote>
+<div><p><strong>Note:</strong> There is support for rendering plots created with <a class="reference external" href="https://matplotlib.org/">matplotlib</a> and <a class="reference external" href="https://altair-viz.github.io/index.html">Altair</a>.</p>
+</div></blockquote>
+</section>
+<section id="custom-notebook-diffing">
+<h2>Custom notebook diffing<a class="headerlink" href="#custom-notebook-diffing" title="Permalink to this heading">#</a></h2>
+<p>Under the hood, Jupyter Notebooks are JSON files. The segments in a JSON file are rendered as cells that are comprised of three components: input, output, and metadata. Comparing changes made in a notebook using lined-based diffing is difficult and hard to parse. The rich diffing editor for notebooks allows you to easily see changes for each component of a cell.</p>
+<p>You can even customize what types of changes you want displayed within your diffing view. In the top right, select the overflow menu item in the toolbar to customize what cell components you want included. Input differences will always be shown.</p>
+<p><img alt="Custom notebook diffing" src="../_images/notebook-diffing.png" /></p>
+<p>To learn more about Git integration within VS Code, visit <a class="reference external" href="https://code.visualstudio.com/docs/sourcecontrol/overview.md">Source Control in VS Code</a>.</p>
+<section id="run-by-line">
+<h3>Run by Line<a class="headerlink" href="#run-by-line" title="Permalink to this heading">#</a></h3>
+<p>Run by Line lets you execute a cell one line at a time, without being distracted by other VS Code debug features. To start, select the <strong>Run by Line</strong> button in the cell toolbar:</p>
+<p><img alt="Run by line button" src="../_images/run-by-line.png" /></p>
+<p>Use the same button to advance by one statement. You can select the cell <strong>Stop</strong> button to stop early, or the <strong>Continue</strong> button in the toolbar to continue running to the end of the cell.</p>
+</section>
+<section id="debug-cell">
+<h3>Debug Cell<a class="headerlink" href="#debug-cell" title="Permalink to this heading">#</a></h3>
+<p>If you want to use the full set of debugging features supported in VS Code, such as breakpoints and the ability to step in to other cells and modules, you can use the full VS Code debugger.</p>
+<ol class="arabic simple">
+<li><p>Start by setting any breakpoints you need by clicking in the left margin of a notebook cell.</p></li>
+<li><p>Then select the <strong>Debug Cell</strong> button in the menu next to the <strong>Run</strong> button. This will run the cell in a debug session, and will pause on your breakpoints in any code that runs, even if it is in a different cell or a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file.</p></li>
+<li><p>You can use the Debug view, Debug Console, and all the buttons in the Debug Toolbar as you normally would in VS Code.</p></li>
+</ol>
+<p><img alt="Debug cell button" src="../_images/debug-cell.png" /></p>
+</section>
+<section id="search-through-notebook">
+<h3>Search through notebook<a class="headerlink" href="#search-through-notebook" title="Permalink to this heading">#</a></h3>
+<p>You can search through a notebook (or parts of it by filtering the search options) by using the keyboard shortcut <code class="docutils literal notranslate"><span class="pre">Ctrl/Cmd</span> <span class="pre">+</span> <span class="pre">F</span></code>. Click the Filter option (funnel icon) to search across:</p>
+<ul class="simple">
+<li><p>Markdown cell input (<strong>Markdown Source</strong>)</p></li>
+<li><p>Markdown cell output (<strong>Rendered Markdown</strong>)</p></li>
+<li><p>Code cell input (<strong>Code Cell Source</strong>)</p></li>
+<li><p>Code cell output (<strong>Cell Output</strong>)</p></li>
+</ul>
+<p>Notebook searches are filtered cell inputs only by default.</p>
+<p><img alt="Search options" src="../_images/search-filter.png" /></p>
+</section>
+</section>
+<section id="connect-to-a-remote-jupyter-server">
+<h2>Connect to a remote Jupyter server<a class="headerlink" href="#connect-to-a-remote-jupyter-server" title="Permalink to this heading">#</a></h2>
+<p>You can offload intensive computation in a Jupyter Notebook to other computers by connecting to a remote Jupyter server. Once connected, code cells run on the remote server rather than the local computer.</p>
+<p>To connect to a remote Jupyter server:</p>
+<ol class="arabic">
+<li><p>Open the Kernel Picker button on the top right-hand side of the notebook (or run the <strong>Notebook: Select Notebook Kernel</strong> command from the Command Palette).</p>
+<p><img alt="Notebook kernel picker" src="../_images/notebook-kernel-picker.png" /></p>
+</li>
+</ol>
+<ol class="arabic" start="2">
+<li><p>Select the <strong>Existing Jupyter Server</strong> option to connect to an existing Jupyter server.</p>
+<p><img alt="Select existing Jupyter server" src="../_images/select-existing-server.png" /></p>
+</li>
+</ol>
+<ol class="arabic" start="3">
+<li><p>To connect to an existing server for the first time, select <strong>Enter the URL of the running Jupyter server</strong>.</p>
+<p><img alt="Choose to connect to an existing server" src="../_images/select-enter-server-url.png" /></p>
+</li>
+</ol>
+<ol class="arabic" start="4">
+<li><p>When prompted to <strong>Enter the URL of the running Jupyter server</strong>, provide the server’s URI (hostname) with the authentication token included with a <code class="docutils literal notranslate"><span class="pre">?token=</span></code> URL parameter. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.</p>
+<p><img alt="Prompt to supply a Jupyter server URI" src="../_images/enter-server-url.png" /></p>
+</li>
+</ol>
+<blockquote>
+<div><p><strong>Note:</strong> For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remote server are encrypted. For guidance about securing a notebook server, refer to the <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server">Jupyter documentation</a>.</p>
+</div></blockquote>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./topic_3_computing_env"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="4_python_in_vscode.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Getting Started with Python in VS Code</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="6_Example_Notebook_VScode.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Welcome to Jupyter Notebook in VScode!</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-environment">Setting up your environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-or-open-a-jupyter-notebook">Create or open a Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-cells">Running cells</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-your-jupyter-notebook">Save your Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export-your-jupyter-notebook">Export your Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-with-code-cells-in-the-notebook-editor">Work with code cells in the Notebook Editor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-code-cell">Create a code cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cell-modes">Code cell modes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-additional-code-cells">Add additional code cells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-a-code-cell">Select a code cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-multiple-code-cells">Select multiple code cells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-single-code-cell">Run a single code cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-multiple-code-cells">Run multiple code cells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#move-a-code-cell">Move a code cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-code-cell">Delete a code cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#undo-your-last-change">Undo your last change</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switch-between-code-and-markdown">Switch between code and Markdown</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clear-output-or-restart-interrupt-the-kernel">Clear output or restart/interrupt the kernel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-disable-line-numbers">Enable/disable line numbers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-explorer-and-data-viewer">Variable Explorer and Data Viewer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-viewer">Data Viewer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-rows">Filtering rows</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-plots">Saving plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-notebook-diffing">Custom notebook diffing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-by-line">Run by Line</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debug-cell">Debug Cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-through-notebook">Search through notebook</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-a-remote-jupyter-server">Connect to a remote Jupyter server</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joshua C. Agar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
