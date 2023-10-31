@@ -63,6 +63,10 @@ parts:
             title: "🎯 Args and Kwargs"
           - file: topic_5_python/11_decorators
             title: "✨ Decorators"
+  - caption: "🔢 Numpy"
+    chapters:
+      - file: topic_6_Numpy/Introduction_to_numpy
+      - file: topic_6_Numpy/Basics_of_numpy
   - caption: "📝 Homework"
     chapters:
       - file: homework/homework

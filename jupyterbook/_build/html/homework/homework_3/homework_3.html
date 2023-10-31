@@ -1,0 +1,1328 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Yahtzee Dice: Python Implementation &#8212; MEM T680: Fall 2023: Data Analysis and Machine Learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'homework/homework_3/homework_3';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Guide to Markdown" href="../../resources/markdown.html" />
+    <link rel="prev" title="Homework 2: Building a Package for a Graphical Game of Tic-Tac-Toe" href="../homework_2/homework2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/m3_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/m3_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to Fall 2023 MEM680T
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Content 📜</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/final_project.html">Final Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pre-Course Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preclass_survey/preclass_survey.html">Pre-class Survey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preclass_survey/Survey_Response.html">Pre-class Survey Response</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 1: Why is Data Analysis the Most Important Skill</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../topic_1_why_data_analysis_is_the_most_important_skill/T1_Importance_of_Data_Analysis/Importance_of_Data_Analysis.html">Importance of Data Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 2: Challenges in Data Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../topic_2_Challenges_in_Data_Analysis/Challenges%20in%20Data%20Analysis.html">Challenges in Data Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 3: Tools for Computing in Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../topic_3_computing_env/1_setting_up_your_computing_environment.html">Setting up your Computing Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic_3_computing_env/2_Installing_a_python_interpreter.html">Install a Python interpreter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic_3_computing_env/3_navigating_jupyter.html">Using Project Jupyter</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../topic_3_computing_env/4_python_in_vscode.html">Getting Started with Python in VS Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic_3_computing_env/5_Jupyter_Notebook_in_VScode.html">Jupyter Notebooks in VS Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic_3_computing_env/6_Example_Notebook_VScode.html">Welcome to Jupyter Notebook in VScode!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 4: Tools for Software Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../topic_4_tools_for_software_development/1_Introduction_to_GIT.html">Introduction to GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic_4_tools_for_software_development/2_pyscaffold_tutorial.html">Pyscaffold Tutorial</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🐍 Introduction to Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../topic_5_python/Introduction_to_python.html">🐍 Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/1_Introduction_to_python_operators.html">🔢 Introduction to Python Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/2_datatypes.html">🔡 Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/3_If_else.html">🔀 If-Else Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/4_loops.html">🔁 Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/5_functions.html">📜 Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/6_iterators_and_generators.html">🔃 Iterators and Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/7_lambda_function.html">🔨 Lambda Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/8_classes.html">🛠 Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/9_Dataclasses.html">📦 Dataclasses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/10_Args_Kwargs.html">🎯 Args and Kwargs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/11_decorators.html">✨ Decorators</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🔢 Numpy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../topic_6_Numpy/Introduction_to_numpy.html">What is NumPy?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic_6_Numpy/Basics_of_numpy.html">Welcome to NumPy!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">📝 Homework</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../homework.html">📝 Assignments</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../homework_1/homework_1_whitepaper.html">1️⃣ Project Whitepaper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework_2/homework2.html">2️⃣ Building a Package for a Graphical Game of Tic-Tac-Toe</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3️⃣ Building the Game of Yahtzee</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../resources/markdown.html">Guide to Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DrexelEngineering/Fall_2023_MEM680T" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DrexelEngineering/Fall_2023_MEM680T/issues/new?title=Issue%20on%20page%20%2Fhomework/homework_3/homework_3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/homework/homework_3/homework_3.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Yahtzee Dice: Python Implementation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#due-nov-10-2023">Due Nov. 10, 2023</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#note-this-assignement-is-equivalent-to-2-5-other-homework-assignments">Note, This assignement is equivalent to 2.5 other homework assignments.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective">Objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-of-the-game-of-yahtzee">Rules of the Game of Yahtzee</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components">Components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-players">Number of Players</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#turn-sequence">Turn Sequence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scoring-categories">Scoring Categories</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#upper-section">Upper Section</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lower-section">Lower Section</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#end-of-the-game">End of the Game</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#winner">Winner</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strategy">Strategy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guide-to-writing-the-code">Guide to Writing the Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-dice-py">File: <code class="docutils literal notranslate"><span class="pre">dice.py</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">Requirements</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#code-structure">Code Structure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-import-required-libraries">Step 1: Import Required Libraries</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-the-dice-class">Step 2: Create the <code class="docutils literal notranslate"><span class="pre">Dice</span></code> Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-the-yahtzeedice-class">Step 3: Create the <code class="docutils literal notranslate"><span class="pre">YahtzeeDice</span></code> Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Attributes</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-player-py">File: <code class="docutils literal notranslate"><span class="pre">player.py</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Requirements</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Code Structure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-import-required-libraries-and-modules">Step 1: Import Required Libraries and Modules</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-the-player-class">Step 2: Create the <code class="docutils literal notranslate"><span class="pre">Player</span></code> Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Attributes</a></li>
+</ul>
+</li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-the-nested-playerturn-class">Step 3: Create the Nested <code class="docutils literal notranslate"><span class="pre">PlayerTurn</span></code> Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Attributes</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-scoring-py">File: <code class="docutils literal notranslate"><span class="pre">scoring.py</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Requirements</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Code Structure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Step 1: Import Required Libraries</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-the-scoring-class">Step 2: Create the <code class="docutils literal notranslate"><span class="pre">Scoring</span></code> Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Attributes</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Methods</a></li>
+</ul>
+</li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-implement-score-calculation-logic">Step 3: Implement Score Calculation Logic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-display-dice-py">File: <code class="docutils literal notranslate"><span class="pre">display_dice.py</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Requirements</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Step 1: Import Required Libraries</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-the-display-dice-function">Step 2: Create the <code class="docutils literal notranslate"><span class="pre">display_dice</span></code> Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#function-signature">Function Signature</a></li>
+</ul>
+</li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-define-ascii-art-for-dice-faces">Step 3: Define ASCII Art for Dice Faces</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-implement-ansi-color-coding">Step 4: Implement ANSI Color Coding</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-construct-and-display-the-ascii-art">Step 5: Construct and Display the ASCII Art</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-play-yahtzee-py">File: <code class="docutils literal notranslate"><span class="pre">play_yahtzee.py</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Requirements</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-import-required-classes-and-functions">Step 1: Import Required Classes and Functions</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-the-playyahtzee-class">Step 2: Create the <code class="docutils literal notranslate"><span class="pre">PlayYahtzee</span></code> Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Attributes</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Methods</a></li>
+</ul>
+</li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-implement-the-game-logic">Step 3: Implement the Game Logic</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-main-execution">Step 4: Main Execution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-weightage">Overall Weightage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-categories">Grading Categories</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-quality-30-points">Code Quality (30 points)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#readability-10-points">Readability (10 points)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modularity-10-points">Modularity (10 points)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-10-points">Best Practices (10 points)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functionality-40-points">Functionality (40 points)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dice-py-15-points"><code class="docutils literal notranslate"><span class="pre">dice.py</span></code> (15 points)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#player-py-10-points"><code class="docutils literal notranslate"><span class="pre">player.py</span></code> (10 points)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scoring-py-10-points"><code class="docutils literal notranslate"><span class="pre">scoring.py</span></code> (10 points)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#display-dice-py-5-points"><code class="docutils literal notranslate"><span class="pre">display_dice.py</span></code> (5 points)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-tests-and-code-coverage-20-points">Unit Tests and Code Coverage (20 points)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-10-points">Documentation (10 points)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-points">Bonus Points</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-features-up-to-10-points">Advanced Features (up to 10 points)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="yahtzee-dice-python-implementation">
+<h1>Yahtzee Dice: Python Implementation<a class="headerlink" href="#yahtzee-dice-python-implementation" title="Permalink to this heading">#</a></h1>
+<section id="due-nov-10-2023">
+<h2>Due Nov. 10, 2023<a class="headerlink" href="#due-nov-10-2023" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="note-this-assignement-is-equivalent-to-2-5-other-homework-assignments">
+<h2>Note, This assignement is equivalent to 2.5 other homework assignments.<a class="headerlink" href="#note-this-assignement-is-equivalent-to-2-5-other-homework-assignments" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://classroom.github.com/a/_GbvyVON">GitHub Classroom Link</a></p>
+</section>
+<section id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">#</a></h2>
+<p>In this exercise, you will implement the logic for simulating dice rolls in a Yahtzee game. You will build upon Python’s object-oriented programming features and advanced data structures to accomplish this.</p>
+<p>You will build this package using best practices for Python package development using Pyscaffold. This will include adding docstring, type annotations - in the docstring, and unit tests to your code. You should achieve a code coverage of at least 80% for your unit tests. You could write this code on your own, but I assume that you will be much more effective working with ChatGPT as an assistant.</p>
+</section>
+<section id="rules-of-the-game-of-yahtzee">
+<h2>Rules of the Game of Yahtzee<a class="headerlink" href="#rules-of-the-game-of-yahtzee" title="Permalink to this heading">#</a></h2>
+<p>Yahtzee is a dice game that combines elements of chance and strategy. Below are the detailed rules for playing Yahtzee:</p>
+<section id="components">
+<h3>Components<a class="headerlink" href="#components" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>5 six-sided dice</p></li>
+<li><p>A score sheet for each player to record scores</p></li>
+<li><p>A cup for shaking dice (optional)</p></li>
+</ul>
+</section>
+<section id="id1">
+<h3>Objective<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>The objective of the game is to accumulate the highest score by rolling the five dice to make certain combinations, as outlined on the score sheet.</p>
+</section>
+<section id="number-of-players">
+<h3>Number of Players<a class="headerlink" href="#number-of-players" title="Permalink to this heading">#</a></h3>
+<p>The game can be played by one or more players. In multi-player settings, players take turns rolling the dice. Here, we will focus on implementing the single player version of the game.</p>
+</section>
+<section id="turn-sequence">
+<h3>Turn Sequence<a class="headerlink" href="#turn-sequence" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Roll Dice</strong>: At the beginning of each turn, the player rolls all five dice.</p></li>
+<li><p><strong>Keep or Re-roll</strong>: After the initial roll, the player can choose to keep some or all dice and re-roll the remaining ones. This can be done up to two more times (for a total of three rolls per turn).</p></li>
+<li><p><strong>Scoring</strong>: After the final roll, the player must choose a category on their score sheet to fill in with the score from that turn. Each category can only be used once.</p></li>
+</ol>
+</section>
+<section id="scoring-categories">
+<h3>Scoring Categories<a class="headerlink" href="#scoring-categories" title="Permalink to this heading">#</a></h3>
+<section id="upper-section">
+<h4>Upper Section<a class="headerlink" href="#upper-section" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Aces</strong>: Sum of all aces rolled</p></li>
+<li><p><strong>Twos</strong>: Sum of all twos rolled</p></li>
+<li><p><strong>Threes</strong>: Sum of all threes rolled</p></li>
+<li><p><strong>Fours</strong>: Sum of all fours rolled</p></li>
+<li><p><strong>Fives</strong>: Sum of all fives rolled</p></li>
+<li><p><strong>Sixes</strong>: Sum of all sixes rolled</p></li>
+</ol>
+<p>If a player scores at least 63 points in the upper section, they receive a bonus of 35 points.</p>
+</section>
+<section id="lower-section">
+<h4>Lower Section<a class="headerlink" href="#lower-section" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Three-of-a-Kind</strong>: At least three dice showing the same face; scores the sum of those three dice.</p></li>
+<li><p><strong>Four-of-a-Kind</strong>: At least four dice showing the same face; scores the sum of those four dice.</p></li>
+<li><p><strong>Full House</strong>: A three-of-a-kind and a pair; scores a flat 25 points.</p></li>
+<li><p><strong>Small Straight</strong>: Four consecutive dice; scores a flat 30 points.</p></li>
+<li><p><strong>Large Straight</strong>: Five consecutive dice; scores a flat 40 points.</p></li>
+<li><p><strong>Yahtzee</strong>: All five dice showing the same face; scores a flat 50 points. Additional Yahtzees score a bonus.</p></li>
+<li><p><strong>Chance</strong>: Any combination; scores the sum of all five dice.</p></li>
+</ol>
+</section>
+</section>
+<section id="end-of-the-game">
+<h3>End of the Game<a class="headerlink" href="#end-of-the-game" title="Permalink to this heading">#</a></h3>
+<p>The game ends when all players have filled in all categories on their score sheets.</p>
+</section>
+<section id="winner">
+<h3>Winner<a class="headerlink" href="#winner" title="Permalink to this heading">#</a></h3>
+<p>The player with the highest total score (upper section, lower section, and any bonuses) is the winner.</p>
+</section>
+<section id="strategy">
+<h3>Strategy<a class="headerlink" href="#strategy" title="Permalink to this heading">#</a></h3>
+<p>Players must balance between aiming for high-scoring categories and securing easier, lower-scoring categories to minimize the risk of being forced to take zero scores in later turns.</p>
+<p>By understanding these rules and employing strategic decisions, players aim to achieve the highest score possible.</p>
+</section>
+</section>
+<section id="guide-to-writing-the-code">
+<h2>Guide to Writing the Code<a class="headerlink" href="#guide-to-writing-the-code" title="Permalink to this heading">#</a></h2>
+<section id="file-dice-py">
+<h3>File: <code class="docutils literal notranslate"><span class="pre">dice.py</span></code><a class="headerlink" href="#file-dice-py" title="Permalink to this heading">#</a></h3>
+<section id="requirements">
+<h4>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">random</span></code> library for generating random numbers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dataclasses</span></code> library for creating data classes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">typing</span></code> library for type annotations</p></li>
+</ul>
+</section>
+<section id="code-structure">
+<h4>Code Structure<a class="headerlink" href="#code-structure" title="Permalink to this heading">#</a></h4>
+<p>Your <code class="docutils literal notranslate"><span class="pre">dice.py</span></code> should include two classes:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Dice</span></code>: Represents a single die with a customizable number of sides.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">YahtzeeDice</span></code>: Inherits from <code class="docutils literal notranslate"><span class="pre">Dice</span></code> and represents a set of dice in a Yahtzee game.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="instructions">
+<h4>Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading">#</a></h4>
+<section id="step-1-import-required-libraries">
+<h5>Step 1: Import Required Libraries<a class="headerlink" href="#step-1-import-required-libraries" title="Permalink to this heading">#</a></h5>
+<p>First, import the required libraries at the beginning of your Python file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+</pre></div>
+</div>
+</section>
+<section id="step-2-create-the-dice-class">
+<h5>Step 2: Create the <code class="docutils literal notranslate"><span class="pre">Dice</span></code> Class<a class="headerlink" href="#step-2-create-the-dice-class" title="Permalink to this heading">#</a></h5>
+<p>Create a class named <code class="docutils literal notranslate"><span class="pre">Dice</span></code> using Python’s <code class="docutils literal notranslate"><span class="pre">&#64;dataclass</span></code> decorator.</p>
+<section id="attributes">
+<h6>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">#</a></h6>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sides</span></code>: An integer that stores the number of sides on the dice (default should be 6).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">current_value</span></code>: An integer that stores the current value shown by the dice. It should be initialized to <code class="docutils literal notranslate"><span class="pre">None</span></code> and should not be set during object creation (<code class="docutils literal notranslate"><span class="pre">init=False</span></code>).</p></li>
+</ul>
+</section>
+<section id="methods">
+<h6>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h6>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">roll</span></code>: A method that generates a random integer between 1 and <code class="docutils literal notranslate"><span class="pre">sides</span></code>, updates <code class="docutils literal notranslate"><span class="pre">current_value</span></code>, and returns it.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Dice</span><span class="p">:</span>
+    <span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-3-create-the-yahtzeedice-class">
+<h5>Step 3: Create the <code class="docutils literal notranslate"><span class="pre">YahtzeeDice</span></code> Class<a class="headerlink" href="#step-3-create-the-yahtzeedice-class" title="Permalink to this heading">#</a></h5>
+<p>Create another class named <code class="docutils literal notranslate"><span class="pre">YahtzeeDice</span></code> that inherits from <code class="docutils literal notranslate"><span class="pre">Dice</span></code>.</p>
+<section id="id2">
+<h6>Attributes<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h6>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">num_dice</span></code>: An integer representing the number of dice in the set (default should be 5).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dice_set</span></code>: A list that will contain individual <code class="docutils literal notranslate"><span class="pre">Dice</span></code> objects. Initialize this attribute in the <code class="docutils literal notranslate"><span class="pre">__post_init__</span></code> method.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h6>Methods<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h6>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__post_init__</span></code>: Initializes the set of dice in <code class="docutils literal notranslate"><span class="pre">dice_set</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">roll_all</span></code>: Rolls all the dice in <code class="docutils literal notranslate"><span class="pre">dice_set</span></code> and returns a list of the rolled values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_values</span></code>: Returns a list containing the current values of all dice in <code class="docutils literal notranslate"><span class="pre">dice_set</span></code>.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">YahtzeeDice</span><span class="p">(</span><span class="n">Dice</span><span class="p">):</span>
+    <span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+<section id="file-player-py">
+<h3>File: <code class="docutils literal notranslate"><span class="pre">player.py</span></code><a class="headerlink" href="#file-player-py" title="Permalink to this heading">#</a></h3>
+<section id="id4">
+<h4>Requirements<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Import classes from existing files: <code class="docutils literal notranslate"><span class="pre">Scoring</span></code>, <code class="docutils literal notranslate"><span class="pre">YahtzeeDice</span></code></p></li>
+<li><p>Import function: <code class="docutils literal notranslate"><span class="pre">display_dice</span></code></p></li>
+</ul>
+</section>
+<section id="id5">
+<h4>Code Structure<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
+<p>Your <code class="docutils literal notranslate"><span class="pre">player.py</span></code> file should include two classes:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Player</span></code>: Manages a player’s overall state in the Yahtzee game.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PlayerTurn</span></code>: A nested class within <code class="docutils literal notranslate"><span class="pre">Player</span></code> that handles the logic for a single turn.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="id6">
+<h4>Instructions<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h4>
+<section id="step-1-import-required-libraries-and-modules">
+<h5>Step 1: Import Required Libraries and Modules<a class="headerlink" href="#step-1-import-required-libraries-and-modules" title="Permalink to this heading">#</a></h5>
+<p>First, import the required libraries and modules at the beginning of your Python file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">scoring</span> <span class="kn">import</span> <span class="n">Scoring</span>
+<span class="kn">from</span> <span class="nn">dice</span> <span class="kn">import</span> <span class="n">YahtzeeDice</span>
+<span class="kn">from</span> <span class="nn">display_dice</span> <span class="kn">import</span> <span class="n">display_dice</span>
+</pre></div>
+</div>
+</section>
+<section id="step-2-create-the-player-class">
+<h5>Step 2: Create the <code class="docutils literal notranslate"><span class="pre">Player</span></code> Class<a class="headerlink" href="#step-2-create-the-player-class" title="Permalink to this heading">#</a></h5>
+<p>Create a class named <code class="docutils literal notranslate"><span class="pre">Player</span></code> that inherits from the <code class="docutils literal notranslate"><span class="pre">Scoring</span></code> class.</p>
+<section id="id7">
+<h6>Attributes<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h6>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: A string to store the player’s name. Use <code class="docutils literal notranslate"><span class="pre">input()</span></code> to get this value during initialization.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">score</span></code>: An integer to store the player’s overall score (initially set to 0).</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Player</span><span class="p">(</span><span class="n">Scoring</span><span class="p">):</span>
+    <span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-3-create-the-nested-playerturn-class">
+<h5>Step 3: Create the Nested <code class="docutils literal notranslate"><span class="pre">PlayerTurn</span></code> Class<a class="headerlink" href="#step-3-create-the-nested-playerturn-class" title="Permalink to this heading">#</a></h5>
+<p>Inside the <code class="docutils literal notranslate"><span class="pre">Player</span></code> class, create a nested class named <code class="docutils literal notranslate"><span class="pre">PlayerTurn</span></code>.</p>
+<section id="id8">
+<h6>Attributes<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h6>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">yahtzee_dice</span></code>: An object of type <code class="docutils literal notranslate"><span class="pre">YahtzeeDice</span></code> to represent the dice set for the turn.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rolls_left</span></code>: An integer representing the number of rolls left in the turn (initially set to 3).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">held_dice</span></code>: A list to store the indices of dice that are being held.</p></li>
+</ul>
+</section>
+<section id="id9">
+<h6>Methods<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h6>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">roll</span></code>: Rolls all dice not being held, updates their values, and decrements <code class="docutils literal notranslate"><span class="pre">rolls_left</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hold</span></code>: Accepts a list of indices and updates <code class="docutils literal notranslate"><span class="pre">held_dice</span></code> to hold those dice.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_state</span></code>: Returns a dictionary containing the current state of the turn (<code class="docutils literal notranslate"><span class="pre">dice_values</span></code>, <code class="docutils literal notranslate"><span class="pre">rolls_left</span></code>, <code class="docutils literal notranslate"><span class="pre">held_dice</span></code>).</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PlayerTurn</span><span class="p">:</span>
+    <span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="file-scoring-py">
+<h3>File: <code class="docutils literal notranslate"><span class="pre">scoring.py</span></code><a class="headerlink" href="#file-scoring-py" title="Permalink to this heading">#</a></h3>
+<section id="id10">
+<h4>Requirements<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">collections</span></code> library for <code class="docutils literal notranslate"><span class="pre">Counter</span></code></p></li>
+</ul>
+</section>
+<section id="id11">
+<h4>Code Structure<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h4>
+<p>Your <code class="docutils literal notranslate"><span class="pre">scoring.py</span></code> file should include a single class:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Scoring</span></code>: Manages the scoring for a Yahtzee game.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="id12">
+<h4>Instructions<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h4>
+<section id="id13">
+<h5>Step 1: Import Required Libraries<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h5>
+<p>Start by importing the required library.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+</pre></div>
+</div>
+</section>
+<section id="step-2-create-the-scoring-class">
+<h5>Step 2: Create the <code class="docutils literal notranslate"><span class="pre">Scoring</span></code> Class<a class="headerlink" href="#step-2-create-the-scoring-class" title="Permalink to this heading">#</a></h5>
+<p>Create a class named <code class="docutils literal notranslate"><span class="pre">Scoring</span></code>.</p>
+<section id="id14">
+<h6>Attributes<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h6>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">score_card</span></code>: A dictionary to store the scores for each category.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">all_categories</span></code>: A set containing all possible scoring categories.</p></li>
+</ul>
+</section>
+<section id="id15">
+<h6>Methods<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h6>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">calculate_score</span></code>: Given a category and dice values, calculates the score for that category.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mark_score</span></code>: Records a score for a given category in <code class="docutils literal notranslate"><span class="pre">score_card</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_score_card</span></code>: Returns the current <code class="docutils literal notranslate"><span class="pre">score_card</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_category_used</span></code>: Checks if a category has already been used.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remaining_categories</span></code>: Returns a list of remaining categories.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_remaining_categories</span></code>: Returns the number of remaining categories.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_used_categories</span></code>: Returns the number of used categories.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_full</span></code>: Checks if the scorecard is full.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">display_score_card</span></code>: Displays the scorecard in a user-friendly format in the terminal.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Scoring</span><span class="p">:</span>
+    <span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-3-implement-score-calculation-logic">
+<h5>Step 3: Implement Score Calculation Logic<a class="headerlink" href="#step-3-implement-score-calculation-logic" title="Permalink to this heading">#</a></h5>
+<p>Implement the <code class="docutils literal notranslate"><span class="pre">calculate_score</span></code> method using the following logic:</p>
+<ol class="arabic simple">
+<li><p>For single-number categories (aces, twos, etc.), the score is the sum of dice showing that number.</p></li>
+<li><p>For “Three of a Kind” and “Four of a Kind,” the score is the sum of the three/four dice showing the same number.</p></li>
+<li><p>“Full House” scores the sum of all dice.</p></li>
+<li><p>“Small Straight” and “Large Straight” score 25 and 30 points, respectively.</p></li>
+<li><p>“Yahtzee” scores 50 points.</p></li>
+<li><p>“Chance” scores the sum of all dice.</p></li>
+</ol>
+<p>Use Python’s <code class="docutils literal notranslate"><span class="pre">Counter</span></code> class to count occurrences of each die value.</p>
+</section>
+</section>
+</section>
+<section id="file-display-dice-py">
+<h3>File: <code class="docutils literal notranslate"><span class="pre">display_dice.py</span></code><a class="headerlink" href="#file-display-dice-py" title="Permalink to this heading">#</a></h3>
+<section id="id16">
+<h4>Requirements<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">typing</span></code> library for type annotations</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id17">
+<h4>Instructions<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h4>
+<section id="id18">
+<h5>Step 1: Import Required Libraries<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h5>
+<p>First, import the required libraries at the beginning of your Python file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span>
+</pre></div>
+</div>
+</section>
+<section id="step-2-create-the-display-dice-function">
+<h5>Step 2: Create the <code class="docutils literal notranslate"><span class="pre">display_dice</span></code> Function<a class="headerlink" href="#step-2-create-the-display-dice-function" title="Permalink to this heading">#</a></h5>
+<p>Create a function named <code class="docutils literal notranslate"><span class="pre">display_dice</span></code> that takes two arguments:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">values</span></code> (List[int]): A list of integers representing the current face-up values of the dice.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">held_indices</span></code> (List[int], optional): A list of integers representing the indices of dice that are held. Default is an empty list.</p></li>
+</ol>
+<section id="function-signature">
+<h6>Function Signature<a class="headerlink" href="#function-signature" title="Permalink to this heading">#</a></h6>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">display_dice</span><span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">held_indices</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]):</span>
+    <span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-3-define-ascii-art-for-dice-faces">
+<h5>Step 3: Define ASCII Art for Dice Faces<a class="headerlink" href="#step-3-define-ascii-art-for-dice-faces" title="Permalink to this heading">#</a></h5>
+<p>Within the function, define a dictionary <code class="docutils literal notranslate"><span class="pre">dice_faces</span></code> that maps each die value to its ASCII art representation. The ASCII art should be a list of strings, each representing a row of the die face.</p>
+<p>For example, for a die showing <code class="docutils literal notranslate"><span class="pre">1</span></code>, the ASCII representation might be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;-----&quot;</span><span class="p">,</span> <span class="s2">&quot;|   |&quot;</span><span class="p">,</span> <span class="s2">&quot;| o |&quot;</span><span class="p">,</span> <span class="s2">&quot;|   |&quot;</span><span class="p">,</span> <span class="s2">&quot;-----&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="step-4-implement-ansi-color-coding">
+<h5>Step 4: Implement ANSI Color Coding<a class="headerlink" href="#step-4-implement-ansi-color-coding" title="Permalink to this heading">#</a></h5>
+<p>Use ANSI escape codes to change the color of the text for held dice. For instance, you can use <code class="docutils literal notranslate"><span class="pre">\033[92m</span></code> for green text and <code class="docutils literal notranslate"><span class="pre">\033[0m</span></code> to reset to the default color.</p>
+</section>
+<section id="step-5-construct-and-display-the-ascii-art">
+<h5>Step 5: Construct and Display the ASCII Art<a class="headerlink" href="#step-5-construct-and-display-the-ascii-art" title="Permalink to this heading">#</a></h5>
+<p>Iterate over each die value and its index. Use the index to determine whether the die is held (and should therefore be colored). Append the appropriate lines to a list of strings, each representing a row of the display.</p>
+<p>Finally, print each row to display the ASCII art.</p>
+</section>
+</section>
+</section>
+<section id="file-play-yahtzee-py">
+<h3>File: <code class="docutils literal notranslate"><span class="pre">play_yahtzee.py</span></code><a class="headerlink" href="#file-play-yahtzee-py" title="Permalink to this heading">#</a></h3>
+<section id="id19">
+<h4>Requirements<a class="headerlink" href="#id19" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Import classes and functions from existing files: <code class="docutils literal notranslate"><span class="pre">Player</span></code>, <code class="docutils literal notranslate"><span class="pre">display_dice</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id20">
+<h4>Instructions<a class="headerlink" href="#id20" title="Permalink to this heading">#</a></h4>
+<section id="step-1-import-required-classes-and-functions">
+<h5>Step 1: Import Required Classes and Functions<a class="headerlink" href="#step-1-import-required-classes-and-functions" title="Permalink to this heading">#</a></h5>
+<p>Import the required classes and functions at the beginning of your Python file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">player</span> <span class="kn">import</span> <span class="n">Player</span>
+<span class="kn">from</span> <span class="nn">display_dice</span> <span class="kn">import</span> <span class="n">display_dice</span>
+</pre></div>
+</div>
+</section>
+<section id="step-2-create-the-playyahtzee-class">
+<h5>Step 2: Create the <code class="docutils literal notranslate"><span class="pre">PlayYahtzee</span></code> Class<a class="headerlink" href="#step-2-create-the-playyahtzee-class" title="Permalink to this heading">#</a></h5>
+<p>Create a class named <code class="docutils literal notranslate"><span class="pre">PlayYahtzee</span></code>.</p>
+<section id="id21">
+<h6>Attributes<a class="headerlink" href="#id21" title="Permalink to this heading">#</a></h6>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">player</span></code>: An object of type <code class="docutils literal notranslate"><span class="pre">Player</span></code> that will manage the player’s state throughout the game.</p></li>
+</ul>
+</section>
+<section id="id22">
+<h6>Methods<a class="headerlink" href="#id22" title="Permalink to this heading">#</a></h6>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">roll</span></code>: Initiates a dice roll and displays the results.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">choose_category</span></code>: Allows the player to choose a scoring category.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_new_turn</span></code>: Resets the game state for a new turn.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">turn</span></code>: Manages a single turn in the game.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">play_game</span></code>: The main game loop that calls other methods to progress the game.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">generate_block_art</span></code>: Generates ASCII art for the game-over screen.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">game_over</span></code>: Ends the game and displays the final score.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PlayYahtzee</span><span class="p">:</span>
+    <span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-3-implement-the-game-logic">
+<h5>Step 3: Implement the Game Logic<a class="headerlink" href="#step-3-implement-the-game-logic" title="Permalink to this heading">#</a></h5>
+<ol class="arabic simple">
+<li><p><strong>roll</strong>: Starts a new turn, displays the score card, rolls the dice, and displays the results.</p></li>
+<li><p><strong>choose_category</strong>: Prompts the player to choose a scoring category. Validates the category and updates the score.</p></li>
+<li><p><strong>start_new_turn</strong>: Initializes a new turn by creating a <code class="docutils literal notranslate"><span class="pre">PlayerTurn</span></code> object.</p></li>
+<li><p><strong>turn</strong>: Manages a single turn, handling actions like rolling, holding dice, and choosing a scoring category.</p></li>
+<li><p><strong>play_game</strong>: The main game loop that continues until the score card is full.</p></li>
+<li><p><strong>generate_block_art</strong>: Generates a block of ASCII art to congratulate the player at the end of the game.</p></li>
+<li><p><strong>game_over</strong>: Displays the final score and exits the game.</p></li>
+</ol>
+</section>
+<section id="step-4-main-execution">
+<h5>Step 4: Main Execution<a class="headerlink" href="#step-4-main-execution" title="Permalink to this heading">#</a></h5>
+<p>Under the <code class="docutils literal notranslate"><span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__':</span></code> guard, instantiate the <code class="docutils literal notranslate"><span class="pre">PlayYahtzee</span></code> class and call its <code class="docutils literal notranslate"><span class="pre">play_game</span></code> method to start the game.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">game</span> <span class="o">=</span> <span class="n">PlayYahtzee</span><span class="p">()</span>
+    <span class="n">game</span><span class="o">.</span><span class="n">play_game</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+<section id="grading">
+<h2>Grading<a class="headerlink" href="#grading" title="Permalink to this heading">#</a></h2>
+<section id="overall-weightage">
+<h3>Overall Weightage<a class="headerlink" href="#overall-weightage" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>This assignment is equivalent to 2.5 other homework assignments.</p></li>
+</ul>
+</section>
+</section>
+<section id="grading-categories">
+<h2>Grading Categories<a class="headerlink" href="#grading-categories" title="Permalink to this heading">#</a></h2>
+<section id="code-quality-30-points">
+<h3>Code Quality (30 points)<a class="headerlink" href="#code-quality-30-points" title="Permalink to this heading">#</a></h3>
+<section id="readability-10-points">
+<h4>Readability (10 points)<a class="headerlink" href="#readability-10-points" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Code is well-organized and easy to read: 5 points</p></li>
+<li><p>Effective use of comments and docstrings: 5 points</p></li>
+</ul>
+</section>
+<section id="modularity-10-points">
+<h4>Modularity (10 points)<a class="headerlink" href="#modularity-10-points" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Code is effectively divided into functions/classes: 5 points</p></li>
+<li><p>Proper use of libraries and modules: 5 points</p></li>
+</ul>
+</section>
+<section id="best-practices-10-points">
+<h4>Best Practices (10 points)<a class="headerlink" href="#best-practices-10-points" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Follows PEP 8 guidelines: 5 points</p></li>
+<li><p>Use of idiomatic Python: 5 points</p></li>
+</ul>
+</section>
+</section>
+<section id="functionality-40-points">
+<h3>Functionality (40 points)<a class="headerlink" href="#functionality-40-points" title="Permalink to this heading">#</a></h3>
+<section id="dice-py-15-points">
+<h4><code class="docutils literal notranslate"><span class="pre">dice.py</span></code> (15 points)<a class="headerlink" href="#dice-py-15-points" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Implementation of <code class="docutils literal notranslate"><span class="pre">Dice</span></code> class: 5 points</p></li>
+<li><p>Implementation of <code class="docutils literal notranslate"><span class="pre">YahtzeeDice</span></code> class: 10 points</p></li>
+</ul>
+</section>
+<section id="player-py-10-points">
+<h4><code class="docutils literal notranslate"><span class="pre">player.py</span></code> (10 points)<a class="headerlink" href="#player-py-10-points" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Implementation of <code class="docutils literal notranslate"><span class="pre">Player</span></code> and nested <code class="docutils literal notranslate"><span class="pre">PlayerTurn</span></code> classes: 10 points</p></li>
+</ul>
+</section>
+<section id="scoring-py-10-points">
+<h4><code class="docutils literal notranslate"><span class="pre">scoring.py</span></code> (10 points)<a class="headerlink" href="#scoring-py-10-points" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Implementation of <code class="docutils literal notranslate"><span class="pre">Scoring</span></code> class: 10 points</p></li>
+</ul>
+</section>
+<section id="display-dice-py-5-points">
+<h4><code class="docutils literal notranslate"><span class="pre">display_dice.py</span></code> (5 points)<a class="headerlink" href="#display-dice-py-5-points" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Proper ASCII art display and coloring: 5 points</p></li>
+</ul>
+</section>
+</section>
+<section id="unit-tests-and-code-coverage-20-points">
+<h3>Unit Tests and Code Coverage (20 points)<a class="headerlink" href="#unit-tests-and-code-coverage-20-points" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>At least 80% code coverage: 10 points</p></li>
+<li><p>Test cases cover edge conditions: 10 points</p></li>
+</ul>
+</section>
+<section id="documentation-10-points">
+<h3>Documentation (10 points)<a class="headerlink" href="#documentation-10-points" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Comprehensive README: 5 points</p></li>
+<li><p>Inline code documentation (type annotations and descriptive docstrings): 5 points</p></li>
+</ul>
+</section>
+<section id="bonus-points">
+<h3>Bonus Points<a class="headerlink" href="#bonus-points" title="Permalink to this heading">#</a></h3>
+<section id="advanced-features-up-to-10-points">
+<h4>Advanced Features (up to 10 points)<a class="headerlink" href="#advanced-features-up-to-10-points" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Additional features like multiplayer support, GUI, etc.</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./homework\homework_3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../homework_2/homework2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Homework 2: Building a Package for a Graphical Game of Tic-Tac-Toe</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../resources/markdown.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Guide to Markdown</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#due-nov-10-2023">Due Nov. 10, 2023</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#note-this-assignement-is-equivalent-to-2-5-other-homework-assignments">Note, This assignement is equivalent to 2.5 other homework assignments.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective">Objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-of-the-game-of-yahtzee">Rules of the Game of Yahtzee</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components">Components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Objective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-players">Number of Players</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#turn-sequence">Turn Sequence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scoring-categories">Scoring Categories</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#upper-section">Upper Section</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lower-section">Lower Section</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#end-of-the-game">End of the Game</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#winner">Winner</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strategy">Strategy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guide-to-writing-the-code">Guide to Writing the Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-dice-py">File: <code class="docutils literal notranslate"><span class="pre">dice.py</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">Requirements</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#code-structure">Code Structure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-import-required-libraries">Step 1: Import Required Libraries</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-the-dice-class">Step 2: Create the <code class="docutils literal notranslate"><span class="pre">Dice</span></code> Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-the-yahtzeedice-class">Step 3: Create the <code class="docutils literal notranslate"><span class="pre">YahtzeeDice</span></code> Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Attributes</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-player-py">File: <code class="docutils literal notranslate"><span class="pre">player.py</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Requirements</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Code Structure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-import-required-libraries-and-modules">Step 1: Import Required Libraries and Modules</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-the-player-class">Step 2: Create the <code class="docutils literal notranslate"><span class="pre">Player</span></code> Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Attributes</a></li>
+</ul>
+</li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-the-nested-playerturn-class">Step 3: Create the Nested <code class="docutils literal notranslate"><span class="pre">PlayerTurn</span></code> Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Attributes</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-scoring-py">File: <code class="docutils literal notranslate"><span class="pre">scoring.py</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Requirements</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Code Structure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Step 1: Import Required Libraries</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-the-scoring-class">Step 2: Create the <code class="docutils literal notranslate"><span class="pre">Scoring</span></code> Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Attributes</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Methods</a></li>
+</ul>
+</li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-implement-score-calculation-logic">Step 3: Implement Score Calculation Logic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-display-dice-py">File: <code class="docutils literal notranslate"><span class="pre">display_dice.py</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Requirements</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Step 1: Import Required Libraries</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-the-display-dice-function">Step 2: Create the <code class="docutils literal notranslate"><span class="pre">display_dice</span></code> Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#function-signature">Function Signature</a></li>
+</ul>
+</li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-define-ascii-art-for-dice-faces">Step 3: Define ASCII Art for Dice Faces</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-implement-ansi-color-coding">Step 4: Implement ANSI Color Coding</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-construct-and-display-the-ascii-art">Step 5: Construct and Display the ASCII Art</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-play-yahtzee-py">File: <code class="docutils literal notranslate"><span class="pre">play_yahtzee.py</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Requirements</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Instructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-import-required-classes-and-functions">Step 1: Import Required Classes and Functions</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-the-playyahtzee-class">Step 2: Create the <code class="docutils literal notranslate"><span class="pre">PlayYahtzee</span></code> Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Attributes</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Methods</a></li>
+</ul>
+</li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-implement-the-game-logic">Step 3: Implement the Game Logic</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-main-execution">Step 4: Main Execution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-weightage">Overall Weightage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-categories">Grading Categories</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-quality-30-points">Code Quality (30 points)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#readability-10-points">Readability (10 points)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modularity-10-points">Modularity (10 points)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-10-points">Best Practices (10 points)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functionality-40-points">Functionality (40 points)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dice-py-15-points"><code class="docutils literal notranslate"><span class="pre">dice.py</span></code> (15 points)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#player-py-10-points"><code class="docutils literal notranslate"><span class="pre">player.py</span></code> (10 points)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scoring-py-10-points"><code class="docutils literal notranslate"><span class="pre">scoring.py</span></code> (10 points)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#display-dice-py-5-points"><code class="docutils literal notranslate"><span class="pre">display_dice.py</span></code> (5 points)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-tests-and-code-coverage-20-points">Unit Tests and Code Coverage (20 points)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-10-points">Documentation (10 points)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-points">Bonus Points</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-features-up-to-10-points">Advanced Features (up to 10 points)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joshua C. Agar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
