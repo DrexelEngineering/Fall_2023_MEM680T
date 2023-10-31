@@ -6,3 +6,5 @@ jupyter_contrib_nbextensions
 scikit-learn
 joblib
 pandas
+seaborn
+dash

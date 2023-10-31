@@ -70,6 +70,12 @@ parts:
   - caption: "📈 Matplotlib"
     chapters:
       - file: topic_7_Introduction_Matplotlib/Introduction_to_Plotting
+  - caption: "📈 Interactive Plotting"
+    chapters:
+      - file: topic_8_Interactive Plotting/Interactive_Graphing_with_Dash
+  - caption: "🧬 SciPy"
+    chapters:
+      - file: topic_9_Intro_to_scipy/introduction_to_scipy.ipynb
   - caption: "📝 Homework"
     chapters:
       - file: homework/homework
