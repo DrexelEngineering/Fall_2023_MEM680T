@@ -75,7 +75,10 @@ parts:
       - file: topic_8_Interactive Plotting/Interactive_Graphing_with_Dash
   - caption: "🧬 SciPy"
     chapters:
-      - file: topic_9_Intro_to_scipy/introduction_to_scipy.ipynb
+      - file: topic_9_Intro_to_scipy/introduction_to_scipy
+  -caption: " Symbolic Python"
+    chapters:
+      - file: topic_10_symbolic_python/SymPy\SymPy
   - caption: "📝 Homework"
     chapters:
       - file: homework/homework
