@@ -101,6 +101,8 @@ parts:
             title: "2️⃣ Building a Package for a Graphical Game of Tic-Tac-Toe"
           - file: homework/homework_3/homework_3
             title: "3️⃣ Building the Game of Yahtzee"
+          - file: homework/homework_4/homework_4
+            title: "4️⃣ Making Publishable Figures"
   - caption: "Additional Resources"
     chapters:
       - file: resources/markdown
