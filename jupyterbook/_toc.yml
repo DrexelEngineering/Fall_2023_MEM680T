@@ -76,9 +76,20 @@ parts:
   - caption: "🧬 SciPy"
     chapters:
       - file: topic_9_Intro_to_scipy/introduction_to_scipy
-  -caption: "🥧 Symbolic Python"
+  - caption: "🥧 Symbolic Python"
     chapters:
-      - file: topic_10_symbolic_python/SymPy\SymPy
+      - file: topic_10_symbolic_python/SymPy/SymPy
+  - caption: "Scientific Data Management"
+    chapters:
+      - file: topic_5_python/Introduction_to_python
+        title: "💾 Scientific Data Management"
+        sections:
+          - file: DataFed/1_DataFed_An_Introduction
+          - file: DataFed/2_DataFed_Installation
+          - file: DataFed/3_DataFed_Tutorial
+  - caption: "🖼️ Image Analysis"
+    chapters:
+      - file: topic_12_Image_Analysis/Topic_6_Image_Analysis/Image_Analysis
   - caption: "📝 Homework"
     chapters:
       - file: homework/homework
