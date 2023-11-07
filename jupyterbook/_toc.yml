@@ -81,12 +81,12 @@ parts:
       - file: topic_10_symbolic_python/SymPy/SymPy
   - caption: "Scientific Data Management"
     chapters:
-      - file: topic_5_python/Introduction_to_python
+      - file: topic_11_Scientific_Data_Management/Introduction_to_python
         title: "💾 Scientific Data Management"
         sections:
-          - file: DataFed/1_DataFed_An_Introduction
-          - file: DataFed/2_DataFed_Installation
-          - file: DataFed/3_DataFed_Tutorial
+          - file: topic_11_Scientific_Data_Management/1_DataFed_An_Introduction
+          - file: topic_11_Scientific_Data_Management/2_DataFed_Installation
+          - file: topic_11_Scientific_Data_Management/3_DataFed_Tutorial
   - caption: "🖼️ Image Analysis"
     chapters:
       - file: topic_12_Image_Analysis/Topic_6_Image_Analysis/Image_Analysis
