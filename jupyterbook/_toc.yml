@@ -76,7 +76,7 @@ parts:
   - caption: "🧬 SciPy"
     chapters:
       - file: topic_9_Intro_to_scipy/introduction_to_scipy
-  -caption: " Symbolic Python"
+  -caption: "🥧 Symbolic Python"
     chapters:
       - file: topic_10_symbolic_python/SymPy\SymPy
   - caption: "📝 Homework"
