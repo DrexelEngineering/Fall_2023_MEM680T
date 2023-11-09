@@ -1,0 +1,1256 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Sympy &#8212; MEM T680: Fall 2023: Data Analysis and Machine Learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'topic_10_symbolic_python/SymPy/SymPy';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="💾 Scientific Data Management" href="../../topic_11_Scientific_Data_Management/Introduction_to_python.html" />
+    <link rel="prev" title="Introduction to SciPy" href="../../topic_9_Intro_to_scipy/introduction_to_scipy.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/m3_logo.png" class="logo__image only-light" alt="MEM T680: Fall 2023: Data Analysis and Machine Learning - Home"/>
+    <script>document.write(`<img src="../../_static/m3_logo.png" class="logo__image only-dark" alt="MEM T680: Fall 2023: Data Analysis and Machine Learning - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to Fall 2023 MEM680T
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Content 📜</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course_materials/final_project.html">Final Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pre-Course Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preclass_survey/preclass_survey.html">Pre-class Survey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preclass_survey/Survey_Response.html">Pre-class Survey Response</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 1: Why is Data Analysis the Most Important Skill</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../topic_1_why_data_analysis_is_the_most_important_skill/T1_Importance_of_Data_Analysis/Importance_of_Data_Analysis.html">Importance of Data Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 2: Challenges in Data Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../topic_2_Challenges_in_Data_Analysis/Challenges%20in%20Data%20Analysis.html">Challenges in Data Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 3: Tools for Computing in Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../topic_3_computing_env/1_setting_up_your_computing_environment.html">Setting up your Computing Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic_3_computing_env/2_Installing_a_python_interpreter.html">Install a Python interpreter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic_3_computing_env/3_navigating_jupyter.html">Using Project Jupyter</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../topic_3_computing_env/4_python_in_vscode.html">Getting Started with Python in VS Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic_3_computing_env/5_Jupyter_Notebook_in_VScode.html">Jupyter Notebooks in VS Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic_3_computing_env/6_Example_Notebook_VScode.html">Welcome to Jupyter Notebook in VScode!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 4: Tools for Software Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../topic_4_tools_for_software_development/1_Introduction_to_GIT.html">Introduction to GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic_4_tools_for_software_development/2_pyscaffold_tutorial.html">Pyscaffold Tutorial</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🐍 Introduction to Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../topic_5_python/Introduction_to_python.html">🐍 Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/1_Introduction_to_python_operators.html">🔢 Introduction to Python Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/2_datatypes.html">🔡 Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/3_If_else.html">🔀 If-Else Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/4_loops.html">🔁 Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/5_functions.html">📜 Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/6_iterators_and_generators.html">🔃 Iterators and Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/7_lambda_function.html">🔨 Lambda Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/8_classes.html">🛠 Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/9_Dataclasses.html">📦 Dataclasses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/10_Args_Kwargs.html">🎯 Args and Kwargs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_5_python/11_decorators.html">✨ Decorators</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🔢 Numpy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../topic_6_Numpy/Introduction_to_numpy.html">What is NumPy?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topic_6_Numpy/Basics_of_numpy.html">Welcome to NumPy!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">📈 Matplotlib</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../topic_7_Introduction_Matplotlib/Introduction_to_Plotting.html">Introduction to Plotting in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">📈 Interactive Plotting</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../topic_8_Interactive%20Plotting/Interactive_Graphing_with_Dash.html">Interactive Graphing with Dash</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🧬 SciPy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../topic_9_Intro_to_scipy/introduction_to_scipy.html">Introduction to SciPy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🥧 Symbolic Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sympy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Scientific Data Management</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../topic_11_Scientific_Data_Management/Introduction_to_python.html">💾 Scientific Data Management</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_11_Scientific_Data_Management/1_DataFed_An_Introduction.html">Introduction to DataFed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_11_Scientific_Data_Management/2_DataFed_Installation.html">Installing DataFed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topic_11_Scientific_Data_Management/3_DataFed_Tutorial.html">DataFed Tutorial</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🖼️ Image Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../topic_12_Image_Analysis/Topic_6_Image_Analysis/Image_Analysis.html">Introduction to Image Analysis with Scikit-Image</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">📝 Homework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../homework/homework.html">📝 Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/homework_1/homework_1_whitepaper.html">1️⃣ Project Whitepaper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/homework_2/homework2.html">2️⃣ Building a Package for a Graphical Game of Tic-Tac-Toe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/homework_3/homework_3.html">3️⃣ Building the Game of Yahtzee</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/homework_4/homework_4.html">4️⃣ Making Publishable Figures</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../resources/markdown.html">Guide to Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub.coe.drexel.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/DrexelEngineering/Fall_2023_MEM680T&urlpath=tree/Fall_2023_MEM680T/jupyterbook/topic_10_symbolic_python/SymPy/SymPy.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/DrexelEngineering/Fall_2023_MEM680T/blob/master/jupyterbook/topic_10_symbolic_python/SymPy/SymPy.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DrexelEngineering/Fall_2023_MEM680T" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DrexelEngineering/Fall_2023_MEM680T/issues/new?title=Issue%20on%20page%20%2Ftopic_10_symbolic_python/SymPy/SymPy.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/topic_10_symbolic_python/SymPy/SymPy.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sympy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-symbolic-computation">What is Symbolic Computation?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-sympy">Why Sympy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-more-interesting-example">A more interesting example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-power-of-symbolic-computation">The Power of Symbolic Computation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-exercise">Class Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series-expansion">Series Expansion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lambdafy">Lambdafy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-lambdafy-with-sympy">Using Lambdafy with SymPy</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sympy">
+<h1>Sympy<a class="headerlink" href="#sympy" title="Permalink to this heading">#</a></h1>
+<section id="what-is-symbolic-computation">
+<h2>What is Symbolic Computation?<a class="headerlink" href="#what-is-symbolic-computation" title="Permalink to this heading">#</a></h2>
+<p>Symbolic computation deals with the computation of mathematical objects
+symbolically. This means that the mathematical objects are represented
+exactly, not approximately, and mathematical expressions with unevaluated
+variables are left in symbolic form.</p>
+<p>Let’s take an example. Say we wanted to use the built-in Python functions to
+compute square roots. We might do something like this</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>9 is a perfect square, so we got the exact answer, 3. But suppose we computed
+the square root of a number that isn’t a perfect square</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.8284271247461903
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we got an approximate result. 2.82842712475 is not the exact square root
+of 8 (indeed, the actual square root of 8 cannot be represented by a finite
+decimal, since it is an irrational number). If all we cared about was the
+decimal form of the square root of 8, we would be done.</p>
+<p>But suppose we want to go further. Recall that <span class="math notranslate nohighlight">\(\sqrt{8} = \sqrt{4\cdot 2} =
+2\sqrt{2}\)</span>. We would have a hard time deducing this from the above result.
+This is where symbolic computation comes in. With a symbolic computation
+system like SymPy, square roots of numbers that are not perfect squares are
+left unevaluated by default</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span>
+
+<span class="n">sympy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2 \sqrt{2}\]</div>
+</div>
+</div>
+</section>
+<section id="why-sympy">
+<h2>Why Sympy<a class="headerlink" href="#why-sympy" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>It is free and open source, you can even use it as part of something you sell</p></li>
+<li><p>SymPy is written entirely in Python, and is executed entirely in Python. Thus it is interoperable</p></li>
+<li><p>It is very lightweight to download and install. Other packages might be Gb in size.</p></li>
+<li><p>It can be used as a library. There is an Application Programming Interface or API for use with other tools.</p></li>
+</ol>
+</section>
+<section id="a-more-interesting-example">
+<h2>A more interesting example<a class="headerlink" href="#a-more-interesting-example" title="Permalink to this heading">#</a></h2>
+<p>The above example starts to show how we can manipulate irrational numbers
+exactly using SymPy. But it is much more powerful than that. Symbolic
+computation systems (which by the way, are also often called computer algebra
+systems, or just CASs) such as SymPy are capable of computing symbolic
+expressions with variables.</p>
+<p>Let us define a symbolic expression, representing the mathematical expression</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x y&quot;</span><span class="p">)</span>
+<span class="n">expr</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">y</span>
+<span class="n">expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x + 2 y\]</div>
+</div>
+</div>
+<p>Note that we wrote <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">2*y</span></code> just as we would if <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> were
+ordinary Python variables. But in this case, instead of evaluating to
+something, the expression remains as just <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">2*y</span></code>. Now let us play around
+with it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expr</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x + 2 y + 1\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expr</span> <span class="o">-</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2 y\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">*</span> <span class="n">expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x \left(x + 2 y\right)\]</div>
+</div>
+</div>
+<p>Notice something in the above example. When we typed <code class="docutils literal notranslate"><span class="pre">expr</span></code>, we did not
+get <span class="math notranslate nohighlight">\(x + 2 y-x\)</span>, but rather just <span class="math notranslate nohighlight">\(2y\)</span>. The <code class="docutils literal notranslate"><span class="pre">x</span></code> and the <code class="docutils literal notranslate"><span class="pre">-x</span></code>
+automatically canceled one another. This is similar to how <code class="docutils literal notranslate"><span class="pre">sqrt(8)</span></code>
+automatically turned into <code class="docutils literal notranslate"><span class="pre">2*sqrt(2)</span></code> above. This isn’t always the case in
+SymPy, however:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">expand</span><span class="p">,</span> <span class="n">factor</span>
+
+<span class="n">expanded</span> <span class="o">=</span> <span class="n">expand</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">expr</span><span class="p">)</span>
+<span class="n">expanded</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x^{2} + 2 x y\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factor</span><span class="p">(</span><span class="n">expanded</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x \left(x + 2 y\right)\]</div>
+</div>
+</div>
+</section>
+<section id="the-power-of-symbolic-computation">
+<h2>The Power of Symbolic Computation<a class="headerlink" href="#the-power-of-symbolic-computation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The real power of a symbolic computation system such as SymPy is the ability to do all sorts of computations symbolically. SymPy can simplify expressions,</p>
+<ul>
+<li><p>compute derivatives</p></li>
+<li><p>integrals</p></li>
+<li><p>limits</p></li>
+<li><p>solve equations</p></li>
+<li><p>work with matrices</p></li>
+</ul>
+</li>
+</ul>
+<p>It includes modules for plotting, printing (like 2D pretty printed output of math
+formulas, or <span class="math notranslate nohighlight">\(\mathrm{\LaTeX}\)</span>, code generation, physics, statistics, combinatorics,
+number theory, geometry, logic, and more. Here is a small sampling of the sort
+of symbolic power SymPy is capable of, to whet your appetite.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># * means we import everything from the package</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># defines multiple symbols at once</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">nu</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x t z nu&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># x is now an object of type Symbol</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sympy.core.symbol.Symbol
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This will make things look pretty</span>
+<span class="n">init_printing</span><span class="p">(</span><span class="n">use_unicode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="class-exercise">
+<h3>Class Exercise<a class="headerlink" href="#class-exercise" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><em>Take</em> the derivative of <span class="math notranslate nohighlight">\(sin{(x)}e^x\)</span></p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(\int(e^x\sin{(x)} + e^x\cos{(x)})\,dx\)</span></p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(\int_{-\infty}^\infty \sin{(x^2)}\,dx\)</span></p></li>
+<li><p>Find <span class="math notranslate nohighlight">\(\lim_{x\to 0}\frac{\sin{(x)}}{x}\)</span></p></li>
+<li><p>Solve <span class="math notranslate nohighlight">\(x^2 - 2 = 0\)</span></p></li>
+<li><p>Solve the differential equation <span class="math notranslate nohighlight">\(y'' - y = e^t\)</span></p></li>
+</ol>
+<ol class="arabic simple">
+<li><p><em>Take</em> the derivative of <span class="math notranslate nohighlight">\(sin{(x)}e^x\)</span></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type Your Solution Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diff</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">diff</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="nn">File C:\ProgramData\Miniconda3\envs\mem680\lib\site-packages\IPython\core\displayhook.py:268,</span> in <span class="ni">DisplayHook.__call__</span><span class="nt">(self, result)</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_displayhook</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">267</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_output_prompt</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">268</span> <span class="n">format_dict</span><span class="p">,</span> <span class="n">md_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_format_data</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">269</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_user_ns</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span> <span class="bp">self</span><span class="o">.</span><span class="n">fill_exec_result</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nn">File C:\ProgramData\Miniconda3\envs\mem680\lib\site-packages\IPython\core\displayhook.py:157,</span> in <span class="ni">DisplayHook.compute_format_data</span><span class="nt">(self, result)</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span> <span class="k">def</span> <span class="nf">compute_format_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Compute format data of the object to be displayed.</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span><span class="sd">     The format data is a generalization of the :func:`repr` of an object.</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">157</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">display_formatter</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nn">File C:\ProgramData\Miniconda3\envs\mem680\lib\site-packages\IPython\core\formatters.py:179,</span> in <span class="ni">DisplayFormatter.format</span><span class="nt">(self, obj, include, exclude)</span>
+<span class="g g-Whitespace">    </span><span class="mi">177</span> <span class="n">md</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">178</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">179</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">formatter</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">180</span> <span class="k">except</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span>     <span class="c1"># FIXME: log the exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">182</span>     <span class="k">raise</span>
+
+<span class="nn">File C:\ProgramData\Miniconda3\envs\mem680\lib\site-packages\decorator.py:232,</span> in <span class="ni">decorate.&lt;locals&gt;.fun</span><span class="nt">(*args, **kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">kwsyntax</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">231</span>     <span class="n">args</span><span class="p">,</span> <span class="n">kw</span> <span class="o">=</span> <span class="n">fix</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kw</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">232</span> <span class="k">return</span> <span class="n">caller</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">extras</span> <span class="o">+</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+
+<span class="nn">File C:\ProgramData\Miniconda3\envs\mem680\lib\site-packages\IPython\core\formatters.py:223,</span> in <span class="ni">catch_format_error</span><span class="nt">(method, self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;show traceback on failed format call&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">222</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">223</span>     <span class="n">r</span> <span class="o">=</span> <span class="n">method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span> <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">225</span>     <span class="c1"># don&#39;t warn on NotImplementedErrors</span>
+<span class="g g-Whitespace">    </span><span class="mi">226</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_return</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="nn">File C:\ProgramData\Miniconda3\envs\mem680\lib\site-packages\IPython\core\formatters.py:344,</span> in <span class="ni">BaseFormatter.__call__</span><span class="nt">(self, obj)</span>
+<span class="g g-Whitespace">    </span><span class="mi">342</span>     <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span>     <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">344</span>         <span class="k">return</span> <span class="n">method</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">345</span>     <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File C:\ProgramData\Miniconda3\envs\mem680\lib\site-packages\sympy\interactive\printing.py:178,</span> in <span class="ni">_init_ipython_printing.&lt;locals&gt;._print_latex_png</span><span class="nt">(o)</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span>     <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">displaystyle </span><span class="si">%s</span><span class="s1">$&#39;</span> <span class="o">%</span> <span class="n">s</span>
+<span class="g g-Whitespace">    </span><span class="mi">177</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">178</span>     <span class="k">return</span> <span class="n">_preview_wrapper</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">179</span> <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">180</span>     <span class="n">debug</span><span class="p">(</span><span class="s1">&#39;preview failed with:&#39;</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">e</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span>           <span class="s1">&#39; Falling back to matplotlib backend&#39;</span><span class="p">)</span>
+
+<span class="nn">File C:\ProgramData\Miniconda3\envs\mem680\lib\site-packages\sympy\interactive\printing.py:89,</span> in <span class="ni">_init_ipython_printing.&lt;locals&gt;._preview_wrapper</span><span class="nt">(o)</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span> <span class="n">exprbuffer</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">89</span>     <span class="n">preview</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="n">viewer</span><span class="o">=</span><span class="s1">&#39;BytesIO&#39;</span><span class="p">,</span> <span class="n">euler</span><span class="o">=</span><span class="n">euler</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span>             <span class="n">outputbuffer</span><span class="o">=</span><span class="n">exprbuffer</span><span class="p">,</span> <span class="n">extra_preamble</span><span class="o">=</span><span class="n">extra_preamble</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span>             <span class="n">dvioptions</span><span class="o">=</span><span class="n">dvioptions</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span>     <span class="c1"># IPython swallows exceptions</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span>     <span class="n">debug</span><span class="p">(</span><span class="s2">&quot;png printing:&quot;</span><span class="p">,</span> <span class="s2">&quot;_preview_wrapper exception raised:&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>           <span class="nb">repr</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+
+<span class="nn">File C:\ProgramData\Miniconda3\envs\mem680\lib\site-packages\sympy\printing\preview.py:369,</span> in <span class="ni">preview</span><span class="nt">(expr, output, viewer, euler, packages, filename, outputbuffer, preamble, dvioptions, outputTexFile, extra_preamble, fontsize, **latex_settings)</span>
+<span class="g g-Whitespace">    </span><span class="mi">366</span> <span class="n">cmd</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">commandend</span><span class="p">[</span><span class="n">cmd_variant</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">368</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">369</span>     <span class="n">_check_output_no_window</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="n">workdir</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">STDOUT</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">370</span> <span class="k">except</span> <span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">371</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">372</span>         <span class="s2">&quot;&#39;</span><span class="si">%s</span><span class="s2">&#39; exited abnormally with the following output:</span><span class="se">\n</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+<span class="g g-Whitespace">    </span><span class="mi">373</span>         <span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cmd</span><span class="p">),</span> <span class="n">e</span><span class="o">.</span><span class="n">output</span><span class="p">))</span>
+
+<span class="nn">File C:\ProgramData\Miniconda3\envs\mem680\lib\site-packages\sympy\printing\preview.py:25,</span> in <span class="ni">_check_output_no_window</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">creation_flag</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Default value</span>
+<span class="ne">---&gt; </span><span class="mi">25</span> <span class="k">return</span> <span class="n">check_output</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">creationflags</span><span class="o">=</span><span class="n">creation_flag</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File C:\ProgramData\Miniconda3\envs\mem680\lib\subprocess.py:420,</span> in <span class="ni">check_output</span><span class="nt">(timeout, *popenargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">417</span>         <span class="n">empty</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">418</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;input&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">empty</span>
+<span class="ne">--&gt; </span><span class="mi">420</span> <span class="k">return</span> <span class="n">run</span><span class="p">(</span><span class="o">*</span><span class="n">popenargs</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">421</span>            <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span>
+
+<span class="nn">File C:\ProgramData\Miniconda3\envs\mem680\lib\subprocess.py:503,</span> in <span class="ni">run</span><span class="nt">(input, capture_output, timeout, check, *popenargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">501</span> <span class="k">with</span> <span class="n">Popen</span><span class="p">(</span><span class="o">*</span><span class="n">popenargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">process</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">502</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">503</span>         <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">504</span>     <span class="k">except</span> <span class="n">TimeoutExpired</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">505</span>         <span class="n">process</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+
+<span class="nn">File C:\ProgramData\Miniconda3\envs\mem680\lib\subprocess.py:1136,</span> in <span class="ni">Popen.communicate</span><span class="nt">(self, input, timeout)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1134</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_stdin_write</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1135</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1136</span>     <span class="n">stdout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1137</span>     <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1138</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Compute <span class="math notranslate nohighlight">\(\int(e^x\sin{(x)} + e^x\cos{(x)})\,dx\)</span></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type Your Solution Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integrate</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Compute <span class="math notranslate nohighlight">\(\int_{-\infty}^\infty \sin{(x^2)}\,dx\)</span></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type Your Solution Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integrate</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">,</span> <span class="n">oo</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2ea61f491bea77a259ec499d541af4127d50eb61b5efd4cc20ed04bdd77394ae.png" src="../../_images/2ea61f491bea77a259ec499d541af4127d50eb61b5efd4cc20ed04bdd77394ae.png" />
+</div>
+</details>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Find <span class="math notranslate nohighlight">\(\lim_{x\to 0}\frac{\sin{(x)}}{x}\)</span></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type Your Solution Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">limit</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d81096050bd44ce57b5d5fe4208dfd494a47c011aecee7a2c422785cd87b6ef4.png" src="../../_images/d81096050bd44ce57b5d5fe4208dfd494a47c011aecee7a2c422785cd87b6ef4.png" />
+</div>
+</details>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Solve <span class="math notranslate nohighlight">\(x^2 - 2 = 0\)</span></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type Your Solution Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solve</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9cbb813dd92da3329623663c900326d767d72e12f725ce314541001f5d472b5f.png" src="../../_images/9cbb813dd92da3329623663c900326d767d72e12f725ce314541001f5d472b5f.png" />
+</div>
+</details>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Solve the differential equation <span class="math notranslate nohighlight">\(y'' - y = e^t\)</span></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type Your Solution Here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">dsolve</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">exp</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3b674da8bc46d79e453155690ab94fa4e18ca93b80f3522df06175d500a8492e.png" src="../../_images/3b674da8bc46d79e453155690ab94fa4e18ca93b80f3522df06175d500a8492e.png" />
+</div>
+</details>
+</div>
+<p>Print <span class="math notranslate nohighlight">\(\int_{0}^{\pi} \cos^{2}{\left (x \right )}\, dx\)</span> in <span class="math notranslate nohighlight">\(\mathrm{\LaTeX}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">latex</span><span class="p">(</span><span class="n">Integral</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pi</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\\int\\limits_{0}^{\\pi} \\cos^{2}{\\left(x \\right)}\\, dx&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="series-expansion">
+<h2>Series Expansion<a class="headerlink" href="#series-expansion" title="Permalink to this heading">#</a></h2>
+<p>SymPy can compute asymptotic series expansions of functions around a point. To
+compute the expansion of <span class="math notranslate nohighlight">\(f(x)\)</span> around the point <span class="math notranslate nohighlight">\(x = x_0\)</span> terms of order
+<span class="math notranslate nohighlight">\(x^n\)</span> use <code class="docutils literal notranslate"><span class="pre">f(x).series(x,x0,n)</span></code>.<code class="docutils literal notranslate"><span class="pre">x0</span></code> and <code class="docutils literal notranslate"><span class="pre">n</span></code> can be omitted, in
+which case the defaults <code class="docutils literal notranslate"><span class="pre">x0=0</span></code> and <code class="docutils literal notranslate"><span class="pre">n=6</span></code> will be used.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">expr</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/fbfdd984b281582532bee4d33901e5250b1d2d172cd2bd6aa4dafd1fcfbd6338.png" src="../../_images/fbfdd984b281582532bee4d33901e5250b1d2d172cd2bd6aa4dafd1fcfbd6338.png" />
+</div>
+</div>
+<p>The <span class="math notranslate nohighlight">\(O\left(x^4\right)\)</span> term at the end represents the Landau order term at
+<code class="docutils literal notranslate"><span class="pre">x=0</span></code> (not to be confused with big O notation used in computer science, which
+generally represents the Landau order term at <span class="math notranslate nohighlight">\(x=\infty\)</span>. All x terms with power greater than or equal to <span class="math notranslate nohighlight">\(x^4\)</span> are omitted. Order terms
+can be created and manipulated outside of <code class="docutils literal notranslate"><span class="pre">series</span></code>. They automatically absorb higher-order terms.</p>
+</section>
+<section id="lambdafy">
+<h2>Lambdafy<a class="headerlink" href="#lambdafy" title="Permalink to this heading">#</a></h2>
+<p>Lambdafy allows you to use SymPy expressions as functions</p>
+<p>The easiest way to convert a SymPy expression to an expression that can be numerically evaluated is to use the <code class="docutils literal notranslate"><span class="pre">lambdify</span></code> function. <code class="docutils literal notranslate"><span class="pre">lambdify</span></code> acts like a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function, except it converts the SymPy names to the names of the given numerical library, usually NumPy. For example</p>
+<p>Recall <code class="docutils literal notranslate"><span class="pre">Lambda</span></code> functions are just small anonymous functions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10 11 12 13 14 15 16 17 18 19]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myfunc</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span> <span class="o">*</span> <span class="n">n</span>
+
+
+<span class="n">mytripler</span> <span class="o">=</span> <span class="n">myfunc</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mytripler</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33
+</pre></div>
+</div>
+</div>
+</div>
+<section id="using-lambdafy-with-sympy">
+<h3>Using Lambdafy with SymPy<a class="headerlink" href="#using-lambdafy-with-sympy" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">expr</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">expr</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        ,  0.84147098,  0.90929743,  0.14112001, -0.7568025 ,
+       -0.95892427, -0.2794155 ,  0.6569866 ,  0.98935825,  0.41211849])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./topic_10_symbolic_python\SymPy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../topic_9_Intro_to_scipy/introduction_to_scipy.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction to SciPy</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../topic_11_Scientific_Data_Management/Introduction_to_python.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">💾 Scientific Data Management</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-symbolic-computation">What is Symbolic Computation?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-sympy">Why Sympy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-more-interesting-example">A more interesting example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-power-of-symbolic-computation">The Power of Symbolic Computation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-exercise">Class Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series-expansion">Series Expansion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lambdafy">Lambdafy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-lambdafy-with-sympy">Using Lambdafy with SymPy</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joshua C. Agar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

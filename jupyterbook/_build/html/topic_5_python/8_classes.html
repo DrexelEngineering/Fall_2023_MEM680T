@@ -1,0 +1,1198 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Classes &#8212; MEM T680: Fall 2023: Data Analysis and Machine Learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'topic_5_python/8_classes';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Classes in Python" href="9_Dataclasses.html" />
+    <link rel="prev" title="Lambda Functions" href="7_lambda_function.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/m3_logo.png" class="logo__image only-light" alt="MEM T680: Fall 2023: Data Analysis and Machine Learning - Home"/>
+    <script>document.write(`<img src="../_static/m3_logo.png" class="logo__image only-dark" alt="MEM T680: Fall 2023: Data Analysis and Machine Learning - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to Fall 2023 MEM680T
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Content 📜</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../course_materials/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../course_materials/final_project.html">Final Project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pre-Course Materials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preclass_survey/preclass_survey.html">Pre-class Survey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preclass_survey/Survey_Response.html">Pre-class Survey Response</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 1: Why is Data Analysis the Most Important Skill</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../topic_1_why_data_analysis_is_the_most_important_skill/T1_Importance_of_Data_Analysis/Importance_of_Data_Analysis.html">Importance of Data Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 2: Challenges in Data Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../topic_2_Challenges_in_Data_Analysis/Challenges%20in%20Data%20Analysis.html">Challenges in Data Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 3: Tools for Computing in Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../topic_3_computing_env/1_setting_up_your_computing_environment.html">Setting up your Computing Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic_3_computing_env/2_Installing_a_python_interpreter.html">Install a Python interpreter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic_3_computing_env/3_navigating_jupyter.html">Using Project Jupyter</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../topic_3_computing_env/4_python_in_vscode.html">Getting Started with Python in VS Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic_3_computing_env/5_Jupyter_Notebook_in_VScode.html">Jupyter Notebooks in VS Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic_3_computing_env/6_Example_Notebook_VScode.html">Welcome to Jupyter Notebook in VScode!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 4: Tools for Software Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../topic_4_tools_for_software_development/1_Introduction_to_GIT.html">Introduction to GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic_4_tools_for_software_development/2_pyscaffold_tutorial.html">Pyscaffold Tutorial</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🐍 Introduction to Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction_to_python.html">🐍 Introduction to Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_Introduction_to_python_operators.html">🔢 Introduction to Python Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_datatypes.html">🔡 Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_If_else.html">🔀 If-Else Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_loops.html">🔁 Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_functions.html">📜 Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_iterators_and_generators.html">🔃 Iterators and Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_lambda_function.html">🔨 Lambda Functions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">🛠 Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9_Dataclasses.html">📦 Dataclasses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Args_Kwargs.html">🎯 Args and Kwargs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_decorators.html">✨ Decorators</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🔢 Numpy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../topic_6_Numpy/Introduction_to_numpy.html">What is NumPy?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic_6_Numpy/Basics_of_numpy.html">Welcome to NumPy!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">📈 Matplotlib</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../topic_7_Introduction_Matplotlib/Introduction_to_Plotting.html">Introduction to Plotting in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">📈 Interactive Plotting</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../topic_8_Interactive%20Plotting/Interactive_Graphing_with_Dash.html">Interactive Graphing with Dash</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🧬 SciPy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../topic_9_Intro_to_scipy/introduction_to_scipy.html">Introduction to SciPy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🥧 Symbolic Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../topic_10_symbolic_python/SymPy/SymPy.html">Sympy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Scientific Data Management</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../topic_11_Scientific_Data_Management/Introduction_to_python.html">💾 Scientific Data Management</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../topic_11_Scientific_Data_Management/1_DataFed_An_Introduction.html">Introduction to DataFed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topic_11_Scientific_Data_Management/2_DataFed_Installation.html">Installing DataFed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topic_11_Scientific_Data_Management/3_DataFed_Tutorial.html">DataFed Tutorial</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🖼️ Image Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../topic_12_Image_Analysis/Topic_6_Image_Analysis/Image_Analysis.html">Introduction to Image Analysis with Scikit-Image</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">📝 Homework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../homework/homework.html">📝 Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../homework/homework_1/homework_1_whitepaper.html">1️⃣ Project Whitepaper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/homework_2/homework2.html">2️⃣ Building a Package for a Graphical Game of Tic-Tac-Toe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/homework_3/homework_3.html">3️⃣ Building the Game of Yahtzee</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/homework_4/homework_4.html">4️⃣ Making Publishable Figures</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../resources/markdown.html">Guide to Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub.coe.drexel.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/DrexelEngineering/Fall_2023_MEM680T&urlpath=tree/Fall_2023_MEM680T/jupyterbook/topic_5_python/8_classes.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/DrexelEngineering/Fall_2023_MEM680T/blob/master/jupyterbook/topic_5_python/8_classes.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DrexelEngineering/Fall_2023_MEM680T" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DrexelEngineering/Fall_2023_MEM680T/issues/new?title=Issue%20on%20page%20%2Ftopic_5_python/8_classes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/topic_5_python/8_classes.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Classes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-use-case">Example use case:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-with-defining-the-class">Start with defining the class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objects">Objects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components-of-objects">Components of Objects</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-build-and-object-from-the-class">Let’s build and object from the <code class="docutils literal notranslate"><span class="pre">class</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-self-class">The <code class="docutils literal notranslate"><span class="pre">self</span></code> class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-init-method">The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-class-exercise-creating-a-class-and-objects-with-attributes-and-instance-attributes">In-Class Exercise: Creating a class and objects with attributes and instance attributes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test">Test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-method">Adding a Method</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Test</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance">Inheritance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance-example">Inheritance Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-create-a-parent-class-with-a-method">Step 1: Create a parent class with a method</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-creating-a-child-class">Step 2: Creating a Child Class;</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Testing</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-adding-inheritance">Step 3: Adding Inheritance</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Test</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-classes-with-methods-for-strings">Exercise: Classes with Methods for Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">Tasks</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="classes">
+<h1>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Is a logical group that contains attributes and methods</p></li>
+<li><p>This allows programs to be created with simple objects that are easy to read and modify</p></li>
+<li><p>It says that all instances of a class have the same attributes and methods</p></li>
+</ul>
+<section id="example-use-case">
+<h2>Example use case:<a class="headerlink" href="#example-use-case" title="Permalink to this heading">#</a></h2>
+<p>Suppose you have a bunch of rubber ducks in your store and you want to keep an inventory where each duck has some attributes (e.g., color, size, name). This is a perfect use case for a <code class="docutils literal notranslate"><span class="pre">class</span></code>. You can define a class that is rubber ducks, which has a set of definable attributes.</p>
+<ul class="simple">
+<li><p>Classes are created by the keyword <code class="docutils literal notranslate"><span class="pre">class</span></code></p></li>
+<li><p>Attributes are variables that belong to a class</p></li>
+<li><p>Attributes can be accessed via the (<code class="docutils literal notranslate"><span class="pre">.</span></code>) operator (e.g., <code class="docutils literal notranslate"><span class="pre">class.attribute</span></code>)</p></li>
+</ul>
+</section>
+<section id="start-with-defining-the-class">
+<h2>Start with defining the class<a class="headerlink" href="#start-with-defining-the-class" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Rubber_Duck</span><span class="p">:</span>  <span class="c1"># Defines the class</span>
+    <span class="k">pass</span>  <span class="c1"># passes when called</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We created a class that does nothing :)</p>
+</section>
+<section id="objects">
+<h2>Objects<a class="headerlink" href="#objects" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>An object is a variable that has a state and behavior associated with it.</p></li>
+<li><p>An object can be as simple as a integer</p></li>
+<li><p>An object can be as complex as nested functions</p></li>
+</ul>
+<section id="components-of-objects">
+<h3>Components of Objects<a class="headerlink" href="#components-of-objects" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>State:</strong> It is represented by the attributes of an object. It also reflects the properties of an object.</p></li>
+<li><p><strong>Behavior</strong> Methods of the object, and how the object interacts with other objects</p></li>
+<li><p><strong>Identity</strong> The Unique name that is used to identify the object</p></li>
+</ul>
+<section id="let-s-build-and-object-from-the-class">
+<h4>Let’s build and object from the <code class="docutils literal notranslate"><span class="pre">class</span></code><a class="headerlink" href="#let-s-build-and-object-from-the-class" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="n">Rubber_Duck</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>This created an object of the type <code class="docutils literal notranslate"><span class="pre">Rubber_Duck</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="the-self-class">
+<h3>The <code class="docutils literal notranslate"><span class="pre">self</span></code> class<a class="headerlink" href="#the-self-class" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Class methods have an initial parameter which refers to itself</p></li>
+</ul>
+<ul class="simple">
+<li><p>If we call <code class="docutils literal notranslate"><span class="pre">myobj.method(arg1,</span> <span class="pre">arg2)</span></code> we are actually calling <code class="docutils literal notranslate"><span class="pre">myobj.method(myobj,</span> <span class="pre">arg1,</span> <span class="pre">arg2)</span></code></p></li>
+</ul>
+<ul class="simple">
+<li><p>To simplify this in classes, the <code class="docutils literal notranslate"><span class="pre">self</span></code> refers to the object</p></li>
+</ul>
+</section>
+<section id="the-init-method">
+<h3>The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method<a class="headerlink" href="#the-init-method" title="Permalink to this heading">#</a></h3>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">arg</span> <span class="o">=</span> <span class="n">arg</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>This method is called when the object is instantiated</p></li>
+</ul>
+</section>
+</section>
+<section id="in-class-exercise-creating-a-class-and-objects-with-attributes-and-instance-attributes">
+<h2>In-Class Exercise: Creating a class and objects with attributes and instance attributes<a class="headerlink" href="#in-class-exercise-creating-a-class-and-objects-with-attributes-and-instance-attributes" title="Permalink to this heading">#</a></h2>
+<p>Task:</p>
+<ul class="simple">
+<li><p>Create a Class Rubber_Duck</p></li>
+<li><p>Add an attribute <code class="docutils literal notranslate"><span class="pre">obj_type</span></code> and set it equal to “toy”</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function to set the name</p></li>
+<li><p>Instantiate two objects <code class="docutils literal notranslate"><span class="pre">luke_skywalker</span></code> with a name <code class="docutils literal notranslate"><span class="pre">Luke</span> <span class="pre">Skywalker</span></code> and <code class="docutils literal notranslate"><span class="pre">leia_Organa</span></code> with a name <code class="docutils literal notranslate"><span class="pre">Leia</span> <span class="pre">Organa</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type your solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Rubber_Duck</span><span class="p">:</span>  <span class="c1"># Defines the class</span>
+
+    <span class="c1"># Class attribute</span>
+    <span class="n">obj_type</span> <span class="o">=</span> <span class="s2">&quot;toy&quot;</span>
+
+    <span class="c1"># Instance attribute</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+
+<span class="c1"># Object instantiation</span>
+<span class="n">luke_skywalker</span> <span class="o">=</span> <span class="n">Rubber_Duck</span><span class="p">(</span><span class="s2">&quot;Luke Skywalker&quot;</span><span class="p">)</span>
+<span class="n">leia_organa</span> <span class="o">=</span> <span class="n">Rubber_Duck</span><span class="p">(</span><span class="s2">&quot;Leia Organa&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="test">
+<h3>Test<a class="headerlink" href="#test" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Accessing class attributes</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Luke Skywalker is a </span><span class="si">{</span><span class="n">luke_skywalker</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">obj_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Leia Organa is a </span><span class="si">{</span><span class="n">leia_organa</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">obj_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Accessing instance attributes</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My name is </span><span class="si">{</span><span class="n">luke_skywalker</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My name is </span><span class="si">{</span><span class="n">leia_organa</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Luke Skywalker is a toy
+Leia Organa is a toy
+My name is Luke Skywalker
+My name is Leia Organa
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-a-method">
+<h3>Adding a Method<a class="headerlink" href="#adding-a-method" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>You can add methods within the class</p></li>
+</ul>
+<p>Task:</p>
+<ul class="simple">
+<li><p>Add a method to the class <code class="docutils literal notranslate"><span class="pre">Rubber_Duck</span></code> that completes the line <code class="docutils literal notranslate"><span class="pre">f&quot;My</span> <span class="pre">name</span> <span class="pre">is</span> <span class="pre">{leia_organa.name}&quot;</span></code> when <code class="docutils literal notranslate"><span class="pre">class.speak</span></code> is called</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your solution goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Rubber_Duck</span><span class="p">:</span>  <span class="c1"># Defines the class</span>
+
+    <span class="c1"># Class attribute</span>
+    <span class="n">obj_type</span> <span class="o">=</span> <span class="s2">&quot;toy&quot;</span>
+
+    <span class="c1"># Instance attribute</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My name is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Object instantiation</span>
+<span class="n">luke_skywalker</span> <span class="o">=</span> <span class="n">Rubber_Duck</span><span class="p">(</span><span class="s2">&quot;Luke Skywalker&quot;</span><span class="p">)</span>
+<span class="n">leia_organa</span> <span class="o">=</span> <span class="n">Rubber_Duck</span><span class="p">(</span><span class="s2">&quot;Leia Organa&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="id1">
+<h4>Test<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">luke_skywalker</span><span class="o">.</span><span class="n">speak</span><span class="p">()</span>
+<span class="n">leia_organa</span><span class="o">.</span><span class="n">speak</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My name is Luke Skywalker
+My name is Leia Organa
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="inheritance">
+<h2>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Inheritance allows one class to inherit properties from another class</p></li>
+</ul>
+<ul class="simple">
+<li><p>Usually referred to as child and parent classes</p></li>
+</ul>
+<ul class="simple">
+<li><p>It allows you to better represent real-world relationships</p></li>
+</ul>
+<ul class="simple">
+<li><p>Code can become much more reusable</p></li>
+</ul>
+<ul class="simple">
+<li><p>It is transitive meaning that if Class B inherits from Class A than subclasses of Class B would also inherit from Class A</p></li>
+</ul>
+<section id="inheritance-example">
+<h3>Inheritance Example<a class="headerlink" href="#inheritance-example" title="Permalink to this heading">#</a></h3>
+<div class="admonition-syntax admonition">
+<p class="admonition-title">Syntax</p>
+<p>Class BaseClass:
+{Body}
+Class DerivedClass(BaseClass):
+{Body}</p>
+</div>
+<section id="step-1-create-a-parent-class-with-a-method">
+<h4>Step 1: Create a parent class with a method<a class="headerlink" href="#step-1-create-a-parent-class-with-a-method" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Create a parent class named <code class="docutils literal notranslate"><span class="pre">Person</span></code> that defines a <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code></p></li>
+<li><p>Add a Class method that prints the name and title</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your solution goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+
+    <span class="c1"># Constructor</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+    <span class="c1"># To check if this person is an employee</span>
+    <span class="k">def</span> <span class="nf">Display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="testing">
+<h5>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jedi</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Darth Vader&quot;</span><span class="p">,</span> <span class="mi">56</span><span class="p">)</span>
+<span class="n">jedi</span><span class="o">.</span><span class="n">Display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Darth Vader 56
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="step-2-creating-a-child-class">
+<h4>Step 2: Creating a Child Class;<a class="headerlink" href="#step-2-creating-a-child-class" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Create a child class of <code class="docutils literal notranslate"><span class="pre">Person</span></code>, <code class="docutils literal notranslate"><span class="pre">Jedi</span></code> that has a method <code class="docutils literal notranslate"><span class="pre">Print</span></code> that prints <code class="docutils literal notranslate"><span class="pre">Jedi's</span> <span class="pre">use</span> <span class="pre">the</span> <span class="pre">force</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your solution goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Jedi</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">Print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jedi&#39;s use the force&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="id2">
+<h5>Testing<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># instantiate the parent class</span>
+<span class="n">jedi_info</span> <span class="o">=</span> <span class="n">Jedi</span><span class="p">(</span><span class="s2">&quot;Darth Vader&quot;</span><span class="p">,</span> <span class="mi">56</span><span class="p">)</span>
+
+<span class="c1"># calls the parent class</span>
+<span class="n">jedi_info</span><span class="o">.</span><span class="n">Display</span><span class="p">()</span>
+
+<span class="c1"># calls the child class</span>
+<span class="n">jedi_info</span><span class="o">.</span><span class="n">Print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Darth Vader 56
+Jedi&#39;s use the force
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="step-3-adding-inheritance">
+<h4>Step 3: Adding Inheritance<a class="headerlink" href="#step-3-adding-inheritance" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Starting with the base Class <code class="docutils literal notranslate"><span class="pre">Person</span></code> add a method to <code class="docutils literal notranslate"><span class="pre">getName</span></code> that returns the <code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+<li><p>Add a method <code class="docutils literal notranslate"><span class="pre">isAlliance</span></code> that establishes if the person is part of the Rebel Alliance, the default should be <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p>Add a inherited child class <code class="docutils literal notranslate"><span class="pre">Alliance</span></code> that changes <code class="docutils literal notranslate"><span class="pre">isAlliance</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your solution goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+
+    <span class="c1"># Constructor</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+    <span class="c1"># Function that gets the name</span>
+    <span class="k">def</span> <span class="nf">getName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="c1"># Function that returns if the person is part of the alliance</span>
+    <span class="k">def</span> <span class="nf">isAlliance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="c1"># Inherited child class</span>
+<span class="k">class</span> <span class="nc">Alliance</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+
+    <span class="c1"># This will change the isAlliance class to True</span>
+    <span class="k">def</span> <span class="nf">isAlliance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="id3">
+<h5>Test<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">darth_vader</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Darth Vader&quot;</span><span class="p">,</span> <span class="mi">56</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">darth_vader</span><span class="o">.</span><span class="n">getName</span><span class="p">(),</span> <span class="n">darth_vader</span><span class="o">.</span><span class="n">isAlliance</span><span class="p">())</span>
+
+<span class="n">luke_skywalker</span> <span class="o">=</span> <span class="n">Alliance</span><span class="p">(</span><span class="s2">&quot;Luke Skywalker&quot;</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">luke_skywalker</span><span class="o">.</span><span class="n">getName</span><span class="p">(),</span> <span class="n">luke_skywalker</span><span class="o">.</span><span class="n">isAlliance</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Darth Vader False
+Luke Skywalker True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+<section id="exercise-classes-with-methods-for-strings">
+<h2>Exercise: Classes with Methods for Strings<a class="headerlink" href="#exercise-classes-with-methods-for-strings" title="Permalink to this heading">#</a></h2>
+<p>When you build a class there are a bunch of built-in magic methods methods. These can be used to do simple operations</p>
+<p>In this exercise we are going to use the methods <code class="docutils literal notranslate"><span class="pre">__str__</span></code> and <code class="docutils literal notranslate"><span class="pre">__repr__</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">__str__</span></code> - To get called by built-int str() method to return a string representation of a type.</p>
+<p><code class="docutils literal notranslate"><span class="pre">__repr__</span></code> - To get called by built-int repr() method to return a machine readable representation of a type.</p>
+</section>
+<section id="tasks">
+<h2>Tasks<a class="headerlink" href="#tasks" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Build a class called <code class="docutils literal notranslate"><span class="pre">Person</span></code> that records the first name <code class="docutils literal notranslate"><span class="pre">first_name</span></code>, last name <code class="docutils literal notranslate"><span class="pre">last_name</span></code>, and age <code class="docutils literal notranslate"><span class="pre">age</span></code></p></li>
+<li><p>Add built in methods that returns a <code class="docutils literal notranslate"><span class="pre">__str__</span></code> as an f-string. It should read “{First Name} {Last Name} is {age}”</p></li>
+<li><p>Add built in methods that returns a <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> as an f-string. It should read “{First Name} {Last Name} is very old, they are {age}”</p></li>
+<li><p>Try this with a person named “Luke” “Skywalker” age “80”</p></li>
+<li><p>Since you added the <code class="docutils literal notranslate"><span class="pre">__str__</span></code> and <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> functions the object can act as a string. Try this by printing the object using an f-string.</p></li>
+<li><p>You can print the machine readable version using the following syntax `f”{object!r}</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">first_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_name</span> <span class="o">=</span> <span class="n">last_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last_name</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last_name</span><span class="si">}</span><span class="s2"> is very old, they are </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">new_person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Luke&quot;</span><span class="p">,</span> <span class="s2">&quot;Skywalker&quot;</span><span class="p">,</span> <span class="s2">&quot;80&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">new_person</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Luke Skywalker is 80.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">new_person</span><span class="si">!r}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Luke Skywalker is very old, they are 80&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./topic_5_python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="7_lambda_function.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">Lambda</span></code> Functions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="9_Dataclasses.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Classes in Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-use-case">Example use case:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-with-defining-the-class">Start with defining the class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objects">Objects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components-of-objects">Components of Objects</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-build-and-object-from-the-class">Let’s build and object from the <code class="docutils literal notranslate"><span class="pre">class</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-self-class">The <code class="docutils literal notranslate"><span class="pre">self</span></code> class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-init-method">The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-class-exercise-creating-a-class-and-objects-with-attributes-and-instance-attributes">In-Class Exercise: Creating a class and objects with attributes and instance attributes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test">Test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-method">Adding a Method</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Test</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance">Inheritance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance-example">Inheritance Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-create-a-parent-class-with-a-method">Step 1: Create a parent class with a method</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-creating-a-child-class">Step 2: Creating a Child Class;</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Testing</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-adding-inheritance">Step 3: Adding Inheritance</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Test</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-classes-with-methods-for-strings">Exercise: Classes with Methods for Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">Tasks</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joshua C. Agar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
