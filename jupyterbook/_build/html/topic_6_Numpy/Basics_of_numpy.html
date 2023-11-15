@@ -252,6 +252,11 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../topic_12_Image_Analysis/Topic_6_Image_Analysis/Image_Analysis.html">Introduction to Image Analysis with Scikit-Image</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">📊➡️🧠 Supervised Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../topic_13_Supervised_ML/0_Supervised_Learning.html">Introduction to Linear Machine Learning</a></li>
+
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">📝 Homework</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework/homework.html">📝 Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -781,7 +786,9 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: total: 0 ns
-Wall time: 1.03 ms
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wall time: 243 ms
 </pre></div>
 </div>
 </div>
@@ -796,7 +803,7 @@ Wall time: 1.03 ms
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: total: 0 ns
-Wall time: 0 ns
+Wall time: 11 ms
 </pre></div>
 </div>
 </div>
@@ -865,7 +872,7 @@ Wall time: 0 ns
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jca92\AppData\Local\Temp\ipykernel_47580\4059324171.py:1: DeprecationWarning: NumPy will stop allowing conversion of out-of-bound Python integers to integer arrays.  The conversion of 260 to uint8 will fail in the future.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Joshua Agar\AppData\Local\Temp\ipykernel_54128\4059324171.py:1: DeprecationWarning: NumPy will stop allowing conversion of out-of-bound Python integers to integer arrays.  The conversion of 260 to uint8 will fail in the future.
 For the old behavior, usually:
     np.array(value).astype(dtype)
 will give the desired result (the cast overflows).
@@ -900,7 +907,7 @@ will give the desired result (the cast overflows).
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 30 897 894 ... 788 639 587]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[726 878 926 ... 422 146 147]
 </pre></div>
 </div>
 </div>
@@ -915,7 +922,7 @@ will give the desired result (the cast overflows).
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: total: 0 ns
-Wall time: 0 ns
+Wall time: 1 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  0,   0,   0, ..., 999, 999, 999])
@@ -1274,6 +1281,9 @@ Wall time: 0 ns
  [ True  True  True  True]]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>You can also find the index that satisfies a condition using <code class="docutils literal notranslate"><span class="pre">np.argwhere</span></code></p>
@@ -1295,7 +1305,7 @@ Wall time: 0 ns
  [2 0]
  [2 1]]
 CPU times: total: 0 ns
-Wall time: 999 µs
+Wall time: 0 ns
 </pre></div>
 </div>
 </div>
@@ -1314,7 +1324,7 @@ Wall time: 999 µs
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0, 0, 1, 1, 1, 1, 2, 2], dtype=int64), array([2, 3, 0, 1, 2, 3, 0, 1], dtype=int64))
 [ 3  4  5  6  7  8  9 10]
 CPU times: total: 0 ns
-Wall time: 1 ms
+Wall time: 932 µs
 </pre></div>
 </div>
 </div>
@@ -1434,9 +1444,9 @@ Wall time: 1 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2068027341200
-2068027341200
-2068027340240
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2179682797968
+2179682797968
+2179682797680
 </pre></div>
 </div>
 </div>

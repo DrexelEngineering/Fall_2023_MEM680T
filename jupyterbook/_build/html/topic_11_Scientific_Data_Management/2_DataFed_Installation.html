@@ -252,6 +252,11 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../topic_12_Image_Analysis/Topic_6_Image_Analysis/Image_Analysis.html">Introduction to Image Analysis with Scikit-Image</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">📊➡️🧠 Supervised Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../topic_13_Supervised_ML/0_Supervised_Learning.html">Introduction to Linear Machine Learning</a></li>
+
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">📝 Homework</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework/homework.html">📝 Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -657,11 +662,11 @@ Each Conda environment has a <code class="docutils literal notranslate"><span cl
 </li>
 </ul>
 <p>Open the <code class="docutils literal notranslate"><span class="pre">activate</span></code> script in a text editor. Look for a line that modifies the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable and add your desired path to it. On Linux/Mac, it might look like:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;&lt;path_to_your_environment&gt;/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;&lt;path_to_your_environment&gt;/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 <p>Append your desired path at the end (or beginning, depending on your needs):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;&lt;path_to_your_environment&gt;/bin:&lt;your_new_path&gt;:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;&lt;path_to_your_environment&gt;/bin:&lt;your_new_path&gt;:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </li>
@@ -751,7 +756,7 @@ After reactivating your environment, you can check the <code class="docutils lit
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sys.version_info(major=3, minor=10, micro=0, releaselevel=&#39;final&#39;, serial=0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sys.version_info(major=3, minor=10, micro=13, releaselevel=&#39;final&#39;, serial=0)
 </pre></div>
 </div>
 </div>
@@ -763,7 +768,7 @@ After reactivating your environment, you can check the <code class="docutils lit
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Windows-10-10.0.22635-SP0&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Windows-10-10.0.22621-SP0&#39;
 </pre></div>
 </div>
 </div>
@@ -804,7 +809,9 @@ After reactivating your environment, you can check the <code class="docutils lit
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Success! You have been authenticated into DataFed as: u/jca318
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You have not authenticated into DataFed Client
+Please follow instructions in the &quot;Basic Configuration&quot; section in the link below to authenticate yourself:
+https://ornl.github.io/DataFed/user/client/install.html#basic-configuration
 </pre></div>
 </div>
 </div>
@@ -829,8 +836,42 @@ After reactivating your environment, you can check the <code class="docutils lit
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your default Globus Endpoint in DataFed is:
-f134f91a-572a-11ed-ba55-d5fb255a47cc
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please follow instructions in the link below to find your Globus Endpoint:
+https://ornl.github.io/DataFed/system/getting_started.html#install-identify-globus-endpoint
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please follow instructions in the link below to find your Globus Endpoint:&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="nb">print</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>         <span class="s2">&quot;https://ornl.github.io/DataFed/system/getting_started.html#install-identify-globus-endpoint&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="n">endpoint</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Please enter either the Endpoint UUID or Legacy Name for your Globus Endpoint: &quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">df_api</span><span class="o">.</span><span class="n">endpointDefaultSet</span><span class="p">(</span><span class="n">endpoint</span><span class="p">)</span>
+<span class="nn">     11 print(&quot;Your default Globus Endpoint</span> in <span class="ni">DataFed is:\n&quot; + df_api.endpointDefaultGet</span><span class="nt">())</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python310\site-packages\ipykernel\kernelbase.py:1174,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span> <span class="sd">&quot;&quot;&quot;Forward raw_input to frontends</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span><span class="sd"> Raises</span>
+<span class="g g-Whitespace">   </span><span class="mi">1170</span><span class="sd"> ------</span>
+<span class="g g-Whitespace">   </span><span class="mi">1171</span><span class="sd"> StdinNotImplementedError if active frontend doesn&#39;t support stdin.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1172</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1174</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1175</span>         <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1178</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1181</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
 </pre></div>
 </div>
 </div>
@@ -849,17 +890,17 @@ f134f91a-572a-11ed-ba55-d5fb255a47cc
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(task {
-   id: &quot;task/498215359&quot;
+   id: &quot;task/498214918&quot;
    type: TT_DATA_GET
    status: TS_SUCCEEDED
    client: &quot;u/jca318&quot;
    step: 2
    steps: 3
    msg: &quot;Finished&quot;
-   ct: 1699329282
-   ut: 1699329288
+   ct: 1699329206
+   ut: 1699329211
    source: &quot;d/49965349&quot;
-   dest: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/C/codes/Fall_2023_MEM680T/jupyterbook/topic_11_Scientific_Data_Management/datapath&quot;
+   dest: &quot;f134f91a-572a-11ed-ba55-d5fb255a47cc/c/codes/Fall_2023_MEM680T/jupyterbook/topic_11_Scientific_Data_Management/datapath&quot;
  },
  &#39;TaskDataReply&#39;)
 </pre></div>

@@ -90,6 +90,9 @@ parts:
   - caption: "🖼️ Image Analysis"
     chapters:
       - file: topic_12_Image_Analysis/Topic_6_Image_Analysis/Image_Analysis
+  - caption: "📊➡️🧠 Supervised Machine Learning"
+    chapters:
+      - file: topic_13_Supervised_ML/0_Supervised_Learning
   - caption: "📝 Homework"
     chapters:
       - file: homework/homework

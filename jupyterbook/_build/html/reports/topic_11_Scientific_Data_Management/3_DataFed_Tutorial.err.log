@@ -1,0 +1,52 @@
+Traceback (most recent call last):
+  File "C:\Conda\envs\mem680\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\Joshua Agar\AppData\Roaming\Python\Python310\site-packages\nbclient\client.py", line 1263, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\Joshua Agar\AppData\Roaming\Python\Python310\site-packages\nbclient\util.py", line 85, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "C:\Users\Joshua Agar\AppData\Roaming\Python\Python310\site-packages\nbclient\util.py", line 60, in just_run
+    return loop.run_until_complete(coro)
+  File "C:\Conda\envs\mem680\lib\asyncio\base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "C:\Users\Joshua Agar\AppData\Roaming\Python\Python310\site-packages\nbclient\client.py", line 701, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\Joshua Agar\AppData\Roaming\Python\Python310\site-packages\nbclient\client.py", line 1019, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\Joshua Agar\AppData\Roaming\Python\Python310\site-packages\nbclient\client.py", line 913, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+pl_resp = df_api.projectList()
+print(pl_resp)
+
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mException[0m                                 Traceback (most recent call last)
+Cell [1;32mIn [3], line 1[0m
+[1;32m----> 1[0m pl_resp [38;5;241m=[39m [43mdf_api[49m[38;5;241;43m.[39;49m[43mprojectList[49m[43m([49m[43m)[49m
+[0;32m      2[0m [38;5;28mprint[39m(pl_resp)
+
+File [1;32mC:\Conda\envs\mem680\lib\site-packages\datafed\CommandLib.py:1874[0m, in [0;36mAPI.projectList[1;34m(self, owned, admin, member, offset, count)[0m
+[0;32m   1871[0m msg[38;5;241m.[39moffset [38;5;241m=[39m offset
+[0;32m   1872[0m msg[38;5;241m.[39mcount [38;5;241m=[39m count
+[1;32m-> 1874[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_mapi[49m[38;5;241;43m.[39;49m[43msendRecv[49m[43m([49m[43mmsg[49m[43m)[49m
+
+File [1;32mC:\Conda\envs\mem680\lib\site-packages\datafed\MessageLib.py:354[0m, in [0;36mAPI.sendRecv[1;34m(self, msg, timeout, nack_except)[0m
+[0;32m    352[0m [38;5;28mself[39m[38;5;241m.[39msend(msg)
+[0;32m    353[0m _timeout [38;5;241m=[39m timeout [38;5;28;01mif[39;00m timeout [38;5;241m!=[39m [38;5;28;01mNone[39;00m [38;5;28;01melse[39;00m [38;5;28mself[39m[38;5;241m.[39m_timeout
+[1;32m--> 354[0m reply, mt, ctxt [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mrecv[49m[43m([49m[43m_timeout[49m[43m,[49m[43m [49m[43mnack_except[49m[43m)[49m
+[0;32m    355[0m [38;5;28;01mif[39;00m reply [38;5;241m==[39m [38;5;28;01mNone[39;00m:
+[0;32m    356[0m     [38;5;28;01mraise[39;00m [38;5;167;01mException[39;00m([38;5;124m"[39m[38;5;124mTimeout!!!!!!!!![39m[38;5;124m"[39m)
+
+File [1;32mC:\Conda\envs\mem680\lib\site-packages\datafed\MessageLib.py:399[0m, in [0;36mAPI.recv[1;34m(self, timeout, nack_except)[0m
+[0;32m    397[0m [38;5;28;01mif[39;00m msg_type [38;5;241m==[39m [38;5;124m"[39m[38;5;124mNackReply[39m[38;5;124m"[39m [38;5;129;01mand[39;00m _nack_except:
+[0;32m    398[0m     [38;5;28;01mif[39;00m reply[38;5;241m.[39merr_msg:
+[1;32m--> 399[0m         [38;5;28;01mraise[39;00m [38;5;167;01mException[39;00m(reply[38;5;241m.[39merr_msg)
+[0;32m    400[0m     [38;5;28;01melse[39;00m:
+[0;32m    401[0m         [38;5;28;01mraise[39;00m [38;5;167;01mException[39;00m([38;5;124m"[39m[38;5;124mServer error [39m[38;5;132;01m{}[39;00m[38;5;124m"[39m[38;5;241m.[39mformat(reply[38;5;241m.[39merr_code))
+
+[1;31mException[0m: Authentication required
+Exception: Authentication required
+

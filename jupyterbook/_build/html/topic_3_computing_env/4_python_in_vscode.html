@@ -252,6 +252,11 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../topic_12_Image_Analysis/Topic_6_Image_Analysis/Image_Analysis.html">Introduction to Image Analysis with Scikit-Image</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">📊➡️🧠 Supervised Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../topic_13_Supervised_ML/0_Supervised_Learning.html">Introduction to Linear Machine Learning</a></li>
+
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">📝 Homework</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework/homework.html">📝 Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -549,9 +554,9 @@ document.write(`
 <h2>Start VS Code in a workspace folder<a class="headerlink" href="#start-vs-code-in-a-workspace-folder" title="Permalink to this heading">#</a></h2>
 <p>By starting VS Code in a folder, that folder becomes your “workspace”.</p>
 <p>Using a command prompt or terminal, create an empty folder called “hello”, navigate into it, and open VS Code (<code class="docutils literal notranslate"><span class="pre">code</span></code>) in that folder (<code class="docutils literal notranslate"><span class="pre">.</span></code>) by entering the following commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>hello
-<span class="nb">cd</span><span class="w"> </span>hello
-code<span class="w"> </span>.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir hello
+<span class="nb">cd</span> hello
+code .
 </pre></div>
 </div>
 <blockquote>
@@ -562,7 +567,7 @@ code<span class="w"> </span>.
 <section id="create-a-virtual-environment">
 <h2>Create a virtual environment<a class="headerlink" href="#create-a-virtual-environment" title="Permalink to this heading">#</a></h2>
 <p>A best practice among Python developers is to use a project-specific <code class="docutils literal notranslate"><span class="pre">virtual</span> <span class="pre">environment</span></code>. Once you activate that environment, any packages you then install are isolated from other environments, including the global interpreter environment, reducing many complications that can arise from conflicting package versions.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>&lt;env<span class="w"> </span>name&gt;<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.10
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n &lt;env name&gt; <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.10
 <span class="sb">``</span>
 </pre></div>
 </div>
@@ -705,8 +710,8 @@ code<span class="w"> </span>.
 <p>To install the required packages in your virtual environment, enter the following commands as appropriate for your operating system:</p>
 <ol class="arabic">
 <li><p>Install the packages</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy
-pip<span class="w"> </span>install<span class="w"> </span>torch
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install numpy
+pip install torch
 </pre></div>
 </div>
 </li>
