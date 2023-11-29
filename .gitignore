@@ -1,3 +1,6 @@
 jupyterbook/topic_11_Scientific_Data_Management/raw_data.txt
 jupyterbook/topic_11_Scientific_Data_Management/datapath/*
 jupyterbook/topic_12_Image_Analysis/Topic_6_Image_Analysis/data/*
+
+*.pth
+*.pkl

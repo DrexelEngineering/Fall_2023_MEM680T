@@ -10,3 +10,9 @@ seaborn
 dash
 tifffile
 scikit-image
+
+keras
+tensorflow
+tdqm
+
+numba

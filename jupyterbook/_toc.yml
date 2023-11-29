@@ -93,6 +93,27 @@ parts:
   - caption: "📊➡️🧠 Supervised Machine Learning"
     chapters:
       - file: topic_13_Supervised_ML/0_Supervised_Learning
+  - caption: " 🧩 Unsupervised Learning"
+    chapters:
+      - file: Topic_14_unsupervised_learning/Objectives
+        title: "Unsupervised Learning"
+        sections:
+          - file: Topic_14_unsupervised_learning/1_Clustering_Algorithms
+          - file: Topic_14_unsupervised_learning/2_Decomposition_Algorithims
+          - file: Topic_14_unsupervised_learning/3_Manifold_Learning
+  - caption: "Neural Networks PyTorch"
+    chapters:
+      - file: Topic_15_PyTorch_NNs/Objectives
+        title: "🕸️ Deep Learning with Pytorch"
+        sections:
+          - file: Topic_15_PyTorch_NNs/1_quickstart_tutorial
+          - file: Topic_15_PyTorch_NNs/2_tensor_tutorial
+          - file: Topic_15_PyTorch_NNs/3_data_tutorial
+          - file: Topic_15_PyTorch_NNs/4_transforms_tutorial
+          - file: Topic_15_PyTorch_NNs/5_buildmodel_tutorial
+          - file: Topic_15_PyTorch_NNs/6_autogradqs_tutorial
+          - file: Topic_15_PyTorch_NNs/7_optimization_tutorial
+          - file: Topic_15_PyTorch_NNs/8_saveloadrun_tutorial
   - caption: "📝 Homework"
     chapters:
       - file: homework/homework
@@ -106,6 +127,10 @@ parts:
             title: "3️⃣ Building the Game of Yahtzee"
           - file: homework/homework_4/homework_4
             title: "4️⃣ Making Publishable Figures"
+          - file: homework/homework_5/homework_5
+            title: "5️⃣ Using DataFed for Data Management"
+          - file: homework/homework_6/homework_6
+            title: "6️⃣ Applying Machine Learning"
   - caption: "Additional Resources"
     chapters:
       - file: resources/markdown

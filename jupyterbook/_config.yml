@@ -19,6 +19,9 @@ latex:
 bibtex_bibfiles:
   - references.bib
 
+execute:
+  timeout: 600
+
 # Information about where the book exists on the web
 repository:
   url: https://github.com/DrexelEngineering/Fall_2023_MEM680T # Online location of your book
