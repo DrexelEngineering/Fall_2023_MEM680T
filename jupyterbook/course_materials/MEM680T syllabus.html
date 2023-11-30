@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Syllabus</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension ExecutableBookProject.myst-highlight */
+:root{--color-foreground-primary: black;--color-foreground-secondary: #5a5c63;--color-foreground-border: #878787;--color-background-primary: white;--color-background-secondary: #f8f9fb;--color-background-border: #eeebee;--icon-search: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7" /><line x1="21" y1="21" x2="15" y2="15" /></svg>');--icon-pencil: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>');--icon-abstract: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 5h16v2H4V5m0 4h16v2H4V9m0 4h16v2H4v-2m0 4h10v2H4v-2z"/></svg>');--icon-info: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 002 12a10 10 0 0010 10 10 10 0 0010-10A10 10 0 0012 2z"/></svg>');--icon-flame: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.55 11.2c-.23-.3-.5-.56-.76-.82-.65-.6-1.4-1.03-2.03-1.66C13.3 7.26 13 4.85 13.91 3c-.91.23-1.75.75-2.45 1.32-2.54 2.08-3.54 5.75-2.34 8.9.04.1.08.2.08.33 0 .22-.15.42-.35.5-.22.1-.46.04-.64-.12a.83.83 0 01-.15-.17c-1.1-1.43-1.28-3.48-.53-5.12C5.89 10 5 12.3 5.14 14.47c.04.5.1 1 .27 1.5.14.6.4 1.2.72 1.73 1.04 1.73 2.87 2.97 4.84 3.22 2.1.27 4.35-.12 5.96-1.6 1.8-1.66 2.45-4.32 1.5-6.6l-.13-.26c-.2-.46-.47-.87-.8-1.25l.05-.01m-3.1 6.3c-.28.24-.73.5-1.08.6-1.1.4-2.2-.16-2.87-.82 1.19-.28 1.89-1.16 2.09-2.05.17-.8-.14-1.46-.27-2.23-.12-.74-.1-1.37.18-2.06.17.38.37.76.6 1.06.76 1 1.95 1.44 2.2 2.8.04.14.06.28.06.43.03.82-.32 1.72-.92 2.27h.01z"/></svg>');--icon-question: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.07 11.25l-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 00-2-2 2 2 0 00-2 2H8a4 4 0 014-4 4 4 0 014 4 3.2 3.2 0 01-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 002 12a10 10 0 0010 10 10 10 0 0010-10c0-5.53-4.5-10-10-10z"/></svg>');--icon-warning: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14h-2v-4h2m0 8h-2v-2h2M1 21h22L12 2 1 21z"/></svg>');--icon-failure: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12 6.47 2 12 2m3.59 5L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41 15.59 7z"/></svg>');--icon-spark: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.5 20l4.86-9.73H13V4l-5 9.73h3.5V20M12 2c2.75 0 5.1 1 7.05 2.95C21 6.9 22 9.25 22 12s-1 5.1-2.95 7.05C17.1 21 14.75 22 12 22s-5.1-1-7.05-2.95C3 17.1 2 14.75 2 12s1-5.1 2.95-7.05C6.9 3 9.25 2 12 2z"/></svg>');--icon-admonition-default: var(--icon-abstract);--color-directive-unhandled-background: rgba(255, 255, 255, 0.3);--color-directive-error-background: rgba(255, 0, 0, 0.4);--admonition-font-size: 0.8125rem;--admonition-title-font-size: 0.8125rem;--icon-admonition-default: var(--icon-abstract);--color-admonition-background: rgba(255, 255, 255, 0.3);--color-admonition-title: #651fff;--color-admonition-title-background: rgba(101, 31, 255, 0.1);--color-admonition-title--caution: #ff9100;--color-admonition-title-background--caution: rgba(255, 145, 0, 0.1);--color-admonition-title--warning: #ff9100;--color-admonition-title-background--warning: rgba(255, 145, 0, 0.1);--color-admonition-title--danger: #ff5252;--color-admonition-title-background--danger: rgba(255, 82, 82, 0.1);--color-admonition-title--attention: #ff5252;--color-admonition-title-background--attention: rgba(255, 82, 82, 0.1);--color-admonition-title--error: #ff5252;--color-admonition-title-background--error: rgba(255, 82, 82, 0.1);--color-admonition-title--hint: #00c852;--color-admonition-title-background--hint: rgba(0, 200, 82, 0.1);--color-admonition-title--important: #00bfa5;--color-admonition-title-background--important: rgba(0, 191, 165, 0.1);--color-admonition-title--note: #00b0ff;--color-admonition-title-background--note: rgba(0, 176, 255, 0.1);--color-admonition-title--seealso: #448aff;--color-admonition-title-background--seealso: rgba(68, 138, 255, 0.1);--color-admonition-title--tip: #00c852;--color-admonition-title-background--tip: rgba(0, 200, 82, 0.1);--color-admonition-title--admonition-todo: #808080;--color-admonition-title-background--admonition-todo: rgba(128, 128, 128, 0.1)}@media(prefers-color-scheme: dark){:root{--color-foreground-primary: #ffffffd9;--color-foreground-secondary: #9ca0a5;--color-foreground-border: #666666;--color-background-primary: #131416;--color-background-secondary: #1a1c1e;--color-background-border: #303335;--color-directive-unhandled-background: #333338;--color-directive-error-background: rgba(180, 6, 6, 0.8);--color-admonition-background: #18181a}}.role-unhandled{outline:1px solid #d3d3d3;border-radius:.2rem;padding-left:.125rem;padding-right:.125rem}.role-unhandled mark{-webkit-text-decoration-line:underline;text-decoration-line:underline;background-color:unset;color:unset}.role-unhandled code{padding-left:.15rem}.directive-unhandled,.directive-error{margin:1rem auto;padding:.5rem;outline:.0625rem solid #d3d3d3;border-radius:.2rem;overflow:auto;color:var(--color-foreground-primary)}.directive-unhandled>:nth-child(2),.directive-error>:nth-child(2){margin-top:0}.directive-unhandled>:last-child,.directive-error>:last-child{margin-bottom:0}.directive-unhandled header,.directive-error header{margin-bottom:.5rem}.directive-unhandled mark,.directive-error mark{-webkit-text-decoration-line:underline;text-decoration-line:underline;background-color:unset;color:var(--color-foreground-primary)}.directive-unhandled{outline:.0625rem solid #d3d3d3;background-color:var(--color-directive-unhandled-background)}.directive-error{outline:.0625rem solid #f08080;background-color:var(--color-directive-error-background)}.admonition{margin:1rem auto;padding:0 .5rem .5rem .5rem;background:var(--color-admonition-background);color:var(--color-foreground-primary);border-radius:.2rem;border-left:.2rem solid var(--color-admonition-title);box-shadow:0 .2rem .5rem rgba(0,0,0,.05),0 0 .0625rem rgba(0,0,0,.1);font-size:var(--admonition-font-size);overflow:auto;page-break-inside:avoid}.admonition>:nth-child(2){margin-top:0}.admonition>:last-child{margin-bottom:0}.admonition p.admonition-title{position:relative;margin:0 -0.5rem .5rem;padding:.5rem .5rem .5rem 2rem;font-weight:500;font-size:var(--admonition-title-font-size);background-color:var(--color-admonition-title-background);line-height:1.3}.admonition p.admonition-title::before{content:"";position:absolute;left:.5rem;width:1rem;height:1rem;background-color:var(--color-admonition-title);-webkit-mask-image:var(--icon-admonition-default);mask-image:var(--icon-admonition-default);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}.admonition.caution{border-left-color:var(--color-admonition-title--caution)}.admonition.caution>.admonition-title{background-color:var(--color-admonition-title-background--caution)}.admonition.caution>.admonition-title::before{background-color:var(--color-admonition-title--caution);-webkit-mask-image:var(--icon-spark);mask-image:var(--icon-spark)}.admonition.warning{border-left-color:var(--color-admonition-title--warning)}.admonition.warning>.admonition-title{background-color:var(--color-admonition-title-background--warning)}.admonition.warning>.admonition-title::before{background-color:var(--color-admonition-title--warning);-webkit-mask-image:var(--icon-warning);mask-image:var(--icon-warning)}.admonition.danger{border-left-color:var(--color-admonition-title--danger)}.admonition.danger>.admonition-title{background-color:var(--color-admonition-title-background--danger)}.admonition.danger>.admonition-title::before{background-color:var(--color-admonition-title--danger);-webkit-mask-image:var(--icon-spark);mask-image:var(--icon-spark)}.admonition.attention{border-left-color:var(--color-admonition-title--attention)}.admonition.attention>.admonition-title{background-color:var(--color-admonition-title-background--attention)}.admonition.attention>.admonition-title::before{background-color:var(--color-admonition-title--attention);-webkit-mask-image:var(--icon-warning);mask-image:var(--icon-warning)}.admonition.error{border-left-color:var(--color-admonition-title--error)}.admonition.error>.admonition-title{background-color:var(--color-admonition-title-background--error)}.admonition.error>.admonition-title::before{background-color:var(--color-admonition-title--error);-webkit-mask-image:var(--icon-failure);mask-image:var(--icon-failure)}.admonition.hint{border-left-color:var(--color-admonition-title--hint)}.admonition.hint>.admonition-title{background-color:var(--color-admonition-title-background--hint)}.admonition.hint>.admonition-title::before{background-color:var(--color-admonition-title--hint);-webkit-mask-image:var(--icon-question);mask-image:var(--icon-question)}.admonition.important{border-left-color:var(--color-admonition-title--important)}.admonition.important>.admonition-title{background-color:var(--color-admonition-title-background--important)}.admonition.important>.admonition-title::before{background-color:var(--color-admonition-title--important);-webkit-mask-image:var(--icon-flame);mask-image:var(--icon-flame)}.admonition.note{border-left-color:var(--color-admonition-title--note)}.admonition.note>.admonition-title{background-color:var(--color-admonition-title-background--note)}.admonition.note>.admonition-title::before{background-color:var(--color-admonition-title--note);-webkit-mask-image:var(--icon-pencil);mask-image:var(--icon-pencil)}.admonition.seealso{border-left-color:var(--color-admonition-title--seealso)}.admonition.seealso>.admonition-title{background-color:var(--color-admonition-title-background--seealso)}.admonition.seealso>.admonition-title::before{background-color:var(--color-admonition-title--seealso);-webkit-mask-image:var(--icon-info);mask-image:var(--icon-info)}.admonition.tip{border-left-color:var(--color-admonition-title--tip)}.admonition.tip>.admonition-title{background-color:var(--color-admonition-title-background--tip)}.admonition.tip>.admonition-title::before{background-color:var(--color-admonition-title--tip);-webkit-mask-image:var(--icon-info);mask-image:var(--icon-info)}.admonition.admonition-todo{border-left-color:var(--color-admonition-title--admonition-todo)}.admonition.admonition-todo>.admonition-title{background-color:var(--color-admonition-title-background--admonition-todo)}.admonition.admonition-todo>.admonition-title::before{background-color:var(--color-admonition-title--admonition-todo);-webkit-mask-image:var(--icon-pencil);mask-image:var(--icon-pencil)}.admonition-todo>.admonition-title{text-transform:uppercase}img{box-sizing:border-box;max-width:100%;height:auto}img.align-left,figure.align-left{clear:left;float:left;margin-right:1em}img.align-right,figure.align-right{clear:right;float:right;margin-right:1em}img.align-center,img.align-default,figure.align-center,figure.align-default{display:block;margin-left:auto;margin-right:auto}figcaption{font-style:italic;text-align:center}table{border-radius:.2rem;border-spacing:0;border-collapse:collapse;box-shadow:0 .2rem .5rem rgba(0,0,0,.05),0 0 .0625rem rgba(0,0,0,.1)}table>caption{text-align:center;margin-bottom:.25rem}th{background:var(--color-background-secondary);color:var(--color-foreground-primary)}td,th{padding:0 .25rem;border-left:1px solid var(--color-background-border);border-right:1px solid var(--color-background-border);border-bottom:1px solid var(--color-background-border)}td p,th p{margin:.25rem}td:first-child,th:first-child{border-left:none}td:last-child,th:last-child{border-right:none}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9zdHlsZS9fdmFyaWFibGVzLnNjc3MiLCIuLi8uLi9zcmMvc3R5bGUvX3JvbGUuc2FzcyIsIi4uLy4uL3NyYy9zdHlsZS9fZGlyZWN0aXZlLnNhc3MiLCIuLi8uLi9zcmMvc3R5bGUvX2FkbW9uaXRpb24uc2FzcyIsIi4uLy4uL3NyYy9zdHlsZS9faW1hZ2Uuc2FzcyIsIi4uLy4uL3NyYy9zdHlsZS9fdGFibGVzLnNhc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBd0JBLE1BRUUsaUNBQUEsQ0FDQSxxQ0FBQSxDQUNBLGtDQUFBLENBRUEsaUNBQUEsQ0FDQSxxQ0FBQSxDQUNBLGtDQUFBLENBSUUsNFVBQUEsQ0FBQSwrUUFBQSxDQUFBLDhMQUFBLENBQUEsZ09BQUEsQ0FBQSwrd0JBQUEsQ0FBQSxzWkFBQSxDQUFBLG1MQUFBLENBQUEsb1RBQUEsQ0FBQSwyVUFBQSxDQUVGLCtDQUFBLENBR0EsZ0VBQUEsQ0FDQSx3REFBQSxDQUdBLGlDQUFBLENBQ0EsdUNBQUEsQ0FDQSwrQ0FBQSxDQUVBLHVEQUFBLENBQ0EsaUNBQUEsQ0FDQSw0REFBQSxDQUdFLDBDQUFBLENBQ0Esb0VBQUEsQ0FEQSwwQ0FBQSxDQUNBLG9FQUFBLENBREEseUNBQUEsQ0FDQSxtRUFBQSxDQURBLDRDQUFBLENBQ0Esc0VBQUEsQ0FEQSx3Q0FBQSxDQUNBLGtFQUFBLENBREEsdUNBQUEsQ0FDQSxnRUFBQSxDQURBLDRDQUFBLENBQ0Esc0VBQUEsQ0FEQSx1Q0FBQSxDQUNBLGlFQUFBLENBREEsMENBQUEsQ0FDQSxxRUFBQSxDQURBLHNDQUFBLENBQ0EsK0RBQUEsQ0FEQSxrREFBQSxDQUNBLDhFQUFBLENBSUosbUNBQ0UsTUFFRSxxQ0FBQSxDQUNBLHFDQUFBLENBQ0Esa0NBQUEsQ0FFQSxtQ0FBQSxDQUNBLHFDQUFBLENBQ0Esa0NBQUEsQ0FHQSwrQ0FBQSxDQUNBLHdEQUFBLENBR0Esc0NBQUEsQ0FBQSxDQzNFSixnQkFDSSx5QkFBQSxDQUNBLG1CQUFBLENBQ0Esb0JBQUEsQ0FDQSxxQkFBQSxDQUdBLHFCQUNJLHNDQUFBLENBQUEsOEJBQUEsQ0FDQSxzQkFBQSxDQUNBLFdBQUEsQ0FHSixxQkFDSSxtQkFBQSxDQ2RSLHNDQUNJLGdCQUFBLENBQ0EsYUFBQSxDQUNBLDhCQUFBLENBQ0EsbUJBQUEsQ0FDQSxhQUFBLENBR0EscUNBQUEsQ0FHQSxrRUFDSSxZQUFBLENBR0osOERBQ0ksZUFBQSxDQUVKLG9EQUNJLG1CQUFBLENBR0osZ0RBQ0ksc0NBQUEsQ0FBQSw4QkFBQSxDQUNBLHNCQUFBLENBQ0EscUNBQUEsQ0FFUixxQkFDSSw4QkFBQSxDQUNBLDREQUFBLENBRUosaUJBQ0ksOEJBQUEsQ0FDQSx3REFBQSxDQ2hDSixZQUNFLGdCQUFBLENBQ0EsMkJBQUEsQ0FFQSw2Q0FBQSxDQUVBLHFDQUFBLENBRUEsbUJBQUEsQ0FDQSxxREFBQSxDQUNBLG9FQUFBLENBRUEscUNBQUEsQ0FFQSxhQUFBLENBQ0EsdUJBQUEsQ0FHQSwwQkFDRSxZQUFBLENBR0Ysd0JBQ0UsZUFBQSxDQUlGLCtCQUNFLGlCQUFBLENBQ0Esc0JBQUEsQ0FDQSw4QkFBQSxDQUVBLGVBQUEsQ0FDQSwyQ0FBQSxDQUNBLHlEQUFBLENBRUEsZUFBQSxDQUdBLHVDQUNFLFVBQUEsQ0FDQSxpQkFBQSxDQUNBLFVBQUEsQ0FDQSxVQUFBLENBQ0EsV0FBQSxDQUVBLDhDQUFBLENBRUEsaURBQUEsQ0FBQSx5Q0FBQSxDQUNBLDZCQUFBLENBQUEscUJBQUEsQ0FNRixvQkFDRSx3REFBQSxDQUNBLHNDQUNFLGtFQUFBLENBQ0EsOENBQ0UsdURBQUEsQ0FDQSxvQ0FBQSxDQUFBLDRCQUFBLENBTk4sb0JBQ0Usd0RBQUEsQ0FDQSxzQ0FDRSxrRUFBQSxDQUNBLDhDQUNFLHVEQUFBLENBQ0Esc0NBQUEsQ0FBQSw4QkFBQSxDQU5OLG1CQUNFLHVEQUFBLENBQ0EscUNBQ0UsaUVBQUEsQ0FDQSw2Q0FDRSxzREFBQSxDQUNBLG9DQUFBLENBQUEsNEJBQUEsQ0FOTixzQkFDRSwwREFBQSxDQUNBLHdDQUNFLG9FQUFBLENBQ0EsZ0RBQ0UseURBQUEsQ0FDQSxzQ0FBQSxDQUFBLDhCQUFBLENBTk4sa0JBQ0Usc0RBQUEsQ0FDQSxvQ0FDRSxnRUFBQSxDQUNBLDRDQUNFLHFEQUFBLENBQ0Esc0NBQUEsQ0FBQSw4QkFBQSxDQU5OLGlCQUNFLHFEQUFBLENBQ0EsbUNBQ0UsK0RBQUEsQ0FDQSwyQ0FDRSxvREFBQSxDQUNBLHVDQUFBLENBQUEsK0JBQUEsQ0FOTixzQkFDRSwwREFBQSxDQUNBLHdDQUNFLG9FQUFBLENBQ0EsZ0RBQ0UseURBQUEsQ0FDQSxvQ0FBQSxDQUFBLDRCQUFBLENBTk4saUJBQ0UscURBQUEsQ0FDQSxtQ0FDRSwrREFBQSxDQUNBLDJDQUNFLG9EQUFBLENBQ0EscUNBQUEsQ0FBQSw2QkFBQSxDQU5OLG9CQUNFLHdEQUFBLENBQ0Esc0NBQ0Usa0VBQUEsQ0FDQSw4Q0FDRSx1REFBQSxDQUNBLG1DQUFBLENBQUEsMkJBQUEsQ0FOTixnQkFDRSxvREFBQSxDQUNBLGtDQUNFLDhEQUFBLENBQ0EsMENBQ0UsbURBQUEsQ0FDQSxtQ0FBQSxDQUFBLDJCQUFBLENBTk4sNEJBQ0UsZ0VBQUEsQ0FDQSw4Q0FDRSwwRUFBQSxDQUNBLHNEQUNFLCtEQUFBLENBQ0EscUNBQUEsQ0FBQSw2QkFBQSxDQUVWLG1DQUNFLHdCQUFBLENDakVGLElBQ0kscUJBQUEsQ0FDQSxjQUFBLENBQ0EsV0FBQSxDQUdBLGlDQUNJLFVBQUEsQ0FDQSxVQUFBLENBQ0EsZ0JBQUEsQ0FFSixtQ0FDSSxXQUFBLENBQ0EsV0FBQSxDQUNBLGdCQUFBLENBRUosNEVBQ0ksYUFBQSxDQUNBLGdCQUFBLENBQ0EsaUJBQUEsQ0FFUixXQUNJLGlCQUFBLENBQ0EsaUJBQUEsQ0N2QkosTUFDSSxtQkFBQSxDQUNBLGdCQUFBLENBQ0Esd0JBQUEsQ0FFQSxvRUFBQSxDQUVBLGNBQ0ksaUJBQUEsQ0FDQSxvQkFBQSxDQUVSLEdBQ0ksNENBQUEsQ0FDQSxxQ0FBQSxDQUVKLE1BR0ksZ0JBQUEsQ0FHQSxvREFBQSxDQUNBLHFEQUFBLENBQ0Esc0RBQUEsQ0FFQSxVQUNJLGFBQUEsQ0FDSiw4QkFDSSxnQkFBQSxDQUNKLDRCQUNJLGlCQUFBIiwiZmlsZSI6InN0eWxlLm1pbi5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBUaGlzIGZpbGUgZGVmaW5lcyBhbGwgdGhlIGtub2JzIHRoYXQgY2FuIGJlIHR3ZWFrZWQgYnkgZW5kIHVzZXJzLlxuLy8gYWRhcGF0ZWQgZnJvbTogaHR0cHM6Ly9naXRodWIuY29tL3ByYWR5dW5zZy9mdXJvL2Jsb2IvZmUwMDg4MzYzYTE2M2NkOWQ2ZmZhZjI3NDU2MDUzMzUwMWU5MzViNS9zcmMvZnVyby9hc3NldHMvc3R5bGVzL3ZhcmlhYmxlcy9faW5kZXguc2NzcyNMMVxuXG4vLyBBZG1vbml0aW9uc1xuLy9cbi8vIFN0cnVjdHVyZSBvZiB0aGVzZTogKGNvbG9yLCBrZXktaW4tJGljb25zKS5cbi8vIFRoZSBjb2xvcnMgYXJlIHRyYW5zbGF0ZWQgaW50byBDU1MgdmFyaWFibGVzIGJlbG93LCBhbmQgaWNvbnMgYXJlIHVzZWQgZm9yXG4vLyB0aGUgZGVjbGFyYXRpb25zLlxuJGFkbW9uaXRpb24tZGVmYXVsdDogIzY1MWZmZiBcImFic3RyYWN0XCI7XG4kYWRtb25pdGlvbnM6IChcbiAgLy8gRWFjaCBvZiB0aGVzZSBoYXMgYSByZVNUIGRpcmVjdGl2ZXMgZm9yIGl0LlxuICBcImNhdXRpb25cIjogI2ZmOTEwMCBcInNwYXJrXCIsXG4gIFwid2FybmluZ1wiOiAjZmY5MTAwIFwid2FybmluZ1wiLFxuICBcImRhbmdlclwiOiAjZmY1MjUyIFwic3BhcmtcIixcbiAgXCJhdHRlbnRpb25cIjogI2ZmNTI1MiBcIndhcm5pbmdcIixcbiAgXCJlcnJvclwiOiAjZmY1MjUyIFwiZmFpbHVyZVwiLFxuICBcImhpbnRcIjogIzAwYzg1MiBcInF1ZXN0aW9uXCIsXG4gIFwiaW1wb3J0YW50XCI6ICMwMGJmYTUgXCJmbGFtZVwiLFxuICBcIm5vdGVcIjogIzAwYjBmZiBcInBlbmNpbFwiLFxuICBcInNlZWFsc29cIjogIzQ0OGFmZiBcImluZm9cIixcbiAgXCJ0aXBcIjogIzAwYzg1MiBcImluZm9cIixcbiAgXCJhZG1vbml0aW9uLXRvZG9cIjogIzgwODA4MCBcInBlbmNpbFwiXG4pO1xuXG46cm9vdCB7XG4gIC8vIEJhc2UgQ29sb3JzXG4gIC0tY29sb3ItZm9yZWdyb3VuZC1wcmltYXJ5OiBibGFjazsgLy8gZm9yIG1haW4gdGV4dCBhbmQgaGVhZGluZ3NcbiAgLS1jb2xvci1mb3JlZ3JvdW5kLXNlY29uZGFyeTogIzVhNWM2MzsgLy8gZm9yIHNlY29uZGFyeSB0ZXh0XG4gIC0tY29sb3ItZm9yZWdyb3VuZC1ib3JkZXI6ICM4Nzg3ODc7IC8vIGZvciBjb250ZW50IGJvcmRlcnNcblxuICAtLWNvbG9yLWJhY2tncm91bmQtcHJpbWFyeTogd2hpdGU7IC8vIGZvciBjb250ZW50XG4gIC0tY29sb3ItYmFja2dyb3VuZC1zZWNvbmRhcnk6ICNmOGY5ZmI7IC8vIGZvciBuYXZpZ2F0aW9uICsgVG9DXG4gIC0tY29sb3ItYmFja2dyb3VuZC1ib3JkZXI6ICNlZWViZWU7IC8vIGZvciBVSSBib3JkZXJzXG5cbiAgLy8gSWNvbnNcbiAgQGVhY2ggJG5hbWUsICRnbHlwaCBpbiAkaWNvbnMge1xuICAgIC0taWNvbi0jeyRuYW1lfTogI3skZ2x5cGh9O1xuICB9XG4gIC0taWNvbi1hZG1vbml0aW9uLWRlZmF1bHQ6IHZhcigtLWljb24tI3tudGgoJGFkbW9uaXRpb24tZGVmYXVsdCwgMil9KTtcblxuICAvLyBEaXJlY3RpdmVzXG4gIC0tY29sb3ItZGlyZWN0aXZlLXVuaGFuZGxlZC1iYWNrZ3JvdW5kOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMyk7XG4gIC0tY29sb3ItZGlyZWN0aXZlLWVycm9yLWJhY2tncm91bmQ6IHJnYmEoMjU1LCAwLCAwLCAwLjQpO1xuXG4gIC8vIEFkbW9uaXRpb25zXG4gIC0tYWRtb25pdGlvbi1mb250LXNpemU6IDAuODEyNXJlbTtcbiAgLS1hZG1vbml0aW9uLXRpdGxlLWZvbnQtc2l6ZTogMC44MTI1cmVtO1xuICAtLWljb24tYWRtb25pdGlvbi1kZWZhdWx0OiB2YXIoLS1pY29uLSN7bnRoKCRhZG1vbml0aW9uLWRlZmF1bHQsIDIpfSk7XG4gIC8vIE5vdGUgdGhpcyBiYWNrZ3JvdW5kIGlzIHRyYW5zcGFyZW50IGluIGZ1cm8sIGJ1dCB3ZSB3YW50IGRhcmsgdGV4dCB0byBzdGlsbCB3b3JrIGZvciBkYXJrIGJhY2tncm91bmRzXG4gIC0tY29sb3ItYWRtb25pdGlvbi1iYWNrZ3JvdW5kOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMyk7XG4gIC0tY29sb3ItYWRtb25pdGlvbi10aXRsZTogI3tudGgoJGFkbW9uaXRpb24tZGVmYXVsdCwgMSl9O1xuICAtLWNvbG9yLWFkbW9uaXRpb24tdGl0bGUtYmFja2dyb3VuZDogI3tyZ2JhKG50aCgkYWRtb25pdGlvbi1kZWZhdWx0LCAxKSwgMC4xKX07XG5cbiAgQGVhY2ggJG5hbWUsICR2YWx1ZXMgaW4gJGFkbW9uaXRpb25zIHtcbiAgICAtLWNvbG9yLWFkbW9uaXRpb24tdGl0bGUtLSN7JG5hbWV9OiAje250aCgkdmFsdWVzLCAxKX07XG4gICAgLS1jb2xvci1hZG1vbml0aW9uLXRpdGxlLWJhY2tncm91bmQtLSN7JG5hbWV9OiAje3JnYmEobnRoKCR2YWx1ZXMsIDEpLCAwLjEpfTtcbiAgfVxufVxuXG5AbWVkaWEgKHByZWZlcnMtY29sb3Itc2NoZW1lOiBkYXJrKSB7XG4gIDpyb290IHtcbiAgICAvLyBCYXNlIENvbG9yc1xuICAgIC0tY29sb3ItZm9yZWdyb3VuZC1wcmltYXJ5OiAjZmZmZmZmZDk7IC8vIGZvciBtYWluIHRleHQgYW5kIGhlYWRpbmdzXG4gICAgLS1jb2xvci1mb3JlZ3JvdW5kLXNlY29uZGFyeTogIzljYTBhNTsgLy8gZm9yIHNlY29uZGFyeSB0ZXh0XG4gICAgLS1jb2xvci1mb3JlZ3JvdW5kLWJvcmRlcjogIzY2NjY2NjsgLy8gZm9yIGNvbnRlbnQgYm9yZGVyc1xuXG4gICAgLS1jb2xvci1iYWNrZ3JvdW5kLXByaW1hcnk6ICMxMzE0MTY7IC8vIGZvciBjb250ZW50XG4gICAgLS1jb2xvci1iYWNrZ3JvdW5kLXNlY29uZGFyeTogIzFhMWMxZTsgLy8gZm9yIG5hdmlnYXRpb24gKyBUb0NcbiAgICAtLWNvbG9yLWJhY2tncm91bmQtYm9yZGVyOiAjMzAzMzM1OyAvLyBmb3IgVUkgYm9yZGVyc1xuXG4gICAgLy8gRGlyZWN0aXZlc1xuICAgIC0tY29sb3ItZGlyZWN0aXZlLXVuaGFuZGxlZC1iYWNrZ3JvdW5kOiAjMzMzMzM4O1xuICAgIC0tY29sb3ItZGlyZWN0aXZlLWVycm9yLWJhY2tncm91bmQ6IHJnYmEoMTgwLCA2LCA2LCAwLjgpO1xuXG4gICAgLy8gQWRtb25pdGlvbnNcbiAgICAtLWNvbG9yLWFkbW9uaXRpb24tYmFja2dyb3VuZDogIzE4MTgxYTtcbiAgfVxufVxuIiwiLnJvbGUtdW5oYW5kbGVkXG4gICAgb3V0bGluZTogMXB4IHNvbGlkIGxpZ2h0Z3JleVxuICAgIGJvcmRlci1yYWRpdXM6IDAuMnJlbVxuICAgIHBhZGRpbmctbGVmdDogMC4xMjVyZW1cbiAgICBwYWRkaW5nLXJpZ2h0OiAwLjEyNXJlbVxuXG4gICAgLy8gdGhlIG5hbWUgb2YgdGhlIHJvbGVcbiAgICBtYXJrXG4gICAgICAgIHRleHQtZGVjb3JhdGlvbi1saW5lOiB1bmRlcmxpbmVcbiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogdW5zZXRcbiAgICAgICAgY29sb3I6IHVuc2V0XG5cbiAgICAvLyB0aGUgY29udGVudCBvZiB0aGUgcm9sZVxuICAgIGNvZGVcbiAgICAgICAgcGFkZGluZy1sZWZ0OiAwLjE1cmVtXG4iLCIuZGlyZWN0aXZlLXVuaGFuZGxlZCwgLmRpcmVjdGl2ZS1lcnJvclxuICAgIG1hcmdpbjogMXJlbSBhdXRvXG4gICAgcGFkZGluZzogMC41cmVtXG4gICAgb3V0bGluZTogMC4wNjI1cmVtIHNvbGlkIGxpZ2h0Z3JleVxuICAgIGJvcmRlci1yYWRpdXM6IDAuMnJlbVxuICAgIG92ZXJmbG93OiBhdXRvXG5cbiAgICAvLyB0ZXh0IGNvbG9yXG4gICAgY29sb3I6IHZhcigtLWNvbG9yLWZvcmVncm91bmQtcHJpbWFyeSlcblxuICAgIC8vIEZpcnN0IGVsZW1lbnQgc2hvdWxkIGhhdmUgbm8gbWFyZ2luLCBzaW5jZSB0aGUgdGl0bGUgaGFzIGl0LlxuICAgID4gOm50aC1jaGlsZCgyKVxuICAgICAgICBtYXJnaW4tdG9wOiAwXG5cbiAgICAvLyBMYXN0IGl0ZW0gc2hvdWxkIGhhdmUgbm8gbWFyZ2luLCBzaW5jZSB3ZSdsbCBjb250cm9sIHRoYXQgdy8gcGFkZGluZ1xuICAgID4gOmxhc3QtY2hpbGRcbiAgICAgICAgbWFyZ2luLWJvdHRvbTogMFxuXG4gICAgaGVhZGVyXG4gICAgICAgIG1hcmdpbi1ib3R0b206IDAuNXJlbVxuXG4gICAgLy8gVGhlIG5hbWUgb2YgdGhlIGRpcmVjdGl2ZVxuICAgIG1hcmtcbiAgICAgICAgdGV4dC1kZWNvcmF0aW9uLWxpbmU6IHVuZGVybGluZVxuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB1bnNldFxuICAgICAgICBjb2xvcjogdmFyKC0tY29sb3ItZm9yZWdyb3VuZC1wcmltYXJ5KVxuXG4uZGlyZWN0aXZlLXVuaGFuZGxlZFxuICAgIG91dGxpbmU6IDAuMDYyNXJlbSBzb2xpZCBsaWdodGdyZXlcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1jb2xvci1kaXJlY3RpdmUtdW5oYW5kbGVkLWJhY2tncm91bmQpXG5cbi5kaXJlY3RpdmUtZXJyb3JcbiAgICBvdXRsaW5lOiAwLjA2MjVyZW0gc29saWQgbGlnaHRjb3JhbFxuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWNvbG9yLWRpcmVjdGl2ZS1lcnJvci1iYWNrZ3JvdW5kKVxuIiwiLy8gQ29waWVkIGZyb206IGh0dHBzOi8vZ2l0aHViLmNvbS9wcmFkeXVuc2cvZnVyby9ibG9iL2ZlMDA4ODM2M2ExNjNjZDlkNmZmYWYyNzQ1NjA1MzM1MDFlOTM1YjUvc3JjL2Z1cm8vYXNzZXRzL3N0eWxlcy9jb250ZW50L19hZG1vbml0aW9ucy5zYXNzI0wxXG4uYWRtb25pdGlvblxuICBtYXJnaW46IDFyZW0gYXV0b1xuICBwYWRkaW5nOiAwIDAuNXJlbSAwLjVyZW0gMC41cmVtXG5cbiAgYmFja2dyb3VuZDogdmFyKC0tY29sb3ItYWRtb25pdGlvbi1iYWNrZ3JvdW5kKVxuICAvLyBjb3BpZWQgZnJvbSBiYXNlL190aGVtZS5zYXNzIGJvZHlcbiAgY29sb3I6IHZhcigtLWNvbG9yLWZvcmVncm91bmQtcHJpbWFyeSlcblxuICBib3JkZXItcmFkaXVzOiAwLjJyZW1cbiAgYm9yZGVyLWxlZnQ6IDAuMnJlbSBzb2xpZCB2YXIoLS1jb2xvci1hZG1vbml0aW9uLXRpdGxlKVxuICBib3gtc2hhZG93OiAwIDAuMnJlbSAwLjVyZW0gcmdiYSgwLCAwLCAwLCAwLjA1KSwgMCAwIDAuMDYyNXJlbSByZ2JhKDAsIDAsIDAsIDAuMSlcblxuICBmb250LXNpemU6IHZhcigtLWFkbW9uaXRpb24tZm9udC1zaXplKVxuXG4gIG92ZXJmbG93OiBhdXRvXG4gIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZFxuXG4gIC8vIEZpcnN0IGVsZW1lbnQgc2hvdWxkIGhhdmUgbm8gbWFyZ2luLCBzaW5jZSB0aGUgdGl0bGUgaGFzIGl0LlxuICA+IDpudGgtY2hpbGQoMilcbiAgICBtYXJnaW4tdG9wOiAwXG5cbiAgLy8gTGFzdCBpdGVtIHNob3VsZCBoYXZlIG5vIG1hcmdpbiwgc2luY2Ugd2UnbGwgY29udHJvbCB0aGF0IHcvIHBhZGRpbmdcbiAgPiA6bGFzdC1jaGlsZFxuICAgIG1hcmdpbi1ib3R0b206IDBcblxuXG4gIC8vIERlZmF1bHRzIGZvciBhbGwgYWRtb25pdGlvbnNcbiAgcC5hZG1vbml0aW9uLXRpdGxlXG4gICAgcG9zaXRpb246IHJlbGF0aXZlXG4gICAgbWFyZ2luOiAwIC0wLjVyZW0gMC41cmVtXG4gICAgcGFkZGluZzogMC41cmVtIDAuNXJlbSAwLjVyZW0gMnJlbVxuXG4gICAgZm9udC13ZWlnaHQ6IDUwMFxuICAgIGZvbnQtc2l6ZTogdmFyKC0tYWRtb25pdGlvbi10aXRsZS1mb250LXNpemUpXG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tY29sb3ItYWRtb25pdGlvbi10aXRsZS1iYWNrZ3JvdW5kKVxuXG4gICAgbGluZS1oZWlnaHQ6IDEuM1xuXG4gICAgLy8gT3VyIGZhbmN5IGljb25cbiAgICAmOjpiZWZvcmVcbiAgICAgIGNvbnRlbnQ6IFwiXCJcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZVxuICAgICAgbGVmdDogMC41cmVtXG4gICAgICB3aWR0aDogMXJlbVxuICAgICAgaGVpZ2h0OiAxcmVtXG4gICAgICAvLyBjb2xvcjogdmFyKC0tY29sb3ItYWRtb25pdGlvbi10aXRsZSlcbiAgICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWNvbG9yLWFkbW9uaXRpb24tdGl0bGUpXG5cbiAgICAgIG1hc2staW1hZ2U6IHZhcigtLWljb24tYWRtb25pdGlvbi1kZWZhdWx0KVxuICAgICAgbWFzay1yZXBlYXQ6IG5vLXJlcGVhdFxuXG4gIC8vXG4gIC8vIFZhcmlhbnRzXG4gIC8vXG4gIEBlYWNoICR0eXBlLCAkdmFsdWUgaW4gJGFkbW9uaXRpb25zXG4gICAgJi4jeyR0eXBlfVxuICAgICAgYm9yZGVyLWxlZnQtY29sb3I6IHZhcigtLWNvbG9yLWFkbW9uaXRpb24tdGl0bGUtLSN7JHR5cGV9KVxuICAgICAgPiAuYWRtb25pdGlvbi10aXRsZVxuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1jb2xvci1hZG1vbml0aW9uLXRpdGxlLWJhY2tncm91bmQtLSN7JHR5cGV9KVxuICAgICAgICAmOjpiZWZvcmVcbiAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1jb2xvci1hZG1vbml0aW9uLXRpdGxlLS0jeyR0eXBlfSlcbiAgICAgICAgICBtYXNrLWltYWdlOiB2YXIoLS1pY29uLSN7bnRoKCR2YWx1ZSwgMil9KVxuXG4uYWRtb25pdGlvbi10b2RvID4gLmFkbW9uaXRpb24tdGl0bGVcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZVxuIiwiaW1nXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveFxuICAgIG1heC13aWR0aDogMTAwJVxuICAgIGhlaWdodDogYXV0b1xuXG5pbWcsIGZpZ3VyZVxuICAgICYuYWxpZ24tbGVmdFxuICAgICAgICBjbGVhcjogbGVmdFxuICAgICAgICBmbG9hdDogbGVmdFxuICAgICAgICBtYXJnaW4tcmlnaHQ6IDFlbVxuXG4gICAgJi5hbGlnbi1yaWdodFxuICAgICAgICBjbGVhcjogcmlnaHRcbiAgICAgICAgZmxvYXQ6IHJpZ2h0XG4gICAgICAgIG1hcmdpbi1yaWdodDogMWVtXG5cbiAgICAmLmFsaWduLWNlbnRlciwgJi5hbGlnbi1kZWZhdWx0XG4gICAgICAgIGRpc3BsYXk6IGJsb2NrXG4gICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvXG4gICAgICAgIG1hcmdpbi1yaWdodDogYXV0b1xuXG5maWdjYXB0aW9uXG4gICAgZm9udC1zdHlsZTogaXRhbGljXG4gICAgdGV4dC1hbGlnbjogY2VudGVyXG4iLCJ0YWJsZVxuICAgIGJvcmRlci1yYWRpdXM6IDAuMnJlbVxuICAgIGJvcmRlci1zcGFjaW5nOiAwXG4gICAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZVxuXG4gICAgYm94LXNoYWRvdzogMCAwLjJyZW0gMC41cmVtIHJnYmEoMCwgMCwgMCwgMC4wNSksIDAgMCAwLjA2MjVyZW0gcmdiYSgwLCAwLCAwLCAwLjEpXG5cbiAgICAmID4gY2FwdGlvblxuICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXJcbiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yNXJlbVxuXG50aFxuICAgIGJhY2tncm91bmQ6IHZhcigtLWNvbG9yLWJhY2tncm91bmQtc2Vjb25kYXJ5KVxuICAgIGNvbG9yOiB2YXIoLS1jb2xvci1mb3JlZ3JvdW5kLXByaW1hcnkpXG5cbnRkLFxudGhcbiAgICAvLyBTcGFjZSB0aGluZ3Mgb3V0IHByb3Blcmx5XG4gICAgcGFkZGluZzogMCAwLjI1cmVtXG5cbiAgICAvLyBHZXQgdGhlIGJvcmRlcnMgbG9va2luZyBqdXN0LXJpZ2h0LlxuICAgIGJvcmRlci1sZWZ0OiAxcHggc29saWQgdmFyKC0tY29sb3ItYmFja2dyb3VuZC1ib3JkZXIpXG4gICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgdmFyKC0tY29sb3ItYmFja2dyb3VuZC1ib3JkZXIpXG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHZhcigtLWNvbG9yLWJhY2tncm91bmQtYm9yZGVyKVxuXG4gICAgcFxuICAgICAgICBtYXJnaW46IDAuMjVyZW1cbiAgICAmOmZpcnN0LWNoaWxkXG4gICAgICAgIGJvcmRlci1sZWZ0OiBub25lXG4gICAgJjpsYXN0LWNoaWxkXG4gICAgICAgIGJvcmRlci1yaWdodDogbm9uZVxuIl19 */
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="syllabus">Syllabus</h1>
+<h2 id="mem-t680">MEM T680</h2>
+<h2 id="data-analysis-and-machine-learning-for-science-and-manufacturing">Data Analysis and Machine Learning for Science and Manufacturing</h2>
+<h2 id="fall-2023">Fall 2023</h2>
+<h3 id="instructor-information">Instructor Information</h3>
+<p><em>Name:</em> Joshua C. Agar
+<em>Office:</em> Curtis 262
+<em>Email:</em> <a href="mailto:jca92@drexel.edu">jca92@drexel.edu</a>
+<em>Office Hours:</em> Tuesday 10:30-11:30 am</p>
+<hr>
+<h2 id="class-information">Class Information</h2>
+<p><em>Dates:</em> Sep 19, 2023 - Dec 10, 2023
+<em>Times:</em> Tuesday/Thursday 02:00 pm - 03:20 pm
+<em>Class Room:</em> Randell 238A</p>
+<hr>
+<h2 id="course-description">Course Description</h2>
+<p>This course aims to equip engineers with the skills to harness the power of computational data analysis and machine learning techniques, particularly in the realms of experimental science and manufacturing processes. Rather than diving deep into the mathematical foundations of algorithms, the focus here is on providing engineers with the practical knowledge and tool sets required for applying these computational methods in real-world scenarios.</p>
+<hr>
+<h2 id="who-is-this-course-designed-for">Who is this Course Designed For?</h2>
+<h3 id="target-audience">Target Audience</h3>
+<p>This course is crafted to be universally applicable, tailored to benefit participants from diverse academic and professional backgrounds. The modular approach and practical focus make it a valuable learning journey for all proficiency levels in engineering and data science.</p>
+<hr>
+<h3 id="prerequisites">Prerequisites</h3>
+<ol>
+<li>
+<p><strong>Programming Skills</strong>: Knowledge of programming and basic programming logic is mandatory. The course employs Python as the primary programming language for implementation.</p>
+</li>
+<li>
+<p><strong>Mathematical Background</strong>: While machine learning is inherently mathematical, an in-depth understanding of advanced mathematics is not a prerequisite for this course. If you do possess strong mathematical skills, you are encouraged to apply them.</p>
+</li>
+</ol>
+<hr>
+<h3 id="statement-of-expected-learning">Statement of Expected Learning</h3>
+<h4 id="for-non-mathematicians">For Non-Mathematicians</h4>
+<ul>
+<li>A practical understanding of machine learning, focusing on assembling simple mathematical functions to solve real-world problems.</li>
+<li>Development of an intuitive grasp of mathematical operations in machine learning algorithms.</li>
+</ul>
+<h4 id="for-those-well-versed-in-mathematics">For Those Well-Versed in Mathematics</h4>
+<ul>
+<li>An opportunity to leverage your deep mathematical understanding in the practical application of machine learning algorithms.</li>
+<li>Exploration of the nuances in data manipulation and algorithmic design that may not be evident from a purely theoretical standpoint.</li>
+</ul>
+<h4 id="for-coding-beginners">For Coding Beginners</h4>
+<ul>
+<li>A structured learning path that allows you to pick up Python programming skills in the context of real-world machine learning applications.</li>
+</ul>
+<h4 id="for-experienced-programmers">For Experienced Programmers</h4>
+<ul>
+<li>Exposure to the latest machine learning libraries and tools, along with best practices in data management and visualization.</li>
+</ul>
+<h4 id="diversity-in-learning">Diversity in Learning</h4>
+<ul>
+<li>The course acknowledges the varied experiences and backgrounds of its participants. Whether you are new to machine learning or have prior experience, you are guaranteed to extract unique insights tailored to your level of expertise.</li>
+</ul>
+<hr>
+<h2 id="course-objectives">Course Objectives</h2>
+<p>Upon completion of this course, participants should be able to:</p>
+<ol>
+<li>
+<p><strong>Navigate the Open-Source Python Ecosystem</strong>: Acquaint yourself with the Python libraries and tools frequently used in machine learning and data science.</p>
+</li>
+<li>
+<p><strong>Understand Data Structures and Basics of Databases</strong>: Gain a foundational understanding of data structures along with the essentials of database management systems.</p>
+</li>
+<li>
+<p><strong>Hone Skills in Automated Data Visualization</strong>: Master automated visualization tools and libraries to represent complex data in an intuitive format.</p>
+</li>
+<li>
+<p><strong>Basic Understanding of Supervised and Unsupervised Linear Machine Learning</strong>: Grasp the fundamental concepts behind supervised and unsupervised linear models, their applicability, and limitations.</p>
+</li>
+<li>
+<p><strong>Exposure to a Variety of Deep Learning Topics</strong>: Delve into advanced topics in deep learning including:</p>
+<ul>
+<li><strong>Classification and Regression</strong>: Understand the fundamental building blocks for solving classification and regression problems.</li>
+<li><strong>Theory and Optimization Methods in Deep Learning</strong>: Master the theoretical basis and optimization strategies essential for deep learning applications.</li>
+<li><strong>Segmentation Techniques</strong>: Learn state-of-the-art segmentation methods applicable in fields like image processing and robotics.</li>
+<li><strong>Physics-Informed and Physics-Constrained Machine Learning Models</strong>: Explore how domain knowledge can be incorporated into machine learning models for more accurate predictions and insights.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="course-materials">Course Materials</h2>
+<h3 id="textbook">Textbook</h3>
+<p>Open-source software evolves rapidly, often outdating textbooks by the time they're published. Therefore, the most reliable source of information will be the documentation accompanying various software packages, which are living documents updated regularly. The course website, in the form of a jupyter book provides the primary &quot;textbook&quot; for the course.</p>
+<h3 id="required-supplemental-materials-and-technology">Required Supplemental Materials and Technology</h3>
+<p>There are no specific computing requirements for this course. Although mobile devices could suffice, a computer running Linux, Windows, or MacOS is highly recommended. All software utilized will be open-source. For some assignments requiring GPU access, consider subscribing to <a href="https://colab.research.google.com/?utm_source=scs-index">Google Collaboratory</a> at a cost of $10/month or use Drexel cluster Piccotte's GPU resources.</p>
+<hr>
+<h3 id="course-schedule">Course Schedule</h3>
+<table style=100>
+    <style>
+    tr:nth-child(even) {
+    background-color: #D6EEEE;
+    }
+    </style>
+  <tr>
+    <th>Date</th>
+    <th>Lecture 1 Topic</th>
+    <th>Lecture 2 Topic</th>
+    <th>Homework</th>
+  </tr>
+  <tr>
+    <td> Week 1: 9/25 </td>
+    <td> No Class - Professor Agar is on Travel </td>
+    <td> No Class - Professor Agar is on Travel </td>
+    <td> Homework 1: 1-page Whitepaper: Finding a Data Type, Set, and Source for the Course </td>
+  </tr>
+  <tr>
+    <td> Week 2: 10/2</td>
+    <td> Why Data Analysis and Machine Learning is one of the Most Important Skills </td>
+    <td> Introduction to Python ecosystems, packages, documentation, and Git </td>
+    <td> Homework 2: Build a PyScaffold and publish to GitHub </td>
+  </tr>
+  <tr>
+    <td> Week 3: 10/9</td>
+    <td> Importance and Challenges in Scientific Data Analysis</td>
+    <td> Introduction to Python: Variables, Operators, and Data Types</td>
+    <td> Homework 3: Using ChatGPT as an programming assistant </td>
+  </tr>
+  <tr>
+    <td>Week 4: 10/16 </td>
+    <td> Introduction to Python: Flow Control, Loops, Functions,and Generators</td>
+    <td> Introduction to Python: Lambda Functions, Classes, *args and **kwargs, and Decorators</td>
+    <td> Homework 4: Building a Game of Yatzee </td>
+  </tr>
+    <tr>
+    <td> Week 5: 10/23 </td>
+    <td> Numpy, Scipy, and Visualization </td>
+    <td> Interactive Visualization, Symbolic toolkits, Graphical User Interfaces </td>
+    <td> Homework 5: Graph, Fit, and Visualize Your Data</td>
+  </tr>
+    </tr>
+    <tr>
+    <td> Week 6: 10/30 </td>
+    <td> Databases and Scientific Data Management Systems </td>
+    <td> Image Analysis and Processing </td>
+    <td> Homework 5: Build a Data and Metadata Pipeline  </td>
+  </tr>
+    <tr>
+    <td> Week 7: 11/06 </td>
+    <td> Linear Supervised Machine Learning </td>
+    <td> Linear Unsupervised Machine Learning </td>
+    <td> Homework 6: Conventional Pipelines for Data Analysis</td>
+  </tr>
+  <tr>
+    <td> Week 8: 11/13 </td>
+    <td> Introduction to Deep Learning </td>
+    <td> Introduction to Pytorch Ecosystem </td>
+    <td> Homework 6: Training your First Deep Learning Model - Example Data </td>
+  </tr>
+  <tr>
+    <td> Week 9: 11/20 </td>
+    <td> Deep learning Classification and Regression </td>
+    <td> **No Class Thanksgiving** </td>
+    <td> Homework 7: Exploring Your Data with Deep Learning </td>
+  </tr>
+  <tr>
+    <td> Week 10: 11/27 </td>
+    <td> Unsupervised Learning Autoencoders </td>
+     <!-- <td> Model Compression and Hardware </td> -->
+    <td>Physics Constrained and Physics Informed Neural Networks</td>
+    <td> No Homework Project Preparation </td>
+  </tr>
+    <tr>
+    <td> Week 11: 12/4 </td>
+     <td> Project Presentation </td>
+    <td> Project Presentation </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td> Week 12: 12/11 </td>
+     <td> Final Exam </td>
+    <td></td>
+    <td> </td>
+  </tr>
+</table>
+<hr>
+<h2 id="homework">Homework</h2>
+<p>The only way to learn coding is to solve problems! It is essential for students to complete all of the homework assignments. The purpose of homeworks will for you to practice the concepts covered in class.  Completing all the homework problems is the best way to practice and prepare for quizzes and exams.</p>
+<p>Homework assignments are designed to enhance your skills in independent problem-solving. While discussions with peers are encouraged, the actual coding work must be your own. Homework assignments will lay the foundation for your final project and must be submitted via a shared GitHub repository.</p>
+<p>If you need or desire an extension on any homework or lab for any reason, contact Prof. Agar in a timely fashion, as permitted by the need. There is no guarantee that you will receive an extension on any assignment, so plan your schedule carefully. Finally, you are encouraged to work with others on homeworks. Learning is a social activity! However, do not simply use others to do your work but rather use others to help work through and engage in the concepts. If you work with others on written homeworks, indicate on your assignment with whom you worked. \emph{Plagiarism is unacceptable} and will result in a zero grade for all persons involved, and will result in serious academic repercussions.</p>
+<p>Homework should be submitted as a professional document, All homework should be submitted digitally. If you are of the opinion you deserve more credit than provided to you after your homework was graded, provide a written document explaining why you are of the opinion you desire this credit within a week of receiving the graded assignment. You are welcome to discuss homework questions or concerns with Prof. Agar prior to submitting request for regrading. Grade modifications will only happen after a formal request is submitted.</p>
+<hr>
+<h2 id="use-of-generative-ai-eg-chatgpt">Use of Generative AI (e.g., ChatGPT)</h2>
+<p>Generative AI tools like ChatGPT have revolutionized the pace of code writing. These tools are allowed and encouraged for use in assignments, provided you learn from the code generated. High code quality is expected, especially since generative AI tools are permitted. Understanding will be assessed in a pen-and-paper final exam.</p>
+<hr>
+<h2 id="class-attendance-and-participation">Class Attendance and Participation</h2>
+<p>Attendance and active participation are crucial for success in this course. Any absences should be communicated to the instructor in advance and must be supported by documentation if requested. Missed in-class activities can be made up within one week as homework.</p>
+<hr>
+<h2 id="exams">Exams</h2>
+<p>We will have a pen-and-paper based final exam. This will test your understanding of the concepts covered in the course, and will require that you are able to read and interpret code. You will not be expected to write code during the final.</p>
+<p><em>There will be no make-up exams</em>. If an exam is missed because of an emergency please contact Prof. Agar to make arrangements. If there is a known scheduling conflict with an exam it is expected that you notify Prof. Agar at least 1 week prior to the exam, or when the scheduling conflict arises.</p>
+<p>The final exam is comprehensive and will be given during the University assigned exam time for the course. The exact time and location will be announced later in the semester. The final exam will only be given at the announced time. If a student has a conflict with another final exam, the student must contact their instructor at least two weeks in advance in order to have it resolved.</p>
+<hr>
+<h2 id="final-project">Final Project</h2>
+<p>The capstone of this course is a final project and presentation. This project is your opportunity to apply the various methodologies and tools covered in the course to a problem that intrigues you. If you have datasets and analysis tasks from your current or previous research or employment, those would be ideal for this project. For those without a dataset, a variety of open-source options are available. More details can be found on the <span class="role-unhandled"><mark>doc</mark><code>Final Project <./final_project></code></span>.</p>
+<hr>
+<h2 id="assignment-submission-format">Assignment Submission Format</h2>
+<p>Assignments are to be submitted via a version-controlled git repository dedicated to this course. It is expected that you will regularly commit changes to this repository to demonstrate ongoing progress. All assignments should be pushed to the repository by the stipulated due dates, and access should be shared with Prof. Agar.</p>
+<hr>
+<h2 id="late-assignments">Late Assignments</h2>
+<p>Assignments are sequential and designed to build upon each other, hence late submissions will not be accepted. If a personal situation necessitates an extension, please contact Prof. Agar in advance of the due date. For medical or family emergencies, notify Prof. Agar as promptly as possible. Any extensions granted will involve a mutually agreed-upon new deadline.</p>
+<hr>
+<hr>
+<h2 id="grading-rubric">Grading Rubric</h2>
+<table class="center" style=100 width="75%">
+    <style>
+    tr:nth-child(even) {
+    background-color: #D6EEEE;
+    }
+    </style>
+  <tr>
+    <th style = "text-align:center">Topic</th>
+    <th style = "text-align:center">Percentage</th>
+  </tr>
+  <tr>
+    <td style = "text-align:center">Homework</td>
+    <td style = "text-align:center">40</td>
+  </tr>
+  <tr>
+    <td style = "text-align:center">Final Presentation</td>
+    <td style = "text-align:center">30</td>
+  </tr>
+  <tr>
+    <td style = "text-align:center">Final Exam</td>
+    <td style = "text-align:center">30</td>
+  </tr>
+</table>
+<hr>
+<h3 id="grading-scale">Grading Scale</h3>
+<table class="center" style=100 width="75%">
+    <style>
+    tr:nth-child(even) {
+    background-color: #D6EEEE;
+    }
+    </style>
+  <tr>
+    <th style = "text-align:center">Score</th>
+    <th style = "text-align:center">Grade</th>
+  </tr>
+   <tr>
+    <th style = "text-align:center">A</th>
+    <th style = "text-align:center">93-100</th>
+  </tr>
+   <tr>
+    <th style = "text-align:center">A-</th>
+    <th style = "text-align:center">90-92</th>
+  </tr>
+   <tr>
+    <th style = "text-align:center">B+</th>
+    <th style = "text-align:center">87-90</th>
+  </tr>
+  <tr>
+    <th style = "text-align:center">B+</th>
+    <th style = "text-align:center">87-90</th>
+  </tr>
+     <tr>
+    <th style = "text-align:center">B</th>
+    <th style = "text-align:center">83-86</th>
+  </tr>
+     <tr>
+    <th style = "text-align:center">B-</th>
+    <th style = "text-align:center">80-82</th>
+  </tr>
+     <tr>
+    <th style = "text-align:center">C+</th>
+    <th style = "text-align:center">76-79</th>
+  </tr>
+     <tr>
+    <th style = "text-align:center">C</th>
+    <th style = "text-align:center">73-75</th>
+  </tr>
+    </tr>
+     <tr>
+    <th style = "text-align:center">C-</th>
+    <th style = "text-align:center">70-73</th>
+  </tr>
+    </tr>
+     <tr>
+    <th style = "text-align:center">D</th>
+    <th style = "text-align:center">60-69</th>
+  </tr>
+    </tr>
+     <tr>
+    <th style = "text-align:center">F</th>
+    <th style = "text-align:center"><60</th>
+  </tr>
+</table>
+<p>Note, Prof. Agar has the discretion to curve the class grades. Curves will never be applied in a way that decreases your grades below what is specified in the grading scale.</p>
+<hr>
+<h2 id="academic-policies">Academic Policies</h2>
+<h3 id="drexel-university-attendance-policy">Drexel University Attendance Policy</h3>
+<h3 id="excused-absences-due-to-university-sponsored-activities">Excused Absences due to University Sponsored Activities</h3>
+<p>Many students participate in University-sponsored activities in which they represent the University or their academic college or department. Such activities may cause a student to be absent from class. In those instances, such absences qualify as &quot;excused absences&quot; which means that the absence, with proper prior arrangement, is not subject to penalty. Any missed coursework should be satisfied through agreement between the instructor and the student. Some examples of events that may qualify for excused absence include athletic competition, research or a presentation in which the student is an integral member of the presenting team, musical or performing arts events. To determine if an event qualifies as an excused absence, students are encouraged to discuss the activity with their instructor(s) and academic advisor prior to the absence.</p>
+<p>Students seeking approval for an approved absence are responsible for notifying their instructor(s) at least two (2) weeks in advance of such absences. If the activity is at the beginning of the term or is the result of a particular level of achievement in an activity (i.e. qualifying for a post season tournament in athletics), students should notify their instructor(s) as soon as possible. Instructors are expected to make reasonable accommodations for these class absences including administration of make-up assignments and exams whenever possible. Please note, however, that the requirements of some courses or programs may preclude such accommodations.
+It is expected that students seeking an excused absence will work with their instructor(s) to develop a plan and timetable to make up the missed coursework.</p>
+<h3 id="other-absences">Other Absences</h3>
+<p>Unforeseen events or circumstances may occur that cause a student to be absent from class. These could include personal or family illness, bereavement, accident, or a catastrophic event such as fire. If such issues arise, students are encouraged to notify their instructors as soon as possible to explain their absence from class. In doing so, students should review the syllabi for their courses with particular attention given to the instructor's statements on course attendance and/or absences. Jointly, the student and instructor will develop a plan, with a timetable, to make up missed coursework. Instructors are expected to make reasonable accommodations for these class absences including administration of make-up assignments and exams whenever possible.</p>
+<p>If an instructor is concerned that a student is providing false information regarding the reasons for their absence from class, the matter should be referred to the Dean or Dean’s designee for additional inquiry. Providing false information regarding the reasons for a course absence may be a violation of the Student Code of Conduct and result in disciplinary action, as appropriate.</p>
+<h3 id="religious-observances">Religious Observances</h3>
+<p>Students should review the Religious Observances Statement in the event they are seeking an <a href="https://drexel.edu/provost/policies-calendars/policies/religious-observances/">excused absence for a religious observance</a></p>
+<h3 id="extended-absences">Extended Absences</h3>
+<p>In the event of extended absence where several classes have been missed, students should explore options other than those described above, such as requesting an Incomplete grade (please reference the <a href="https://drexel.edu/provost/policies-calendars/policies/incomplete_grades/">Incomplete Grades Policy</a>) or withdrawal (please reference the <a href="https://drexel.edu/provost/policies-calendars/policies/course-withdrawal/">Course Withdrawal Policy</a>). It is strongly recommended that students consult with their academic advisor to determine the best course of action given the circumstances, academic progression, and goals.</p>
+<p>In the event of an extended absence due to a chronic medical condition or disability, students are strongly advised to contact (1) the <a href="https://drexel.edu/disability-resources/about/overview/">Office of Disability Resources</a> to explore potential accommodations that may be available and (2) their academic advisor to explore possible academic options. A student's academic advisor can review policies governing such options as withdrawal or incomplete grade and discuss the potential impact of electing these options.</p>
+<hr>
+<h3 id="prof-agars-attendance-policy">Prof. Agar's Attendance Policy</h3>
+<p>Prof. Agar will approve absences associated with any physical or mental health requests, family emergency, religious request, or any other reasonable requests. Note that it is not a requirement that you disclose any specific details regarding your reason for requesting absenteeism. The requirement is that you specify, for instance, that the request is health or religion related. You should not feel the need to disclose the nature of your health issue or your religious affiliation. If absence is requested for an extended period of time a letter from a external professional representative (e.g., a doctor, a clergy member) might be requested. This letter should merely state the dates when you will be absence and the categorical reason for your absence (e.g., religious).</p>
+<hr>
+<h3 id="covid-19">COVID-19</h3>
+<p>We are in the midst of an unprecedented pandemic. We want to ensure the safety of our community. As a result, if you feel as if you are exhibiting COVID-19 symptoms, or had a possible exposure please refrain from coming to class. I will make sure to simulcast the lectures online as long as the request is made prior to the start of lecture.</p>
+<h3 id="getting-help">Getting Help</h3>
+<p>Be proactive about your success in the course!  If you need help, there are many resources available to help you. Your first primary contact for help is the instructor. If you are struggling, attend office hours or send an email or teams message. Do not wait to bring issues, course related or otherwise, to the attention of the instructor. If you cannot attend office hours, send an email to the instructor to try to make other arrangements.</p>
+<h3 id="accommodations-for-learning-differences">Accommodations for Learning Differences</h3>
+<p>Prof. Agar welcomes individuals with learning differences and is committed to ensuring equal access so that all students can live, learn, and lead at Drexel.
+To <a href="https://drexel.edu/disability-resources/support-accommodations/student-family-resources/">request accommodations</a> a current Accommodations Verification Letter (AVL) in the <a href="http://accommodate.drexel.edu/ClockWork/">ClockWork database</a> is required before accommodations can be made. These requests are received by <a href="https://drexel.edu/disability-resources/">Disability Resources (DR)</a>, who then issues the AVL to the appropriate contacts. For additional information, visit the Disability Resources website, or contact DR for more information by phone at 215.895.1401, or by email at <a href="mailto:disability@drexel.edu">disability@drexel.edu</a>.</p>
+<p>Students who are approved for accommodations at Drexel should share this letter and discuss their accommodations and learning needs with instructors as early in the semester as possible.
+Prof. Agar will do everything possible to accommodate students needs.
+If you feel that your accommodations are not being met please make sure to contact Prof. Agar.</p>
+<p>Agar understands that there are inequities in access to testing required to get approved for accommodations. If you feel that you have learning difference that influence equity in your classroom performance please reach out to Prof. Agar. He will work with you to try and accommodate your learning differences.</p>
+<h3 id="faithtradition-observance-policies">Faith/Tradition Observance Policies</h3>
+<p>Prof. Agar extends hospitality to all persons regardless of race, religion, ethnicity, sexual orientation, economic or social background.</p>
+<p>Prof. Agar honors the free exercise of religion. People from a wide variety of religious traditions live and work at Drexel, and the demands of religious observance in some traditions may cause conflicts with classroom and work schedules.</p>
+<p>Prof. Agar will exempt any person who requests an absence due to the demands of religious holiday observance. Of course, nothing exempts a student from meeting course requirements or completing assignments, so the student will have to negotiate with the instructor any make-up work.</p>
+<p>Accommodations are to be dealt with on the basis of individual requests from students. Recall that religious holidays are numerous, and no holiday is privileged above another.</p>
+<p>If you encounter a schedule conflict with your course work due to the demands of religious observance, here is what you should do:</p>
+<ul>
+<li>Talk  with your instructor and indicate that you will be absent from class due to observance of religious holidays.</li>
+<li>Arrange with the instructor to complete assignments.</li>
+</ul>
+<p>For any further questions please refer to Drexel’s <a href="https://drexel.edu/oed/diversity/religious-accommodations/">Religious Accommodation Policy</a></p>
+<h3 id="counseling-services">Counseling Services</h3>
+<p>College can be a time of uncertainty, inquiry, expansion, and adaptation for many students. Know that my office and conversations with me are a safe place.
+Personal information told to me in private will remain confidential.
+The only exception is sexual misconduct or if I feel that you are at risk of harming yourself or others.
+If this information is relayed to me I have an obligation to notify the dean of students.
+If an issues arises I promise to do my best to facilitate you getting the help you need to resolve your issues.
+I do not, however, have professional training in counseling or crisis management.</p>
+<p>Students at Drexel have access to the Office of Counseling and Health Services.</p>
+<p>Currently the following services are offered:</p>
+<p>or more specific information about each of these options, please select from the menu on the left.</p>
+<h4 id="group-counseling">GROUP COUNSELING</h4>
+<p>The Counseling Center offers a variety of groups each quarter. Some groups are time-limited with a specific focus, while others are broader and open-ended. Please see the group descriptions here for more information about groups currently offered at the Center. If you are interested in joining a group that is not currently being offered, please email <a href="mailto:counsel@drexel.edu">counsel@drexel.edu</a>.</p>
+<h4 id="individual-counseling">INDIVIDUAL COUNSELING</h4>
+<p>The personal concerns of Drexel students vary greatly, and our Counseling Center offers goal-focused individual counseling for support. Students initially meet with a therapist for an assessment to discuss their presenting concerns and to determine the type of services which will best meet their needs.</p>
+<h4 id="wellness-workshops">WELLNESS WORKSHOPS</h4>
+<p>The Counseling Center offers several Emotional Wellbeing Workshops throughout the term that offer information, coping strategies, and tools to address common concerns faced by college students. We know that Drexel students are incredibly busy and can benefit from quick and useful tools for common presenting concerns. Workshops meet once a week for a series of 3-4 weeks for 50 minutes. Our Wellness Workshops are formatted so that you can expect a classroom-style learning environment, and you can share as much or as little as you want. Each workshop comes with a student workbook that allows you to practice new skills between sessions. Click here to see which Workshops are currently being offered.</p>
+<p>If you are interested in attending any (or all!) of the workshops, schedule an Initial Consultation and tell your counselor. If you are already seeing a therapist at the Counseling Center, tell them you are interested in a workshop. You are free to do more than one workshop and to repeat them as often as you like! Check with the front desk for current scheduling and availability. When scheduled for an Emotional Wellbeing Workshop, you must come to each session on time, as the sessions build upon each other.</p>
+<h4 id="couples-counseling">COUPLES COUNSELING</h4>
+<p>Couples counseling is available for students and their partners if both are currently enrolled as full-time students at Drexel University. If your partner is not enrolled at Drexel, you may contact us for information on community referral resources. Couples of all genders and sexual orientations are welcome!</p>
+<h4 id="outreach-programs">OUTREACH PROGRAMS</h4>
+<p>The Counseling Center offers a variety of outreach to campus partners - including faculty and staff, student groups, and campus organizations - to promote wellness and resiliency, destigmatize mental health, and offer preventative interventions using a social justice lens. To schedule an outreach or for more information, please visit here.</p>
+<h4 id="consultation">CONSULTATION</h4>
+<p>If you are concerned about a friend, student or family member; want advice about how to encourage someone you care about to get help; or you have general questions about our services; contact the Counseling Center at 215.895.1415 to request a consultation. We will have a counselor contact you to discuss further.</p>
+<p>For faculty and staff who may wish to consult with a counselor, or who want to learn more about how and when to make a referral, please see our Faculty and Staff Resource section.</p>
+<h4 id="referral-services">REFERRAL SERVICES</h4>
+<p>Our Case Manager is available for students who would like assistance connecting with an off-campus mental health provider. The Counseling Center may make a recommendation for a student to be referred off-campus when a student may be better suited for specialized care and/or when the student’s needs fall outside the scope of the Center’s brief, goal-focused model. Our Case Manager also assists in navigating insurance and helping think through the type of care and provider you might be interested in working with in the community. The Case Manager will also be sure to follow up with you to see if you need any further assistance.</p>
+<p><strong>If you are currently in crisis, please contact our on-call counselor at 215.416.3337. If this is a psychological emergency and you need immediate attention, please dial 911, call Drexel Public Safety at 215.895.2222, or visit your nearest emergency room.</strong></p>
+<hr>
+<h3 id="gender-and-sexual-identity">Gender and Sexual Identity</h3>
+<p>People commonly use gender and sexual orientation as part of their identity. A person's identity should not be assumed based on societal norms or constructs as they are not related to a person's self-identity. Unfortunately, English uses gendered pronouns. A culture of pronoun sharing will be cultivated in my classroom. If you do not know someone's pronouns, it is preferred to use identity-agnostic (they/them) pronouns until you hear from them directly. Prof. Agar will not tolerate any bias or discrimination based on a person's likeness or identity.</p>
+<hr>
+<h3 id="email-policy">Email Policy</h3>
+<p>Drexel University has established email as a primary vehicle for official communication with students, faculty, and staff. All email communication in this course should be done using your @Drexel.edu email account. Due to federal laws, such as FERPA, emails coming from a non-drexel email may not receive a response. Please, title emails with MEM~T680: [Email Issue], where <code>email issue</code> is a summary title of the content of the email. This is to help ensure that your email is noticed and responded to.
+Prof. get tons of junk mail, taking these steps will ensure that your emails are attended to.
+Prof. Agar will do his best to respond to email requests within 24 hours.
+If Prof. Agar has not responded in 24 please send him a reminder, email inboxes can become black holes.
+Long and complicated technical issues related to the course are best addressed during office hours.</p>
+<hr>
+<h3 id="academic-integrity-policy">Academic Integrity Policy</h3>
+<p>Drexel University expects all members of its community to uphold the highest values of academic integrity. In upholding these values, the University is committed to investigating any allegation of violations of academic integrity against a student. Violations include, but are not limited to: plagiarism, cheating, fabrication, and academic misconduct.</p>
+<p>Sanctions for violations of academic integrity are administered through the Office of Student Conduct and Community Standards in conjunction with the Office of the Provost and other University offices as deemed appropriate. It is generally the responsibility of the faculty member overseeing the academic activity to report the violation to the Office of Student Conduct and Community Standards and to determine the appropriate sanction. A student who believes they have been wrongly sanctioned has a right to an appeals process.</p>
+<p>In addition to any other sanction, the University reserves the right in its sole discretion to withdraw an earned degree even though it has been granted should it be discovered at any time that the work upon which the degree was based, or the academic records in support of such degree, have been falsified. In that situation, the degree will be withdrawn promptly upon discovery of the falsification and the academic record will be updated to reflect the withdrawal of degree.</p>
+<hr>
+<h3 id="student-code-of-conduct">Student Code of Conduct</h3>
+<p>Student Conduct &amp; Care seeks to create and maintain a process that is transparent and equitable for Students and Student Organizations. The policies and process described on this website have, in some cases, been paraphrased to provide a general understanding. The <a href="https://drexel.edu/studentlife/~/media/Drexel/Sites/StudentLife/Documents/community-standards/Drexel-University-Code-of-Conduct.ashx">full Code of Conduct (the Code)</a> can be downloaded for review.</p>
+<p>Conduct Creed
+Student Conduct &amp; Care has established, in accordance with its mission, vision, and values, a code of high standards of behavior to include the following expectations for Students and Student Organizations to:</p>
+<ul>
+<li>Accept responsibility when their choices or actions have negatively impacted themselves, others, or the community at large.</li>
+<li>Engage in constant learning, practice self-reflection, and develop resilience to maintain academic, personal, and professional integrity.</li>
+<li>Foster positive relationships with others.</li>
+<li>Ensure the health, wellness, and safety of themselves and their communities.</li>
+<li>Demonstrate mutual respect and equity within the bounds of the Code of Conduct.</li>
+</ul>
+<hr>
+<h3 id="defining-drexels-culture-of-inclusion">Defining Drexel's Culture of Inclusion</h3>
+<p>At Drexel University, we are committed to fostering an inclusive and welcoming environment based on integrity, trust and respect. We view the diversity of our students, faculty, professional staff and partners as our strength. As such, we strive to create a culture where everyone can leverage their uniqueness to foster innovation because they feel a sense of belonging.</p>
+<p>We define diversity as the differences that make us uniquely who we are. This includes both individual (personality, values, attitudes, etc.) and other dimensions of difference including ideological, intellectual, economic, gender, gender identity, ability, sexual orientation, religious, age, racial, cultural, ethnic, visible and invisible disabilities, veteran status, nationality, and all the diversity of our students, faculty, professional staff, alumni, and other partners.</p>
+<p>To maximize the strength that our diversity brings, we center equity, inclusion and belonging, and incorporate an anti-racism approach to our strategic plan, organizational systems, policies, and structures.</p>
+<h4 id="anti-racism">Anti-racism</h4>
+<p>The active process of identifying and ending racism by changing our organizational systems, policies and structures to redistribute power and resources more equitably among all individuals, both at the personal and systemic levels.</p>
+<h4 id="belonging">Belonging</h4>
+<p>A sense of psychological safety that affords the ability for each member of the Drexel University community to be their authentic self without fear of judgement, where everyone can perform at their best because they feel accepted, respected, valued and heard.</p>
+<h4 id="equity">Equity</h4>
+<p>The process by which we aim to achieve fairness through reallocation of University resources and opportunities such that policies, structures, and their implementation work to eliminate historical, systemic disadvantage for the benefit of everyone. This requires providing varying levels of support both at the individual and systemic levels.</p>
+<h4 id="inclusion">Inclusion</h4>
+<p>We adopt <a href="https://www.aacu.org/making-excellence-inclusive">Association of American Colleges and Universities'</a> definition of inclusion as: The active, intentional, and ongoing engagement with diversity—in the curriculum, in the cocurriculum, and in communities (intellectual, social, cultural, geographical) with which individuals might connect—in ways that increase awareness, content knowledge, cognitive sophistication, and empathic understanding of the complex ways individuals interact within systems and institutions.</p>
+<h4 id="institutional-racism">Institutional Racism</h4>
+<p>Institutional polices, processes and biased practices that favor white people over Black, Indigenous, and People of Color.</p>
+<h4 id="racism">Racism</h4>
+<p>Racial prejudice based on unfounded beliefs and irrational fear combined with institutional power. This can be at the individual level (conscious and subconscious beliefs and actions that promote racism), the interpersonal level (racist slurs or actions), and systemic level (in institutions).</p>
+<hr>
+<h3 id="respect-policy">Respect Policy</h3>
+<h4 id="respect-for-my-students">Respect for My Students</h4>
+<ul>
+<li>
+<p>I will come prepared to help you understand the course material and prepare you for quizzes/exams.</p>
+</li>
+<li>
+<p>Communication is key: I cannot help you if I do not know what is going on.</p>
+</li>
+<li>
+<p>I am here to help you, this is your time, so let me know what I can do to help you succeed.</p>
+</li>
+<li>
+<p>If there is something that you would like me to do differently, please, let me know. I am happy to work with you to make class the best it can be.</p>
+</li>
+</ul>
+<h4 id="respect-my-time">Respect my time</h4>
+<ul>
+<li>Be on time to class.</li>
+<li>Pay attention when I am talking to you.</li>
+<li>Come to class prepared by doing the work and going to office hours when you need help.</li>
+</ul>
+<h4 id="respect-each-other">Respect each other</h4>
+<ul>
+<li>Do not be disruptive. If you need to take a call or text someone, take it outside.</li>
+<li>Work with each other to find solutions. You learn more by helping each other.</li>
+<li>Allow one another to make mistakes. This is an important part of the learning process.</li>
+<li>Use respectful language when talking with one another.</li>
+</ul>
+<hr>
+<h2 id="tips-for-success">Tips for Success</h2>
+<ul>
+<li><strong>Be Proactive</strong>: Adopt a proactive approach to ensure success in the course.</li>
+<li><strong>Avoid Procrastination</strong>: Start your assignments and study sessions ahead of schedule to mitigate time-related stress.</li>
+<li><strong>Attend Classes</strong>: Make it a point to maintain 100% attendance for all instructional sessions.</li>
+<li><strong>Engage and Ask Questions</strong>: Utilize multiple channels—lectures, recitations, office hours, and email—to ask questions and clear doubts with your instructor.</li>
+<li><strong>Form a Study Group</strong>: Collective problem-solving through study groups can offer different perspectives and aid in understanding difficult concepts.</li>
+<li><strong>Problem-Solving Exercises</strong>: Reading your notes is not sufficient. Engage in problem-solving and review your approach meticulously. Categorize the problems to understand different types and approaches.</li>
+<li><strong>Application of New Concepts</strong>: Whenever you encounter a new concept, explore its applicability in your specific engineering or AI domain.</li>
+<li><strong>Code and Computational Verification</strong>: Implement a thorough verification process when utilizing computational tools or writing code to ensure the accuracy of the output.</li>
+</ul>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>
