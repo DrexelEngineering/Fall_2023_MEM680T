@@ -12,6 +12,8 @@ parts:
         title: Syllabus
       - file: course_materials/final_project
         title: "Final Project"
+      - file: course_materials/Final_exam
+        title: "Topics for Final Exam"
   - caption: "Pre-Course Materials"
     chapters:
       - file: preclass_survey/preclass_survey
